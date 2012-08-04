@@ -1,0 +1,4127 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="Generator" content="Microsoft Word 97">
+   <meta name="Template" content="C:\PROGRAM FILES\MICROSOFT OFFICE\OFFICE\html.dot">
+   <meta name="GENERATOR" content="Mozilla/4.61 [en] (Win95; I) [Netscape]">
+   <title>FACULDADE DE ENGENHARIA DA UNIVERSIDADE DO PORTO</title>
+</head>
+<body link="#0000FF" vlink="#800080">
+
+<center><b><font size=+1>FACULDADE DE ENGENHARIA DA UNIVERSIDADE DO PORTO</font></b>
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<p><b>&nbsp;<font size=+2>C&eacute;lia Talma Martins de Pinho Valente</font></b>
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<p><b><font size=+3>SMAPI</font></b>
+<p><b><font size=+3>Sistema Multi-Agente de Pesquisa Inteligente</font></b>
+<p><br>
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<p><font size=+1>Tese submetida &agrave; Faculdade de Engenharia da Universidade
+do Porto para obten&ccedil;&atilde;o do Grau de Mestre em Intelig&ecirc;ncia
+Artificial e Computa&ccedil;&atilde;o</font>
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<p><font size=+1>Disserta&ccedil;&atilde;o realizada sob orienta&ccedil;&atilde;o
+do Professor Doutor Eug&eacute;nio Oliveira</font></center>
+
+<br>&nbsp;
+<br>&nbsp;
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div align=right>
+<p><b>Aos meus pais.</b>
+<br>&nbsp;
+<br>&nbsp;
+<p><b>Em mem&oacute;ria dos meus av&oacute;s maternos.</b></div>
+
+<p><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<center>
+<p><b><i><font size=+1>Agradecimentos</font></i></b></center>
+
+<p><br>
+<br>
+<p>Quero agradecer de uma forma muito especial ao meu orientador Professor
+Doutor Eug&eacute;nio Oliveira, pelo apoio cient&iacute;fico que sempre
+me concedeu, pela sua amizade, pelo est&iacute;mulo e ajuda, que nesta
+fase, foram de um valor inestim&aacute;vel na concretiza&ccedil;&atilde;o
+desta disserta&ccedil;&atilde;o.
+<p>Quero agradecer aos meus colegas de mestrado com quem convivi durante
+quase dois anos, nomeadamente &agrave; Li Xin, ao Jo&atilde;o Em&iacute;lio,
+ao Carlos Miranda e ao Henrique Cardoso. De uma forma especial queria agradecer
+ao Nuno Fonseca pela disponibilidade que sempre teve para me ajudar com
+a linguagem Java , pela troca de ideias e sobretudo pela amizade demonstrada
+ao longo de toda esta fase.
+<p>Gostaria tamb&eacute;m de agradecer aos meus colegas do NIAR, Ana Paula,
+Lu&iacute;s Paulo, Concei&ccedil;&atilde;o e Benedita, pelo companheirismo
+prestado durante a minha estadia no NIAR.
+<p>N&atilde;o quero deixar de prestar o meu reconhecimento aos meus amigos,
+por todo o apoio prestado, em especial &agrave; Paula Cristina pelo seu
+incentivo, por me ouvir todos os desabafos, e pela amizade inexced&iacute;vel
+que sempre me dedicou. Ao Pinto Ferreira agrade&ccedil;o a amizade "laser"
+demonstrada.
+<p>Quero tamb&eacute;m agradecer aos meus irm&atilde;os Elsa e Z&eacute;
+Manuel pelo amizade e carinho inesgot&aacute;veis, prestados nesta fase
+e tamb&eacute;m por me aturarem em todos os momentos dif&iacute;ceis, em
+especial &agrave; minha irm&atilde; pela paci&ecirc;ncia que teve em ler
+toda esta disserta&ccedil;&atilde;o, e pelas infind&aacute;veis palavras
+de encorajamento.
+<p>E como n&atilde;o podia deixar de ser deixo o meu mais terno agradecimento
+aos meus pais que me deram incondicionalmente todo o seu apoio e carinho,
+tendo sido excepcionais em todos os momentos desta disserta&ccedil;&atilde;o.
+<p>Finalmente, quero agradecer, de uma maneira geral, a todos aqueles que
+contribu&iacute;ram, de alguma forma, para a realiza&ccedil;&atilde;o deste
+trabalho.
+<br>&nbsp;
+<br>&nbsp;
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<center>
+<p><b><font size=+2>Resumo</font></b></center>
+
+<p><br>
+<br>
+<br>
+<br>
+<p>A Internet deve ser visualizada como um espa&ccedil;o heterog&eacute;neo
+e din&acirc;mico, com um cont&iacute;nuo crescimento de informa&ccedil;&atilde;o
+e de utilizadores.
+<p>O objectivo principal desta disserta&ccedil;&atilde;o &eacute; ajudar
+o utilizador a encontrar informa&ccedil;&atilde;o relevante de que necessita
+neste mundo t&atilde;o vasto. Para tal, implementou-se um Sistema Multi-Agente
+com aprendizagem, o SMAPI.
+<p>O SMAPI lan&ccedil;a um agente pesquisador em cada dom&iacute;nio da
+Web &agrave; medida que vai encontrando novas liga&ccedil;&otilde;es para
+novos dom&iacute;nios. Os agentes pesquisadores assim automaticamente criados,
+v&atilde;o melhorando o seu desempenho atrav&eacute;s de uma fun&ccedil;&atilde;o
+de aprendizagem. Estes agentes baseiam a sua aprendizagem de contextos
+(conjuntos de palavras) na an&aacute;lise das frases que constituem o contexto
+a aprender, retiradas das p&aacute;ginas consideradas importantes pelo
+utilizador (atrav&eacute;s do respectivo "feedback").
+<p>O SMAPI como resultado do seu processamento apresenta ao utilizador
+um conjunto de p&aacute;ginas com a sua respectiva classifica&ccedil;&atilde;o
+(por ordem decrescente de interesse). Os testes efectuados ao sistema apontam
+para um aumento do desempenho relativamente aos pesquisadores mais populares.
+<br>&nbsp;
+<br>&nbsp;
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<center>
+<p><b><font size=+2>Abstract</font></b></center>
+
+<p><br>
+<br>
+<p>The Internet should be better understood as a heterogeneos space where
+the growth of the quantity of information as well as and the number of
+users is continuous.
+<p>The main objective of this thesis, is to help the user searching relevant
+information in such immense information world.
+<p>SMAPI is an agent-based software that launches an information searching
+agent for each domain in the Web, whenever he finds, in the current page,
+new links for new different domains. These agents automatically created
+by SMAPI, improve their own performance through a learning feature. The
+basis for their learning algorithm is the set of setences in which the
+keywords appears, which in turn, are removed from the pages classifyed
+with "Hot" by the user (through the user&acute;s feedback).
+<p>The final results presented to the user include a set of Web pages addresses
+associated with their respective classification (in decreasing order) given
+by SMAPI. The tests that we have done using SMAPI point out to a significative
+improvement of SMAPI performance compaired with the most popular information
+searching mechanisms.
+<br>&nbsp;
+<br>&nbsp;
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<center>
+<p><b><font size=+2>&Iacute;NDICE</font></b></center>
+
+<p><br>
+<br>
+<p>Resumo......................................................................................................................
+4
+<p>Abstract......................................................................................................................
+5
+<p>1. Introdu&ccedil;&atilde;o..............................................................................................................
+8
+<dir>
+<dir>1.1. Motiva&ccedil;&atilde;o e objectivos..............................................................................
+8
+<p>1.2. Estrutura da disserta&ccedil;&atilde;o.............................................................................
+9
+<br>&nbsp;
+<br>&nbsp;</dir>
+</dir>
+2. Sistemas Multi-Agentes........................................................................................
+11
+<dir>
+<dir>2.1. Intelig&ecirc;ncia Artificial.................................................................................
+12
+<p>2.2. Intelig&ecirc;ncia Artificial Distribu&iacute;da..............................................................
+12
+<p>2.3. Agentes......................................................................................................
+15
+<dir>2.3.1. No&ccedil;&atilde;o Fraca de Agente.................................................................
+16
+<p>2.3.2. No&ccedil;&atilde;o Forte de Agente.................................................................
+18
+<p>2.3.3. Intelig&ecirc;ncia e Racionalidade.........................................................
+19
+<p>2.3.4. Agentes como Sistemas Intencionais...........................................
+20</dir>
+2.4. Comunica&ccedil;&atilde;o num Sistema Multi-Agente................................................
+22
+<dir>2.4.1. Arquitecturas de Comunica&ccedil;&otilde;es....................................................
+23
+<p>2.4.2. KQML - Knowledge Query Manipulation Language..................
+25</dir>
+2.5. Aprendizagem...........................................................................................
+28
+<p>2.6. &Aacute;reas de Aplicabilidade dos Sistemas Multi-Agentes..............................
+29
+<br>&nbsp;
+<br>&nbsp;</dir>
+</dir>
+3. Agentes de Software e suas Aplica&ccedil;&otilde;es.................................................................
+30
+<dir>
+<dir>3.1 Agentes de Software e suas caracter&iacute;sticas.............................
+30
+<dir>3.1.1. Categorias de agentes....................................................................
+30
+<p>3.1.2. Arquitecturas.................................................................................
+31
+<p>3.1.3. Aprendizagem e Planeamento.......................................................
+34</dir>
+3.2. Pesquisadores Inteligentes Existentes........................................................
+35
+<dir>3.2.1. Fab................................................................................................
+35
+<p>3.2.2. LETIZIA.......................................................................................
+37
+<p>3.2.3. AMALTHAEA.............................................................................
+39
+<p>3.2.4. Personal WebWatcher...................................................................
+42
+<p>3.2.5. DICA.............................................................................................
+44
+<p>3.2.6. Compara&ccedil;&otilde;es entre os diversos pesquisadores apresentados........
+46
+<p>3.2.7. Compara&ccedil;&otilde;es com os motores de pesquisa mais populares..........
+47
+<br>&nbsp;
+<br>&nbsp;</dir>
+</dir>
+</dir>
+4. SMAPI...................................................................................................................
+49
+<dir>
+<dir>4.1. Arquitectura do Sistema............................................................................
+50
+<p>4.2. Arquitectura dos Agentes..........................................................................
+52
+<p>4.3. Aprendizagem de contextos......................................................................
+53
+<p>4.4. N&iacute;vel Operacional.....................................................................................
+55
+<dir>4.4.1.Como funcionam os m&oacute;dulos Servidor e Agente Pedido?............
+56
+<p>4.4.2. Servidor de Agentes......................................................................
+57
+<p>4.4.3. Agente Pesquisador.......................................................................
+57
+<dir>
+<dir>4.4.3.1. Algoritmo de remo&ccedil;&atilde;o de palavras irrelevantes...............
+59
+<p>4.4.3.2. Algoritmo de extrac&ccedil;&atilde;o de radicais..................................
+59</dir>
+</dir>
+</dir>
+4.5. Comunica&ccedil;&otilde;es............................................................................................
+62
+<dir>4.5.1. Protocolos de Comunica&ccedil;&atilde;o do SMAPI........................................
+63
+<p>4.5.2. Plataforma de Distribui&ccedil;&atilde;o............................................................
+67
+<br>&nbsp;
+<br>&nbsp;</dir>
+</dir>
+</dir>
+5. Resultados..............................................................................................................
+71
+<br>&nbsp;
+<br>&nbsp;
+<p>6. Conclus&otilde;es e Trabalho Futuro...............................................................................
+75
+<br>&nbsp;
+<br>&nbsp;
+<p>7. Bibliografia............................................................................................................
+77
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<p><font size=+3>Cap&iacute;tulo I</font>
+<p><font size=+3>Introdu&ccedil;&atilde;o</font>
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<p><b><font size=+2>1.1. Motiva&ccedil;&atilde;o e objectivos</font></b>
+<br>&nbsp;
+<br>&nbsp;
+<p>Com o crescimento exponencial de informa&ccedil;&atilde;o na Internet,
+torna-se uma tarefa dif&iacute;cil para os utilizadores da rede encontrarem
+a informa&ccedil;&atilde;o relevante que necessitam.
+<p>A dissemina&ccedil;&atilde;o das redes de computadores a n&iacute;vel
+mundial, tornou poss&iacute;vel que informa&ccedil;&atilde;o dos mais variados
+tipos esteja acess&iacute;vel a cada um de n&oacute;s. Assim, a Internet
+transformou a vis&atilde;o cl&aacute;ssica de base de dados como uma colec&ccedil;&atilde;o
+de dados centralizados e homog&eacute;neos, em colec&ccedil;&otilde;es
+de dados heterog&eacute;neos e distribu&iacute;dos. Um dado pode ser qualquer
+tipo de objecto represent&aacute;vel, como um som, um texto, uma imagem,
+etc.
+<p>Os utilizadores da Internet est&atilde;o perante uma pan&oacute;plia
+de informa&ccedil;&atilde;o, n&atilde;o fazendo ideia de, como, e onde,
+localizar a informa&ccedil;&atilde;o pretendida.
+<p>Existem pesquisadores como o "Yahoo", o "Altavista", o "MetaCrawler",
+o "Lycos", entre outros, que possuem o defeito de nos apresentarem de forma
+indiscriminada tanto a informa&ccedil;&atilde;o pretendida bem como informa&ccedil;&atilde;o
+completamente irrelevante.
+<p>Conclui-se portanto que estes m&eacute;todos de pesquisa convencionais
+n&atilde;o conseguem dar vas&atilde;o ao problema da focaliza&ccedil;&atilde;o,
+devido:
+<ul>
+<li>
+&agrave; natureza din&acirc;mica da Internet, cujo crescimento e desenvolvimento
+n&atilde;o &eacute; controlado. Qualquer um de n&oacute;s pode consultar
+ou colocar informa&ccedil;&atilde;o de qualquer tipo na Internet; logo,
+n&atilde;o nos &eacute; poss&iacute;vel fazer uma estimativa da quantidade
+de informa&ccedil;&atilde;o dispon&iacute;vel na Web;</li>
+
+<li>
+&agrave; natureza din&acirc;mica da informa&ccedil;&atilde;o na Internet,
+onde o que est&aacute; dispon&iacute;vel hoje pode j&aacute; n&atilde;o
+estar amanh&atilde;, e o que n&atilde;o est&aacute; pode vir a estar;</li>
+
+<li>
+&agrave; heterogeneidade da informa&ccedil;&atilde;o e dos servi&ccedil;os
+dispon&iacute;veis, que nos s&atilde;o oferecidos nos mais diversos formatos.
+Este facto, torna ainda mais dif&iacute;cil a pesquisa autom&aacute;tica
+de informa&ccedil;&atilde;o, visto que cada formato e cada tipo de servi&ccedil;o
+pode requerer uma abordagem diferente.</li>
+</ul>
+
+<p>Assim a disponibilidade de informa&ccedil;&otilde;es do mais variado
+tipo na Internet, que &eacute; o seu ponto mais relevante, acaba por ser
+tamb&eacute;m o seu ponto fraco, pois a quantidade de informa&ccedil;&atilde;o
+dispon&iacute;vel &eacute; t&atilde;o vasta que, muitas vezes, a localiza&ccedil;&atilde;o
+de uma determinada informa&ccedil;&atilde;o se torna inexequ&iacute;vel
+em tempo &uacute;til.
+<p>Surge ent&atilde;o o objectivo desta disserta&ccedil;&atilde;o, que
+&eacute; o de implementar um pesquisador inteligente com aprendizagem,
+baseado em t&eacute;cnicas da Intelig&ecirc;ncia Artificial Distribu&iacute;da,
+mais propriamente Sistemas Multi-Agentes.
+<p>Como resultado do nosso trabalho foi implementado um sistema multi-agente
+(SMAPI), que tem por objectivo pesquisar uma dada informa&ccedil;&atilde;o
+na Web, e que de acordo com uma certa interac&ccedil;&atilde;o por parte
+do utilizador, baseie a sua pesquisa na aprendizagem obtida atrav&eacute;s
+deste.
+<p>Como veremos no cap&iacute;tulo 4, este sistema &eacute; constitu&iacute;do
+por um conjunto de agentes pesquisadores que, podem estar ou n&atilde;o,
+distribu&iacute;dos em diversas m&aacute;quinas e, que aprendem quais as
+melhores p&aacute;ginas Web que dever&atilde;o coligir para o utilizador,
+aquando da pesquisa de informa&ccedil;&atilde;o sobre temas anteriormente
+especificados.
+<br>&nbsp;
+<br>&nbsp;
+<p><b><font size=+2>1.2. Estrutura da disserta&ccedil;&atilde;o</font></b>
+<p>Esta disserta&ccedil;&atilde;o encontra-se organizada em 7 cap&iacute;tulos.
+<p>O cap&iacute;tulo que se segue faz uma introdu&ccedil;&atilde;o mais
+profunda aos sistemas multi-agentes, &agrave; intelig&ecirc;ncia artificial
+distribu&iacute;da, aos agentes e modos de comunica&ccedil;&atilde;o entre
+estes, abordando ainda o tema da aprendizagem.
+<p>O cap&iacute;tulo III permite-nos ter uma no&ccedil;&atilde;o aceit&aacute;vel
+sobre o estado da arte no campo dos pesquisadores inteligentes existentes,
+fazendo refer&ecirc;ncia &agrave;s metodologias usadas, arquitecturas,
+algoritmos e formas de aprendizagem empregues.
+<p>O cap&iacute;tulo IV descreve em detalhe o sistema implementado, respectiva
+arquitectura, plataforma de distribui&ccedil;&atilde;o, algoritmos de processamento
+e t&eacute;cnicas de aprendizagem usadas.
+<p>O cap&iacute;tulo V foca os resultados obtidos com este sistema.
+<p>O cap&iacute;tulo VI foca as conclus&otilde;es desta disserta&ccedil;&atilde;o
+e o trabalho futuro proposto, e finalmente a bibliografia no cap&iacute;tulo
+VII.
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<p><font size=+3>Cap&iacute;tulo II</font>
+<p><font size=+3>Sistemas Multi-Agentes</font>
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<p>Nos &uacute;ltimos anos tem-se verificado um aumento progressivo de
+aplica&ccedil;&otilde;es computacionais onde a distribui&ccedil;&atilde;o
+da informa&ccedil;&atilde;o e da ac&ccedil;&atilde;o s&atilde;o as caracter&iacute;sticas
+principais.
+<p>A investiga&ccedil;&atilde;o na &aacute;rea da Intelig&ecirc;ncia Artificial
+Distribu&iacute;da estuda as entidades computacionais que interagem entre
+si, quer na perspectiva das suas capacidades internas quer na perspectiva
+da sua "socializa&ccedil;&atilde;o", isto &eacute; atrav&eacute;s da coopera&ccedil;&atilde;o,
+levando &agrave; realiza&ccedil;&atilde;o conjunta de objectivos pr&eacute;-determinados.
+<p>Assim, esta investiga&ccedil;&atilde;o tem por objectivo o desenvolvimento
+de sistemas com algumas caracter&iacute;sticas que simulem (embora, muitas
+vezes de forma grosseira) as capacidades de intelig&ecirc;ncia que os seres
+humanos possuem, tais como o racioc&iacute;nio, a compreens&atilde;o, a
+comunica&ccedil;&atilde;o, a aprendizagem, a decis&atilde;o, entre outros.
+<p>O cont&iacute;nuo crescimento das redes de computadores interligadas
+a n&iacute;vel mundial, permitiu o desenvolvimento de organiza&ccedil;&otilde;es
+de sociedades de entidades computacionais onde, para haver coopera&ccedil;&atilde;o,
+&eacute; necess&aacute;ria a exist&ecirc;ncia de uma base de comunica&ccedil;&atilde;o
+entre eles.
+<p>Comunica&ccedil;&atilde;o, coopera&ccedil;&atilde;o, racioc&iacute;nio
+e tomada de decis&atilde;o em ambientes distribu&iacute;dos, colocam problemas
+cuja resolu&ccedil;&atilde;o deve ser estudada de forma estruturada e sistem&aacute;tica
+em um corpo de conhecimento.
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<p><b><font size=+2>2.1. Intelig&ecirc;ncia Artificial</font></b>
+<p>O principal objectivo da IA foi, durante muitos anos, construir uma
+m&aacute;quina que apresentasse comportamento inteligente id&ecirc;ntico
+ao do ser humano. Para atingir tal objectivo seria, segundo alguns, necess&aacute;rio
+compreender o comportamento inteligente humano e conseguir model&aacute;-lo
+numa m&aacute;quina.
+<p>Com o amadurecimento da &aacute;rea, o objectivo da IA tem vindo a mudar,
+fundamentalmente devido a dois tipos de problemas: por um lado &eacute;
+extremamente dif&iacute;cil definir o que &eacute; (e, portanto, modelar)
+a intelig&ecirc;ncia; por outro lado, do ponto de vista tecnol&oacute;gico,
+n&atilde;o faz muito sentido simular a complexidade de um ser humano, incluindo
+os seus erros, se o mais importante &eacute; obter um comportamento racional,
+l&oacute;gico e eficiente.
+<p>Assim a IA centra agora os seus objectivos na constru&ccedil;&atilde;o
+de sistemas autom&aacute;ticos apresentando um comportamento inteligente
+que respondam da melhor forma poss&iacute;vel aos v&aacute;rios problemas
+que tenham de resolver.
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<p><b><font size=+2>2.2. Intelig&ecirc;ncia Artificial Distribu&iacute;da</font></b>
+<p>A IAD divide-se em duas grandes &aacute;reas de estudo [Bond &amp; Gasser,
+1988]: a resolu&ccedil;&atilde;o distribu&iacute;da de problemas e os sistemas
+multi-agentes.
+<p>O sub-dom&iacute;nio da resolu&ccedil;&atilde;o distribu&iacute;da de
+problemas, estuda os m&eacute;todos de como dividir uma tarefa em v&aacute;rios
+m&oacute;dulos, que cooperam e partilham o conhecimento sobre o problema
+a resolver e lhe atribuem conjuntamente poss&iacute;veis solu&ccedil;&otilde;es.
+<p>Esta direc&ccedil;&atilde;o da IAD privilegia portanto as metodologias
+de decomposi&ccedil;&atilde;o de problemas que levam &agrave; sua resolu&ccedil;&atilde;o
+por processos cooperantes e distribu&iacute;dos.
+<p>Quanto &agrave; outra vertente da IAD, os Sistemas Multi-Agentes, ela
+estuda o comportamento e organiza&ccedil;&atilde;o de uma sociedade de
+agentes aut&oacute;nomos, cujo objectivo &eacute; a resolu&ccedil;&atilde;o
+de um dado problema.
+<p>A coordena&ccedil;&atilde;o do comportamento inteligente, na comunidade
+de agentes computacionais que tem por meta a satisfa&ccedil;&atilde;o dos
+seus objectivos locais, e podem eventualmente ser pr&eacute;-existentes,
+tem como caracter&iacute;stica fundamental a descentraliza&ccedil;&atilde;o
+do controlo.
+<p>O planeamento &eacute; distribu&iacute;do por todos os agentes e realizado
+no decorrer do processo de execu&ccedil;&atilde;o do problema.
+<p>Os Sistemas Multi-Agentes permitem modelar o comportamento de um conjunto
+de entidades (agentes), dotados de intelig&ecirc;ncia e coordenadas entre
+si. Estas entidades possuem um certo grau de autonomia quanto ao conhecimento
+e ao controlo e est&atilde;o imersas num ambiente, com o qual necessitam
+interagir, pelo que precisam de ter percep&ccedil;&atilde;o desse ambiente
+e meios de comunica&ccedil;&atilde;o com o mesmo.
+<p>Podemos definir um Sistema Multi-Agente, como uma rede de entidades
+computacionais com capacidade de resolu&ccedil;&atilde;o de alguns problemas,
+que cooperam com o objectivo de tentar resolver problemas, que se encontram
+para al&eacute;m das capacidades intr&iacute;nsecas de cada um deles em
+particular [Durfee, 1989].
+<p>Podemos portanto concluir que a Intelig&ecirc;ncia Artificial Distribu&iacute;da
+estuda fundamentalmente a organiza&ccedil;&atilde;o e coordena&ccedil;&atilde;o
+de entidades computacionais com autonomia na decis&atilde;o, para a resolu&ccedil;&atilde;o
+de problemas inerentemente distribu&iacute;dos.
+<p>Assim, se um sistema for excessivamente complexo e contiver muito conhecimento,
+ser&aacute; melhor dividi-lo em diferentes entidades cooperantes, por forma
+a obter mais efici&ecirc;ncia. Tal implica a possibilidade de poder representar
+cren&ccedil;as, planos, ac&ccedil;&otilde;es e conhecimento em sistemas
+inteligentes.
+<p>Na verdade, podemos assim categorizar os problemas presentes na Intelig&ecirc;ncia
+Artificial Distribu&iacute;da [O’Hare &amp; Jennings, 1996]:
+<br>&nbsp;
+<br>&nbsp;
+<ol>
+<li>
+Como formular, descrever, decompor e atribuir os problemas? Como sintetizar
+os resultados obtidos por cada um dos agentes?</li>
+
+<li>
+Como permitir que os agentes interajam e comuniquem? Que linguagens de
+comunica&ccedil;&atilde;o e protocolos usar? Como e quando comunicar?</li>
+
+<li>
+Como assegurar que os agentes agem de forma coerente, quando tomam decis&otilde;es
+ou realizam ac&ccedil;&otilde;es, contemplando os efeitos globais de decis&otilde;es
+locais e evitando interac&ccedil;&otilde;es prejudiciais?</li>
+
+<li>
+Como devem os agentes representar e raciocinar acerca de ac&ccedil;&otilde;es,
+planos e conhecimento de outros agentes de modo a coordenarem-se entre
+si? Como raciocinar sobre o estado interno dos seus pr&oacute;prios processos?</li>
+
+<li>
+Como reconhecer e organizar pontos de vista d&iacute;spares e situa&ccedil;&otilde;es
+de conflito entre os agentes, por forma a coordenar as suas ac&ccedil;&otilde;es?</li>
+
+<li>
+Como conceber sistemas reais de Intelig&ecirc;ncia Artificial Distribu&iacute;da?
+Como conceptualizar plataformas e metodologias de desenvolvimento para
+a Intelig&ecirc;ncia Artificial Distribu&iacute;da?</li>
+</ol>
+
+<p>Se bem que a lista de problemas atr&aacute;s enunciados &eacute; longa
+e complexa, muitas destas quest&otilde;es j&aacute; encontram solu&ccedil;&atilde;o
+o que permite a aplica&ccedil;&atilde;o em v&aacute;rios dom&iacute;nios
+de Sistemas Multi-Agentes.
+<br>&nbsp;
+<br>&nbsp;
+<p>Vantagens no uso de Sistemas Multi-Agentes:
+<ul>
+<li>
+<b>Adaptabilidade</b>: A distribui&ccedil;&atilde;o do sistema a n&iacute;vel
+l&oacute;gico, sem&acirc;ntico, temporal e espacial permite obter diferentes
+perspectivas em diferentes situa&ccedil;&otilde;es, da&iacute; o seu maior
+poder adaptativo.</li>
+
+<li>
+<b>Modularidade</b>: Como cada entidade computacional &eacute; desenvolvida
+separadamente, constitui um m&oacute;dulo que pode ser usada em comunidades
+diferentes.</li>
+
+<li>
+<b>Custo</b>: Do ponto de vista econ&oacute;mico um sistema distribu&iacute;do
+envolve custos computacionais menores.</li>
+
+<li>
+<b>Rapidez</b>: O sistema &eacute; mais r&aacute;pido devido ao paralelismo
+existente.</li>
+
+<li>
+<b>Robustez</b>: O sistema &eacute; mais tolerante a erros pois pode existir
+redund&acirc;ncia de tarefas, executadas por elementos distintos, com conhecimento
+e m&eacute;todos de resolu&ccedil;&atilde;o diferentes.</li>
+
+<li>
+<b>Desenvolvimento e expansibilidade</b>: Dada a distribui&ccedil;&atilde;o
+do sistema, cada parte pode ser implementada separadamente por um especialista,
+em determinado conhecimento ou dom&iacute;nio.</li>
+
+<li>
+<b>Fiabilidade:</b> Os sistemas multi-agentes s&atilde;o muito mais fi&aacute;veis,
+que os sistemas centralizados pois, possibilitam redund&acirc;ncia e verifica&ccedil;&atilde;o
+cruzada de resultados. A descentraliza&ccedil;&atilde;o implica que n&atilde;o
+h&aacute; um m&oacute;dulo vital para todo o sistema, cuja indisponibilidade
+o iniba completamente.</li>
+
+<li>
+<b>Distribui&ccedil;&atilde;o</b>: A distribui&ccedil;&atilde;o permite
+um balanceamento da carga computacional.</li>
+</ul>
+<b><font size=+2>2.3 Agentes</font></b>
+<p>No contexto da Intelig&ecirc;ncia Artificial Distribu&iacute;da, os
+Agentes de Software apresentam uma dicotomia essencial entre os agentes
+reactivos e os agentes cognitivos [Oliveira and Mouta, 1998].
+<br>&nbsp;
+<br>&nbsp;
+<p><b><i>Agentes reactivos</i></b><u>:</u>
+<p>O conhecimento destes agentes resume-se a um conjunto de regras
+<br>"situa&ccedil;&atilde;o-ac&ccedil;&atilde;o" que, permitem ao agente,
+reagir a um conjunto de est&iacute;mulos do exterior (ambiente que os envolve)
+ou a mensagens de outros agentes. Estes n&atilde;o agem de acordo com as
+suas inten&ccedil;&otilde;es declaradamente representadas.
+<p>N&atilde;o possuem qualquer representa&ccedil;&atilde;o interna de si
+pr&oacute;prios nem dos outros agentes, nem do mundo onde se encontram
+inseridos.
+<p>O comportamento inteligente do sistema pode emergir da interac&ccedil;&atilde;o
+entre os diversos agentes. &Eacute; esta propriedade da emerg&ecirc;ncia
+que adv&eacute;m da interac&ccedil;&atilde;o de uma popula&ccedil;&atilde;o
+de agentes muito simples que torna atractiva esta abordagem na resolu&ccedil;&atilde;o
+de certo tipo de problemas.
+<br>&nbsp;
+<br>&nbsp;
+<p><b><i>Agentes cognitivos:</i></b>
+<p>Os agentes cognitivos j&aacute; t&ecirc;m conhecimento do estado do
+mundo onde est&atilde;o inseridos; t&ecirc;m metas pr&oacute;prias a atingir.
+Estes agentes baseiam-se nesse conhecimento para decidirem que ac&ccedil;&otilde;es
+v&atilde;o realizar, isto &eacute;, estes agentes t&ecirc;m controlo sobre
+o seu pr&oacute;prio comportamento e n&atilde;o se limitam a reagir a est&iacute;mulos
+exteriores.
+<p>Possuem uma representa&ccedil;&atilde;o simb&oacute;lica de si pr&oacute;prios
+(as suas capacidades e os seus objectivos), bem como dos outros agentes
+e do estado do mundo, o que lhes permite operando sobre essas representa&ccedil;&otilde;es,
+deduzir ac&ccedil;&otilde;es a tomar no sentido de maximizar uma utilidade.
+<p>O comportamento inteligente do sistema est&aacute; localizado em cada
+um dos agentes individuais e &eacute; potenciado localmente atrav&eacute;s
+da troca de informa&ccedil;&atilde;o distribu&iacute;da.
+<p>Podemos definir os agentes como entidades computacionais (software e/ou
+hardware) que percebem, raciocinam, agem e comunicam no ambiente em que
+est&atilde;o inseridos.
+<p>No contexto de um Sistema Multi-Agente, os agentes sabem que est&atilde;o
+inseridos numa comunidade de agentes, em que especificamente cada um deles,
+t&ecirc;m objectivos e capacidades pr&oacute;prias diferentes (ou n&atilde;o),
+mas todos cooperam entre si, na tentativa de alcan&ccedil;arem a resolu&ccedil;&atilde;o
+de um determinado problema.
+<p>Os agentes t&ecirc;m uma racionalidade social visto que, estando inseridos
+numa comunidade de agentes, podem ter para al&eacute;m de objectivos principais,
+outros objectivos de resolu&ccedil;&atilde;o de um problema global.
+<p>Tamb&eacute;m t&ecirc;m uma racionalidade individual uma vez que possuem
+conhecimento espec&iacute;fico e objectivos individuais a atingir, que
+n&atilde;o contemplam o resto da comunidade.
+<p>Um agente pode incluir diferentes estruturas de conhecimento como factos,
+cren&ccedil;as, objectivos ou inten&ccedil;&otilde;es, prefer&ecirc;ncias,
+motivos, desejos, etc.
+<p>Normalmente um agente adquire novos factos ou cren&ccedil;as, como resultado
+do envio de mensagens de outros agentes ou, atrav&eacute;s de modifica&ccedil;&otilde;es
+do ambiente onde ele est&aacute; inserido.
+<p>Os agentes n&atilde;o s&oacute; executam ac&ccedil;&otilde;es, como
+resultado das percep&ccedil;&otilde;es, mas tamb&eacute;m essas ac&ccedil;&otilde;es,
+podem ser o resultado dos objectivos estabelecidos pelo agente.
+<p>Muitas s&atilde;o as defini&ccedil;&otilde;es dadas para Agente, v&aacute;rias
+dessas defini&ccedil;&otilde;es podem encontrar-se em [Hayes Roth 1995;
+Maes 1995, Russel and Norvig 1995, Wooldridge and Jennings 1995, Smith
+Cypher and Spohrer, 1994, Brustloni 1991, Franklin 1995, Franklin and Graesser
+1996]. No entanto podemos sintetiz&aacute;-las em duas categorias: no&ccedil;&atilde;o
+fraca e no&ccedil;&atilde;o forte de agente [Wooldridge and Jennings, 1995].
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<p><b><font size=+1>2.3.1. No&ccedil;&atilde;o fraca de agente</font></b>
+<p>Neste tipo de defini&ccedil;&atilde;o, um agente &eacute; um sistema
+computacional de Hardware ou Software que se caracteriza pelas seguintes
+propriedades:
+<ul>
+<li>
+<b>Autonomia</b>: [Maes 1990, 1995]o agente opera directamente sem a interven&ccedil;&atilde;o
+humana, mantendo controlo sobre as suas ac&ccedil;&otilde;es e o seu estado
+interno. Um agente pode ser considerado aut&oacute;nomo em rela&ccedil;&atilde;o
+ao ambiente (quanto aos seus objectivos) ou em rela&ccedil;&atilde;o a
+outros agentes (quanto aos meios de execu&ccedil;&atilde;o).</li>
+</ul>
+
+<dir>
+<dir>
+<dir>A autonomia em rela&ccedil;&atilde;o a outros agentes &eacute; particularmente
+importante, sobretudo em rela&ccedil;&atilde;o ao agente que lhe delegou
+a tarefa. Neste caso, um agente aut&oacute;nomo n&atilde;o obedecer&aacute;
+cegamente a todos os pedidos que lhe sejam feitos, mas pedir&aacute; esclarecimentos
+sobre os mesmos, podendo modific&aacute;-los ou mesmo recusar-se a execut&aacute;-los.
+O agente decide como satisfazer o pedido recebido, tendo ainda a flexibilidade
+para decidir de forma din&acirc;mica, quais as ac&ccedil;&otilde;es que
+ir&aacute; tomar e qual o momento mais apropriado para as tomar;</dir>
+</dir>
+</dir>
+
+<ul>
+<li>
+<b>Sociabilidade</b>: o agente interage com outros agentes e, pode tamb&eacute;m
+interagir com humanos por forma a cooperar com estes;</li>
+
+<li>
+<b>Reactividade</b>: o agente tem a percep&ccedil;&atilde;o do ambiente
+em que est&aacute; inserido (que pode ser o mundo f&iacute;sico, um utilizador
+atrav&eacute;s de uma interface gr&aacute;fica, uma colec&ccedil;&atilde;o
+de agentes, a Internet, ou uma combina&ccedil;&atilde;o destes) e, reage
+a altera&ccedil;&otilde;es que ocorram neste;</li>
+
+<li>
+<b>Pr&oacute;-actividade</b>: um agente pr&oacute;-activo toma a iniciativa
+para atingir os seus objectivos, n&atilde;o se limitando a responder a
+est&iacute;mulos do ambiente;</li>
+
+<li>
+<b>Continuidade temporal</b>: os agentes est&atilde;o continuamente activos
+(podem ser processos/"threads" a correr em "background" ou "foreground").
+A maioria do software existente, ao contr&aacute;rio dos agentes, executa
+uma ou mais tarefas e termina a sua execu&ccedil;&atilde;o;</li>
+
+<li>
+<b>Orientados por objectivos</b>: um agente &eacute; capaz de resolver
+tarefas complexas, pois decomp&otilde;e-nas em sub-tarefas menos complexas,
+decidindo a ordem em que as tenta resolver e como as subdivide para atingir
+os seus objectivos.</li>
+</ul>
+
+<p>Muitos dos "softbots" ("software robots") abarcam esta no&ccedil;&atilde;o
+fraca de agente, pois s&atilde;o activos na Internet, que constitui o seu
+ambiente, tentando satisfazer os seus objectivos.
+<br>&nbsp;
+<br>&nbsp;
+<p><b><font size=+1>2.3.2. No&ccedil;&atilde;o forte de agente</font></b>
+<p>Esta no&ccedil;&atilde;o forte preconiza que um agente &eacute; um sistema
+computacional, que al&eacute;m de ter as caracter&iacute;sticas anteriormente
+mencionadas, inclui propriedades ditas "mentalistas" que est&atilde;o mais
+relacionados com os humanos, baseados em conceitos de mais alto n&iacute;vel
+como conhecimento, cren&ccedil;a, inten&ccedil;&atilde;o e obriga&ccedil;&atilde;o
+[Wooldridge and Jennings, 1995].
+<p>Analisemos com mais aten&ccedil;&atilde;o o que se entende por estas
+atitudes "mentalistas".
+<p>As <i>cren&ccedil;as</i> de um agente consubstanciam a representa&ccedil;&atilde;o
+interna que exprime o estado corrente do mundo, e o estado do mundo a atingir
+ap&oacute;s uma determinada ac&ccedil;&atilde;o.
+<p>O <i>desejo</i> &eacute; uma no&ccedil;&atilde;o bastante abstracta
+que especifica as prefer&ecirc;ncias do agente sobre os estados futuros
+do mundo.
+<p>Os <i>objectivos</i> descrevem os estados que o agente pretende atingir.
+<p>Dado que os agentes t&ecirc;m parcos recursos, eles n&atilde;o podem
+prosseguir todos os seus objectivos ao mesmo tempo, o que o leva a escolher,
+em cada momento, um deles, sendo esta a sua <i>inten&ccedil;&atilde;o</i>.
+<p>Para descrevermos estas atitudes "mentais" dos agentes necessitamos
+de um formalismo para o fazer, sendo o mais alguma l&oacute;gica estendida.
+<p>Segundo [Cohen e Levesque, 1995] tamb&eacute;m podemos representar as
+pr&oacute;-atitudes dos agentes:
+<p>BEL x <font face="Symbol">a</font> <font face="Symbol">&THORN;</font>
+O agente x acredita em <font face="Symbol">a</font> .
+<p>GOAL x <font face="Symbol">a</font> <font face="Symbol">&THORN;</font>
+O agente x tem objectivo <font face="Symbol">a</font> .
+<p>HAPPENS <font face="Symbol">a</font> <font face="Symbol">&THORN;</font>
+A ac&ccedil;&atilde;o <font face="Symbol">a</font> acontecer&aacute; de
+seguida.
+<p>DONE <font face="Symbol">a</font> <font face="Symbol">&THORN;</font>
+A ac&ccedil;&atilde;o <font face="Symbol">a</font> aconteceu.
+<p>BEFORE (p,q) <font face="Symbol">&THORN;</font> p deve acontecer antes
+de q ser verdade.
+<p>Como exemplo da defini&ccedil;&atilde;o l&oacute;gica de um conceito
+"mentalista" simples, apresentamos a defini&ccedil;&atilde;o de objectivo
+persistente ("persistent-goal"):
+<p>(p_Goal x p) = (GOAL x (LATERp)) <font face="Symbol">&Ugrave;</font>
+(BEL x ~p) <font face="Symbol">&Ugrave;</font>
+<p>[BEFORE
+<p>((BEL x p) <font face="Symbol">&Uacute;</font> (BEL x ~<font face="Symbol"></font>
+p))
+<p>~(GOAL x (LATER p))]
+<br>&nbsp;
+<br>&nbsp;
+<p>Os agentes que se enquadram nesta no&ccedil;&atilde;o forte de agente
+possuem ainda uma ou mais das seguintes caracter&iacute;sticas:
+<br>&nbsp;
+<br>&nbsp;
+<ul>
+<li>
+<b>Mobilidade</b>: o agente possui a habilidade de se mover no seu ambiente.
+Os agentes de software s&atilde;o capazes de se mover de m&aacute;quina
+para m&aacute;quina durante a sua execu&ccedil;&atilde;o;</li>
+
+<li>
+<b>Veracidade</b>: assume-se que os agentes n&atilde;o mentem uns aos outros
+deliberadamente;</li>
+
+<li>
+<b>Benevol&ecirc;ncia</b>: os agentes n&atilde;o procuram deliberadamente
+op&ocirc;r-se uns aos outros e, por isso, tentam executar, quando poss&iacute;vel,
+o que lhes &eacute; pedido;</li>
+
+<li>
+<b>Racionalidade</b>: os agentes tentam agir por forma a atingirem os seus
+objectivos, n&atilde;o tomando ac&ccedil;&otilde;es fora da sua racionalidade
+que os possam impedir de atingir os seus fins;</li>
+
+<li>
+<b>Adaptatividade</b>: o agente dever&aacute; adaptar-se aos h&aacute;bitos,
+m&eacute;todos de trabalho e prefer&ecirc;ncias do utilizador. Um agente
+com capacidade de adapta&ccedil;&atilde;o &eacute; capaz de alterar o seu
+comportamento com base na experi&ecirc;ncia (aprendizagem).</li>
+</ul>
+A maior parte da comunidade cient&iacute;fica acordou em que, &eacute;
+este tipo de caracter&iacute;sticas referidas anteriormente que distinguem
+um agente, de um programa normal.
+<p>De referir ainda que embora utilizando nomenclatura de conceitos mentalistas
+humanos como cren&ccedil;as, desejos, inten&ccedil;&otilde;es, obriga&ccedil;&otilde;es,
+a sua tradu&ccedil;&atilde;o computacional tem uma sem&acirc;ntica muito
+mais reduzida.
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<p><b><font size=+1>2.3.3. Intelig&ecirc;ncia e Racionalidade</font></b>
+<p>[Hunhs and Singh, 1998] &Eacute; extremamente dif&iacute;cil definir
+com precis&atilde;o o que &eacute; a intelig&ecirc;ncia. Por&eacute;m,
+sabemos perfeitamente quando &eacute; que um sistema se comporta de forma
+inteligente. Podemos dizer que um sistema &eacute; inteligente se conseguiu
+realizar tarefas, que se um humano as realizasse, seria um acto inteligente.
+Existem tarefas rotineiras realizadas pelos humanos que se tornam extremamente
+complexas para um sistema computacional e, por outro lado, h&aacute; tarefas
+simplic&iacute;ssimas para os computadores (execu&ccedil;&atilde;o de grandes
+c&aacute;lculos matem&aacute;ticos, ou acesso a grande quantidade de informa&ccedil;&atilde;o)
+que se tornam demasiado complexas para os humanos.
+<p>O conceito de racionalidade est&aacute; intimamente ligado ao conceito
+de intelig&ecirc;ncia. Assim, segundo [Russel &amp; Norvig, 1995] o conceito
+de racionalidade depende dos seguintes atributos:
+<ul>
+<li>
+capacidade para atingir o sucesso;</li>
+
+<li>
+a percep&ccedil;&atilde;o do agente em rela&ccedil;&atilde;o ao ambiente
+que o envolve;</li>
+
+<li>
+a compreens&atilde;o pelo agente da situa&ccedil;&atilde;o actual;</li>
+
+<li>
+a natureza das ac&ccedil;&otilde;es que o agente poder&aacute; executar.</li>
+</ul>
+O ideal de agente racional seria tal que, para cada percep&ccedil;&atilde;o
+do ambiente, o agente actuaria de modo a maximizar a sua utilidade com
+base no seu conhecimento e na sua percep&ccedil;&atilde;o.
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<p><b><font size=+1>2.3.4. Agentes como Sistemas Intencionais</font></b>
+<p>Como j&aacute; foi mencionado, um agente est&aacute; inserido num ambiente
+e possui capacidade para percepcionar e efectuar ac&ccedil;&otilde;es nesse
+ambiente.
+<p>Um dos componentes fundamentais para a constru&ccedil;&atilde;o de um
+agente cognitivo &eacute; o conhecimento. O conhecimento &eacute; essencial
+para que o agente compreenda o que se passa &agrave; sua volta, raciocine
+sobre que ac&ccedil;&otilde;es efectuar, possa prev&ecirc;r a evolu&ccedil;&atilde;o
+do mundo e efectue planos de modo a atingir os seus objectivos.
+<p>Por vezes, em sistemas complexos o conhecimento est&aacute; representado
+em v&aacute;rios n&iacute;veis de abstrac&ccedil;&atilde;o incluindo conceitos
+como cren&ccedil;as, desejos, inten&ccedil;&otilde;es que guiam o comportamento
+dos agentes.
+<p>Ser&aacute; que h&aacute; crit&eacute;rios que nos permitem determinar,
+se &eacute; justific&aacute;vel, atribuir atitudes mentais a sistemas?
+Segundo alguns autores, tal &eacute; poss&iacute;vel, desde que, as atitudes
+expressem a mesma informa&ccedil;&atilde;o &agrave; cerca da m&aacute;quina,
+quando a usamos com humanos, e, por outro lado, quando a teoria dessas
+atitudes mentais toma um papel n&atilde;o trivial na an&aacute;lise e projecto
+do sistema.
+<p>Segundo [Wooldridge and Jennings, 1995], existem dois tipos de atitudes
+nos agentes:
+<ul>
+<li>
+Atitudes informativas: cren&ccedil;a e conhecimento</li>
+
+<li>
+Pr&oacute;-atitudes: desejo, inten&ccedil;&atilde;o, obriga&ccedil;&atilde;o,
+compromisso, escolha.</li>
+</ul>
+As primeiras, est&atilde;o relacionadas com a informa&ccedil;&atilde;o,
+que o agente tem &agrave; cerca do estado do mundo, enquanto que, as pr&oacute;-atitudes
+s&atilde;o aquelas que s&atilde;o usadas para guiar as ac&ccedil;&otilde;es
+dos agentes. Existem v&aacute;rias teorias quanto &agrave; escolha da combina&ccedil;&atilde;o
+destas atitudes, por&eacute;m as arquitecturas "mentalistas" mais defendidas
+s&atilde;o as que incluem cren&ccedil;as, desejos e inten&ccedil;&otilde;es
+("Beliefs, desires and intentions - BDIs")[Rao and Georgeff, 1992].
+<p>Os <b>sistemas intencionais</b> descrevem entidades cujo comportamento
+pode ser previsto atrav&eacute;s da atribui&ccedil;&atilde;o de cren&ccedil;as,
+desejo e capacidades racionais ao sistema.
+<p>As cren&ccedil;as de um agente exprimem a maneira como um agente internamente
+representa os estados corrente e final do mundo depois de determinada ac&ccedil;&atilde;o.
+<p>O desejo, &eacute; uma no&ccedil;&atilde;o bastante abstracta, que especifica
+as prefer&ecirc;ncias do agente, sobre os estados futuros do mundo. No
+entanto podemos evidenciar como aspectos mais importantes dos desejos,
+o facto de os agentes poderem ter desejos inconsistentes e, por outro lado
+saberem que em certas situa&ccedil;&otilde;es os desejos podem ser inating&iacute;veis.
+<p>Dada a limita&ccedil;&atilde;o de recursos que os agentes possuem, estes
+n&atilde;o podem prosseguir todos os seus objectivos, ao mesmo tempo. Mesmo
+que o seu conjunto de objectivos seja consistente, este ter&aacute; de
+escolher um deles e comprometer-se com ele. &Eacute; este processo de compromisso
+que &eacute; a base da forma&ccedil;&atilde;o de inten&ccedil;&otilde;es.
+<p>A no&ccedil;&atilde;o de compromisso tem duas interpreta&ccedil;&otilde;es:
+<ul>
+<li>
+O compromisso &eacute; algo que o agente representa internamente e que
+o obriga a uma certa ac&ccedil;&atilde;o.</li>
+
+<li>
+O compromisso &eacute; a escolha de um objectivo que leva ao estabelecimento
+de uma inten&ccedil;&atilde;o.</li>
+</ul>
+
+<dir>
+<dir>Por outro lado, o compromisso est&aacute; dividido em duas partes,
+a condi&ccedil;&atilde;o de compromisso que &eacute; uma condi&ccedil;&atilde;o
+que o agente se compromete a mant&ecirc;r e, por uma condi&ccedil;&atilde;o
+de fim, que &eacute; a condi&ccedil;&atilde;o, que implica que o agente
+desista do seu compromisso.
+<p>Podemos definir tr&ecirc;s tipos de compromisso nos agentes:</dir>
+</dir>
+
+<ul>
+<li>
+Compromisso cego - ap&oacute;s a escolha de uma inten&ccedil;&atilde;o,
+o agente manter&aacute; essa inten&ccedil;&atilde;o at&eacute; acreditar
+que ela foi atingida.</li>
+
+<li>
+Compromisso fechado - o agente mant&eacute;m a inten&ccedil;&atilde;o,
+apenas, enquanto acreditar que ela pode ser atingida.</li>
+
+<li>
+Compromisso aberto - o agente pode desistir das inten&ccedil;&otilde;es
+quando n&atilde;o acreditar que essa inten&ccedil;&atilde;o n&atilde;o
+pode ser atingida, mas tamb&eacute;m se essa inten&ccedil;&atilde;o deixar
+de ser um objectivo.</li>
+</ul>
+
+<p>Um dos problemas principais colocados aos agentes cognitivos &eacute;
+o de permitir a um agente poder aprender autonomamente, atrav&eacute;s
+da sua interac&ccedil;&atilde;o com o mundo e como pode utilizar o seu
+conhecimento para raciocinar, planear, compreender e actuar sobre o mundo.
+Algumas destas ac&ccedil;&otilde;es provocam altera&ccedil;&otilde;es no
+pr&oacute;prio conhecimento que o agente mant&eacute;m.
+<p>A Revis&atilde;o de Cren&ccedil;as &eacute; a sub-&aacute;rea da IA
+que se preocupa com a incoer&ecirc;ncia do conhecimento e que estuda estas
+altera&ccedil;&otilde;es din&acirc;micas. Estuda mais propriamente as depend&ecirc;ncias
+existentes entre as v&aacute;rias cren&ccedil;as de um agente e, o que
+fazer quando essas cren&ccedil;as sofrem altera&ccedil;&otilde;es. Isto
+&eacute;, quando o agente recebe uma nova informa&ccedil;&atilde;o que
+entra em contradi&ccedil;&atilde;o com a informa&ccedil;&atilde;o que j&aacute;
+tinha, &eacute; necess&aacute;rio, para que o agente tenha um comportamento
+racional que essa contradi&ccedil;&atilde;o seja resolvida, abandonando
+para tal, algumas das suas cren&ccedil;as. A escolha sobre que cren&ccedil;as
+abandonar, n&atilde;o &eacute; f&aacute;cil de determinar, visto que, podem
+existir v&aacute;rias alternativas, cuja escolha depende de muitos factores,
+tamb&eacute;m eles muitas vezes dif&iacute;ceis de determinar.
+<p>A coer&ecirc;ncia da informa&ccedil;&atilde;o que se pretende atingir
+pode ser local ao agente ou global a v&aacute;rios agentes de um Sistema
+Multi-Agente. A import&acirc;ncia relativa da informa&ccedil;&atilde;o
+em conflito pode tamb&eacute;m depender da sua origem (partilhada, percebida
+ou deduzida) [Malheiro, Oliveira, Jennings, 1994].
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<p><b><font size=+2>2.4. Comunica&ccedil;&atilde;o num Sistema Multi-Agente</font></b>
+<p>Num Sistema Multi-Agente temos ent&atilde;o um conjunto de agentes (entidades
+computacionais) que interagem entre si. Os agentes necessitam de comunicar
+uns com os outros atrav&eacute;s de uma linguagem de comunica&ccedil;&atilde;o
+que seja por todos entendida.
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<p><b><font size=+1>2.4. 1. Arquitecturas de comunica&ccedil;&otilde;es</font></b>
+<p>Existem duas aproxima&ccedil;&otilde;es na arquitectura das comunica&ccedil;&otilde;es
+[O&acute;Hare and Jennings, 1996]:
+<ul>
+<li>
+<b>Comunica&ccedil;&atilde;o directa</b></li>
+</ul>
+
+<dir>
+<dir>
+<dir>Neste tipo de comunica&ccedil;&atilde;o os agentes tratam da sua pr&oacute;pria
+coordena&ccedil;&atilde;o, partilham especifica&ccedil;&otilde;es e, enviam
+aos outros agentes as suas necessidades e as suas capacidades. Os agentes
+que necessitam de servi&ccedil;os de outros agentes, enviam eles pr&oacute;prios
+pedidos de propostas, recebem as mesmas e prop&otilde;em contractos.
+<br>&nbsp;
+<br>&nbsp;</dir>
+</dir>
+</dir>
+
+<ul>
+<li>
+<b>Comunica&ccedil;&atilde;o assistida</b></li>
+</ul>
+
+<dir>
+<dir>
+<dir>Na comunica&ccedil;&atilde;o assistida, devido ao elevado n&uacute;mero
+de agentes, estes comunicam atrav&eacute;s de agentes especiais denominados
+facilitadores. Os agentes cedem na sua autonomia em favor dos facilitadores,
+enquanto estes, se encarregam de responder &agrave;s suas necessidades
+coordenando a respectiva interac&ccedil;&atilde;o.
+<br>&nbsp;
+<br>&nbsp;</dir>
+</dir>
+</dir>
+Um agente facilitador deve ser capaz de :
+<ul>
+<li>
+Redireccionar pedidos para outros agentes, que os possam tratar;</li>
+
+<li>
+Decompor um pedido, em v&aacute;rias partes e, enviando cada uma dessas
+partes para agentes eventualmente diferentes; e, depois combinar as respectivas
+respostas para gerar uma resposta final;</li>
+
+<li>
+Redireccionar informa&ccedil;&atilde;o para agentes que exprimam interesse
+nessa informa&ccedil;&atilde;o;</li>
+
+<li>
+Reter informa&ccedil;&atilde;o;</li>
+
+<li>
+Traduzir informa&ccedil;&atilde;o entre vocabul&aacute;rios para condizer
+com um "interface" espec&iacute;fico de um agente.</li>
+</ul>
+
+<p>A rede contractual ("contract-net") &eacute; um dos protocolos mais
+usados dentro da comunica&ccedil;&atilde;o directa.
+<p>A rede contratual &eacute;, ent&atilde;o composta pelos agentes organizadores
+e pelos agentes respondentes. Esta &eacute; constitu&iacute;da por tr&ecirc;s
+n&iacute;veis:
+<ul>
+<li>
+o conte&uacute;do (das mensagens);</li>
+
+<li>
+o formato;</li>
+
+<li>
+a linguagem.</li>
+</ul>
+
+<p>A tarefa global dever&aacute; ser dividida em sub-tarefas. O agente
+organizador dever&aacute; anunciar uma sub-tarefa. Os agentes respondentes
+dever&atilde;o submeter uma proposta ("bid") ao agente organizador. Este,
+dever&aacute; analisar as v&aacute;rias propostas ou as primeiras n respostas,
+conforme entender e, seleccionar a que mais lhe conv&eacute;m de acordo
+com algum crit&eacute;rio previamente estabelecido. O contrato &eacute;
+ent&atilde;o enviado ao potencial agente contratado para executar determinada
+sub-tarefa.
+<p>O formato das mensagens dever&aacute; ter um conjunto de campos onde,
+por exemplo, para uma mensagem de an&uacute;ncio de tarefa, dever&aacute;
+conter:
+<ul>
+<li>
+Descri&ccedil;&atilde;o da tarefa;</li>
+</ul>
+
+<dir>
+<dir>Dever&aacute; ser dada uma breve descri&ccedil;&atilde;o da tarefa,
+por forma a que os poss&iacute;veis agentes respondentes a possam entender.</dir>
+</dir>
+
+<ul>
+<li>
+Elegibilidade (&eacute; poss&iacute;vel estabelecer alguma condi&ccedil;&atilde;o);</li>
+</ul>
+
+<dir>
+<dir>Crit&eacute;rios de selec&ccedil;&atilde;o dos agentes respondentes.</dir>
+</dir>
+
+<ul>
+<li>
+Especifica&ccedil;&atilde;o das propostas;</li>
+</ul>
+
+<dir>
+<dir>Especifica&ccedil;&atilde;o do formato das propostas como, por exemplo,
+o tempo de execu&ccedil;&atilde;o.</dir>
+</dir>
+
+<ul>
+<li>
+Tempo limite;</li>
+</ul>
+
+<dir>
+<dir>O espa&ccedil;o de tempo em que o agente organizador espera pelas
+propostas.
+<br>&nbsp;
+<br>&nbsp;</dir>
+</dir>
+Uma desvantagem deste tipo de arquitectura &eacute; o custo envolvido.
+Se houver um n&uacute;mero reduzido de agentes este, n&atilde;o se faz
+sentir; por&eacute;m, se pensarmos em difundir propostas pela Internet,
+torna-se bastante dispendioso. Outra desvantagem, &eacute; que, a sua implementa&ccedil;&atilde;o
+&eacute; demasiado complexa.
+<p>Os agentes para comunicar entre si, precisam de ter uma linguagem comum
+e, de compreender o conhecimento que est&aacute; a ser partilhado. Os agentes
+podem ser lan&ccedil;ados de diferentes plataformas, os dados podem ter
+formatos diferentes, tecnologias diferentes e podem ainda ser implementados
+em linguagens diferentes.
+<p>Assim, usando uma linguagem de comunica&ccedil;&atilde;o comum, conseguimos
+superar algumas caracter&iacute;sticas de heterogeneidade descritas no
+par&aacute;grafo anterior. Desta forma passamos a ter uma sintaxe, uma
+sem&acirc;ntica e uma pragm&aacute;tica comuns. Pode, no entanto, vir a
+ser ainda necess&aacute;rio que os agentes partilhem uma parte do conhecimento
+e, o organizem de igual modo, por forma a poderem interpretar inequivocamente
+as mensagens que trocam entre si.
+<p>Aparecem assim as ACL&acute;s ("Agent Comunication Languages"), que
+permitem a comunica&ccedil;&atilde;o entre agentes, de um modo robusto,
+sem inconsist&ecirc;ncias e pretendendo ser universais.
+<p>Uma linguagem de comunica&ccedil;&atilde;o de agentes que embora n&atilde;o
+sendo standard &eacute; muito usada &eacute; a KQML, desenvolvido pela
+Arpa Knowledge Sharing Effort [Labrou and Finin, 1997].
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<p><b><font size=+1>2.4.2. KQML - knowledge Query Manipulation Language</font></b>
+<p>A KQML foi concebida como linguagem e como protocolo para troca de informa&ccedil;&atilde;o
+e de conhecimento. A necessidade da KQML surge da inexist&ecirc;ncia anterior
+de uma linguagem de comunica&ccedil;&atilde;o entre agentes universalmente
+aceite, onde fosse poss&iacute;vel expressar perguntas e informa&ccedil;&atilde;o
+de forma n&atilde;o amb&iacute;gua .
+<p>A KQML baseia-se num conjunto extens&iacute;vel de mensagens que se
+designam por "<i>performativas"</i>. As "<i>performativas"</i> definem
+as poss&iacute;veis ac&ccedil;&otilde;es dos agentes, quando estes trocam
+mensagens entre si e derivam o seu nome da Teoria dos Actos de Discurso
+("Speech Act Theory").
+<p>A KQML permite uma interac&ccedil;&atilde;o simples de pergunta/resposta
+em arquitectura cliente/servidor, at&eacute; &agrave; subscri&ccedil;&atilde;o
+de um servi&ccedil;o e recep&ccedil;&atilde;o posterior das respostas de
+forma ass&iacute;ncrona.
+<p>A linguagem dos conte&uacute;dos das mensagens transmitidas &eacute;
+deixado ao crit&eacute;rio do utilizador.
+<p>A KQML &eacute; constitu&iacute;da por mensagens organizadas em tr&ecirc;s
+camadas distintas:
+<ul>
+<li>
+Comunica&ccedil;&atilde;o</li>
+</ul>
+
+<dir>
+<dir>
+<dir>Esta camada trata dos aspectos de mais baixo n&iacute;vel da comunica&ccedil;&atilde;o,
+tais como, a indica&ccedil;&atilde;o do emissor, do receptor, etc.</dir>
+</dir>
+</dir>
+
+<ul>
+<li>
+Mensagem</li>
+</ul>
+
+<dir>
+<dir>
+<dir>Indica qual o protocolo a usar (impl&iacute;cita na "performativa"
+escolhida) e par&acirc;metros que descrevem aspectos relativos ao conte&uacute;do,
+como por exemplo, a ontologia.</dir>
+</dir>
+</dir>
+
+<ul>
+<li>
+Conte&uacute;do</li>
+</ul>
+
+<dir>
+<dir>Nesta camada residem as mensagens que o utilizador vai transmitir,
+escritas numa dada linguagem de representa&ccedil;&atilde;o de conhecimento,
+como o KIF("Knowledge Interchange Format").</dir>
+</dir>
+Uma express&atilde;o KQML inclui, al&eacute;m da primitiva que representa
+o protocolo pretendido, uma lista de pares atributo-valor, indicados a
+seguir.
+<br>&nbsp;
+<br>&nbsp;
+<center><table BORDER CELLPADDING=4 WIDTH="557" BORDERCOLOR="#000000" >
+<tr>
+<td VALIGN=TOP WIDTH="33%" HEIGHT="40">:language &lt;linguagem></td>
+
+<td VALIGN=TOP WIDTH="67%" HEIGHT="40">Indica a linguagem na qual est&aacute;
+expresso o conte&uacute;do da comunica&ccedil;&atilde;o.</td>
+</tr>
+
+<tr>
+<td VALIGN=TOP WIDTH="33%" HEIGHT="40">:content &lt;conte&uacute;do></td>
+
+<td VALIGN=TOP WIDTH="67%" HEIGHT="40">Conte&uacute;do da mensagem.</td>
+</tr>
+
+<tr>
+<td VALIGN=TOP WIDTH="33%" HEIGHT="40">:ontology &lt;ontologia></td>
+
+<td VALIGN=TOP WIDTH="67%" HEIGHT="40">Indica o tipo de ontologia partilhada
+que os agentes destinat&aacute;rios devem usar, para interpretarem a mensagem.</td>
+</tr>
+
+<tr>
+<td VALIGN=TOP WIDTH="33%" HEIGHT="40">:from &lt;agente></td>
+
+<td VALIGN=TOP WIDTH="67%" HEIGHT="40">Identifica o agente que enviou a
+mensagem.</td>
+</tr>
+
+<tr>
+<td VALIGN=TOP WIDTH="33%" HEIGHT="40">:to &lt;agente></td>
+
+<td VALIGN=TOP WIDTH="67%" HEIGHT="40">Agente para o qual se destina a
+mensagem.</td>
+</tr>
+</table></center>
+
+<br>&nbsp;
+<p>Os agentes quando comunicam, devem usar uma ontologia comum. A ontologia
+diz respeito &agrave;s assun&ccedil;&otilde;es que os agentes t&ecirc;m
+&agrave; cerca do conhecimento que est&atilde;o a usar, as quais, devem
+ser partilhadas durante a comunica&ccedil;&atilde;o.
+<p>As ontologias para os agentes computacionais constituem um conjunto
+de termos, que s&atilde;o usados na comunica&ccedil;&atilde;o entre agentes,
+estando associada uma determinada sem&acirc;ntica a cada termo. Da ontologia
+faz tamb&eacute;m parte uma descri&ccedil;&atilde;o das rela&ccedil;&otilde;es
+entre os conceitos representados.
+<p>A KQML possui cerca de 24 "performativas" b&aacute;sicas, que se podem
+agrupar em 7 categorias:
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<table BORDER CELLPADDING=4 WIDTH="557" BORDERCOLOR="#000000" >
+<tr>
+<td VALIGN=TOP WIDTH="33%">
+<center><b>Categoria</b></center>
+</td>
+
+<td VALIGN=TOP WIDTH="67%">
+<center><b>Nome</b></center>
+</td>
+</tr>
+
+<tr>
+<td VALIGN=TOP WIDTH="33%">Pergunta b&aacute;sica</td>
+
+<td VALIGN=TOP WIDTH="67%">evaluate, ask-if, ask-one, ask-about, ask-all</td>
+</tr>
+
+<tr>
+<td VALIGN=TOP WIDTH="33%">Resposta m&uacute;ltipla</td>
+
+<td VALIGN=TOP WIDTH="67%">stream-about, stream-all, eof</td>
+</tr>
+
+<tr>
+<td VALIGN=TOP WIDTH="33%">Informa&ccedil;&atilde;o gen&eacute;rica</td>
+
+<td VALIGN=TOP WIDTH="67%">tell, achieve, cancel, untell, unachieve</td>
+</tr>
+
+<tr>
+<td VALIGN=TOP WIDTH="33%">Resposta</td>
+
+<td VALIGN=TOP WIDTH="67%">reply, sorry</td>
+</tr>
+
+<tr>
+<td VALIGN=TOP WIDTH="33%">Gerador</td>
+
+<td VALIGN=TOP WIDTH="67%">standby, ready, next, rest, discard, generator</td>
+</tr>
+
+<tr>
+<td VALIGN=TOP WIDTH="33%">Defini&ccedil;&atilde;o de capacidades</td>
+
+<td VALIGN=TOP WIDTH="67%">advertise, subscribe, unsubscribe, unadvertise</td>
+</tr>
+
+<tr>
+<td VALIGN=TOP WIDTH="33%">Rede</td>
+
+<td VALIGN=TOP WIDTH="67%">route, register, unregister, forward. broadcast</td>
+</tr>
+</table>
+
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<p>Exemplo de uma mensagem KQML:
+<p>(ask-one
+<p>:sender agentA
+<p>:content (price IBM )
+<p>:receiver agentB
+<p>:reply-with ibm-stock
+<p>:language: Prolog
+<p>:ontology: nise-ticks)
+<p>O conjunto de "performativas" pode ser extendido a novas "performativas",
+e o utilizador poder-lhes-&aacute; atribuir a sem&acirc;ntica que entender.
+Por&eacute;m a sem&acirc;ntica das "performativas" j&aacute; existentes
+dever&aacute; ser sempre respeitada e nunca alterada.
+<p>As comunica&ccedil;&otilde;es podem ser implementadas, usando mem&oacute;ria
+partilhada ou usando passagem de mensagens.
+<p>O uso de mem&oacute;ria partilhada, implica a exist&ecirc;ncia de um
+"blackboard" comum (base de dados partilhada por todos os agentes da comunidade),
+que serve de suporte &agrave; comunica&ccedil;&atilde;o, permitindo o envio
+de pedidos, ou respostas, ou acesso a dados.
+<p>Uma desvantagem deste processo &eacute; a possibilidade de atrasos no
+processo de resolu&ccedil;&atilde;o, para al&eacute;m de que, se ocorrer
+uma falha no suporte de comunica&ccedil;&atilde;o, todo o sistema falhar.
+<p>Na comunica&ccedil;&atilde;o por passagem de mensagens, os agentes comunicam
+de modo transparente via "sockets".
+<p>Um "socket" &eacute; uma liga&ccedil;&atilde;o, ponto a ponto, entre
+dois programas que est&atilde;o a correr numa rede de computadores, sendo
+a comunica&ccedil;&atilde;o bidireccional.
+<p>Um "socket" tem associado uma porta, de modo que a camada TCP("Transport
+Communication Protocol") possa identificar a que aplica&ccedil;&atilde;o
+se destinam os dados.
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<p><b><font size=+2>2.5. Aprendizagem</font></b>
+<p>Para que um sistema seja inteligente, os agentes devem <b>aprender</b>
+atrav&eacute;s das cont&iacute;nuas interac&ccedil;&otilde;es com o ambiente
+que os envolve. Podemos assim dizer que um sistema &eacute; tanto mais
+inteligente quanto maior for a sua capacidade de aprendizagem.
+<p>Segundo [Maes, 1994], os agentes que possuem aprendizagem devem respeitar
+os seguintes requisitos:
+<ul>
+<li>
+A aprendizagem deve ser incremental, isto &eacute;, os agentes devem aprender
+ap&oacute;s cada experi&ecirc;ncia;</li>
+
+<li>
+A aprendizagem deve enfrentar altera&ccedil;&otilde;es inesperadas ao ambiente.
+No entanto h&aacute; que ter em conta que a informa&ccedil;&atilde;o percepcionada
+pode incluir ru&iacute;do;</li>
+
+<li>
+A aprendizagem dever&aacute; ser n&atilde;o supervisionada, isto &eacute;,
+o agente dever&aacute; aprender de forma aut&oacute;noma;</li>
+
+<li>
+Os agentes devem manter a aprendizagem efectuada at&eacute; ao momento,
+de modo a n&atilde;o ter de recome&ccedil;ar do zero.</li>
+</ul>
+Os agentes aut&oacute;nomos devem aprender do ambiente que os rodeia e
+adaptarem-
+<br>-se a este. Existem v&aacute;rios m&eacute;todos de aprendizagem para
+os agentes aut&oacute;nomos, sendo o mais usado a aprendizagem por refor&ccedil;o
+("reinforcement learning") [Sutton and Barto, 1998].
+<p>Seja qual for o algoritmo usado na aprendizagem, o agente para aprender,
+ter&aacute; de combinar os dados recebidos do exterior com a informa&ccedil;&atilde;o
+que possui na sua estrutura interna, numa tentativa de aperfei&ccedil;oar
+e aumentar o seu conhecimento e com isso melhorar o seu desempenho no futuro.
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<p><b><font size=+2>2.6. &Aacute;reas de aplicabilidade dos Sistemas Multi-Agentes</font></b>
+<p>Os sistemas multi-agente s&atilde;o usados em v&aacute;rios dom&iacute;nios,
+nomeadamente [Wooldridge and Jennings, 1996]:
+<ul>
+<li>
+Pesquisadores na WWW;</li>
+
+<li>
+Gest&atilde;o din&acirc;mica de redes de distribui&ccedil;&atilde;o de
+electricidade;</li>
+
+<li>
+Gest&atilde;o e selec&ccedil;&atilde;o de recursos em empresas geograficamente
+distribu&iacute;das;</li>
+
+<li>
+Mercados de electricidade/aquecimento;</li>
+
+<li>
+Gest&atilde;o de "portf&oacute;lios" de ac&ccedil;&otilde;es;</li>
+
+<li>
+Gest&atilde;o inteligente de redes de computador;</li>
+
+<li>
+Gest&atilde;o din&acirc;mica de tr&aacute;fego;</li>
+
+<li>
+Encaminhamento din&acirc;mico de ve&iacute;culos de transporte;</li>
+
+<li>
+Integra&ccedil;&atilde;o de informa&ccedil;&atilde;o de pacientes em ambiente
+hospitalar;</li>
+
+<li>
+Sistemas multi-robots;</li>
+
+<li>
+Virtualiza&ccedil;&atilde;o de empresas.</li>
+</ul>
+
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<p><font size=+3>Cap&iacute;tulo III</font>
+<p><font size=+3>Agentes de Software e suas Aplica&ccedil;&otilde;es</font>
+<br>&nbsp;
+<br>&nbsp;
+<p><b><font size=+2>3.1. Agentes de software e suas caracter&iacute;sticas</font></b>
+<br>&nbsp;
+<br>&nbsp;
+<p><b><font size=+1>3.1.1. Categorias de Agentes</font></b>
+<p>Os agentes de software inteligentes, s&atilde;o programas de software
+que executam tarefas espec&iacute;ficas para um determinado utilizador,
+possuindo um certo n&iacute;vel de intelig&ecirc;ncia que lhes permite
+executar tarefas de modo aut&oacute;nomo e interagir com o ambiente que
+os envolve por forma a atingirem os seus objectivos.
+<p>Estes agentes devem ser capazes de obter informa&ccedil;&atilde;o do
+ambiente que os envolve e baseados nela decidirem que ac&ccedil;&otilde;es
+executar. Devem tamb&eacute;m possuir uma linguagem de comunica&ccedil;&atilde;o
+que lhes permita comunicar e cooperar com eles.
+<p>Podemos agrupar, quanto &agrave; sua funcionalidade, os agentes de software
+inteligentes nos tr&ecirc;s seguintes grupos [Zarnekow et al, 1994]:
+<br>&nbsp;
+<br>&nbsp;
+<ul>
+<li>
+<b>Agentes de Informa&ccedil;&atilde;o</b> - Estes agentes pesquisam informa&ccedil;&atilde;o
+para o seu utilizador em ambientes distribu&iacute;dos ou em redes. Devem
+ser capazes de localizar fontes de informa&ccedil;&atilde;o, extrair informa&ccedil;&atilde;o
+dessas mesmas fontes, filtrar a informa&ccedil;&atilde;o relevante para
+o utilizador e preparar e apresentar os resultados de forma apropriada.
+Os agentes t&ecirc;m de ter algum conhecimento que lhes permita decidir
+e agir de forma aut&oacute;noma.</li>
+
+<li>
+<b>Agentes Cooperantes </b>- Estes agentes t&ecirc;m por objectivo resolver
+em conjunto tarefas complexas servindo-se de mecanismos de comunica&ccedil;&atilde;o
+e coopera&ccedil;&atilde;o com outros agentes, com os humanos ou com fontes
+externas. Agentes cooperantes podem constituir um Sistema Multi-Agente
+e s&atilde;o usados quando a resolu&ccedil;&atilde;o de um problema excede
+as capacidades de um agente individual, ou quando h&aacute; vantagem que
+a solu&ccedil;&atilde;o pretendida, possa ser partilhada por v&aacute;rios
+outros agentes.</li>
+</ul>
+
+<dir>
+<dir>
+<dir>Estes agentes possuem um n&iacute;vel de conhecimento mais alto que
+os descritos anteriormente uma vez que t&ecirc;m de integrar capacidades
+de cooperar e coordenar a ac&ccedil;&atilde;o com outros agentes.
+<br>&nbsp;
+<br>&nbsp;</dir>
+</dir>
+</dir>
+
+<ul>
+<li>
+<b>Agentes de transac&ccedil;&atilde;o</b>- Este agentes monitorizam transac&ccedil;&otilde;es,
+sejam no contexto do com&eacute;rcio electr&oacute;nico seja no de gest&atilde;o
+de redes. As suas caracter&iacute;sticas espec&iacute;ficas principais
+incluem seguran&ccedil;a na protec&ccedil;&atilde;o dos dados, robustez
+e confian&ccedil;a no sistema. Normalmente as tarefas executadas por estes
+agentes s&atilde;o de grande responsabilidade, como por exemplo, comprar
+um produto pelo utilizador com o seu n&uacute;mero de cart&atilde;o de
+cr&eacute;dito. Comportamentos incorrectos por parte destes agentes ou
+perda de confidencialidade na informa&ccedil;&atilde;o transaccionada pode
+ter graves consequ&ecirc;ncias.</li>
+</ul>
+Um agente pode incluir caracter&iacute;sticas de cada uma das tr&ecirc;s
+categorias descritas acima pois elas n&atilde;o s&atilde;o mutuamente exclusivas.
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<p><b><font size=+1>3.1.2. Arquitecturas</font></b>
+<p>A arquitectura mais gen&eacute;rica de um agente inteligente [Brenner
+et Al, 1998] deve permitir a capta&ccedil;&atilde;o e interpreta&ccedil;&atilde;o
+das percep&ccedil;&otilde;es as quais s&atilde;o depois processadas de
+modo mais ou menos inteligente, e que originam uma tomada de decis&atilde;o
+conducente a uma ac&ccedil;&atilde;o.
+<br>&nbsp;
+<p><img SRC="Image01.gif" height=285 width=618>
+<br>&nbsp;
+<p>&Eacute; atrav&eacute;s dos m&oacute;dulos de interac&ccedil;&atilde;o
+que o agente obt&eacute;m informa&ccedil;&otilde;es e percepciona as mudan&ccedil;as
+ocorridas no ambiente. Por&eacute;m o m&oacute;dulo principal &eacute;
+o do processamento inteligente levando &agrave; tomada de decis&otilde;es,
+onde o agente interpreta e processa a informa&ccedil;&atilde;o recebida,
+por forma a atingir os seus objectivos. Podemos ainda distinguir dentro
+do m&oacute;dulo do processamento tr&ecirc;s funcionalidades: o de fus&atilde;o
+sensorial, o de processamento propriamente dito e o m&oacute;dulo de selec&ccedil;&atilde;o
+de ac&ccedil;&otilde;es. O m&oacute;dulo de fus&atilde;o tenta fundir a
+informa&ccedil;&atilde;o recebida de diversas fontes por forma a retirar-lhe
+poss&iacute;veis inconsist&ecirc;ncias e obter uma decis&atilde;o coerente
+do ambiente. O objectivo do processamento &eacute; interpretar os dados
+e formular planos, para a tomada da decis&atilde;o. Estes planos s&atilde;o
+depois passados ao m&oacute;dulo de selec&ccedil;&atilde;o e execu&ccedil;&atilde;o
+da ac&ccedil;&atilde;o.
+<br>&nbsp;
+<br>&nbsp;
+<p><b>Arquitectura Reactiva e deliberativa</b>
+<p>Esta arquitectura mais gen&eacute;rica pode sofrer varia&ccedil;&otilde;es
+entre dois extremos: arquitecturas reactivas e deliberativas.
+<p>Nas arquitecturas reactivas os agentes apenas reagem a altera&ccedil;&otilde;es
+efectuadas ao ambiente. Estes agentes normalmente n&atilde;o s&atilde;o
+complexos e n&atilde;o possuem qualquer representa&ccedil;&atilde;o interna
+do ambiente que os envolve. Da&iacute; que a tomada de decis&atilde;o est&aacute;
+previamente compilada e &eacute; um mapeamento directo entre a interpreta&ccedil;&atilde;o
+das percep&ccedil;&otilde;es e a selec&ccedil;&atilde;o das ac&ccedil;&otilde;es.
+<p>Os agentes numa arquitectura deliberativa possuem uma representa&ccedil;&atilde;o
+interna do estado do mudo e sobretudo possuem a capacidade de tomar decis&otilde;es
+l&oacute;gicas baseadas em infer&ecirc;ncias.
+<p>Neste tipo de arquitecturas podemos exprimir conceitos mais abstractos
+como cren&ccedil;as, desejos, objectivos, inten&ccedil;&otilde;es e planos.
+Se os desejos, objectivos e inten&ccedil;&otilde;es est&atilde;o expl&iacute;citos
+na base de conhecimento, o agente diz-se que tem uma arquitectura BDI ("Beliefs,
+Desires and Intentions") [Rao ang Georgeff, 1992].
+<br>&nbsp;
+<br>&nbsp;
+<p><b>Agentes M&oacute;veis</b>
+<p>A mobilidade &eacute; uma caracter&iacute;stica que influencia n&atilde;o
+s&oacute; a arquitectura interna do agente, mas tamb&eacute;m, a estrutura
+global do sistema multi-agente. Embora a mobilidade n&atilde;o seja uma
+propriedade essencial de um agente inteligente.
+<p>Uma das maiores desvantagens destes agentes &eacute; o problema da falta
+de seguran&ccedil;a e a exig&ecirc;ncia de uma infraestrutura t&eacute;cnica
+complexa. A falta de seguran&ccedil;a envolve problemas como autentica&ccedil;&atilde;o
+dos agentes m&oacute;veis aos servidores para onde se transportam ou protec&ccedil;&atilde;o
+de v&iacute;rus mal&eacute;volos associados aos agentes m&oacute;veis.
+<p>No entanto existem tamb&eacute;m algumas vantagens na utiliza&ccedil;&atilde;o
+deste tipo de agentes:
+<ul>
+<li>
+<b>Redu&ccedil;&atilde;o do tr&aacute;fego na rede:</b> Os agentes executam
+as suas tarefas localmente nos computadores para onde se deslocam. Em consequ&ecirc;ncia,
+o volume de dados transferidos pela rede torna-se mais reduzido. Tal redu&ccedil;&atilde;o
+implica por sua vez uma diminui&ccedil;&atilde;o dos custos de comunica&ccedil;&atilde;o,
+visto que estes est&atilde;o associados &agrave; dura&ccedil;&atilde;o
+da liga&ccedil;&atilde;o &agrave; rede ou ao volume de dados transferidos.</li>
+
+<li>
+<b>Processamento ass&iacute;ncrono:</b> Estes agentes m&oacute;veis transportam-se
+para outros servidores por forma a resolverem as suas tarefas nos locais
+remotos, retornando depois &agrave; m&aacute;quina do seu utilizador com
+os respectivos resultados. O utilizador n&atilde;o precisa portanto de
+monitorizar o agente enquanto este trabalha, podendo inclusivamente estar
+desligado durante a opera&ccedil;&atilde;o.</li>
+
+<li>
+<b>Estrutura descentralizada:</b> Embora os agentes m&oacute;veis suportem
+a cl&aacute;ssica arquitectura cliente-servidor, conseguem distribuir o
+seu trabalho por v&aacute;rios servidores de uma rede, conseguindo ainda
+discernir quais os que est&atilde;o mais e menos sobrecarregados e, portanto,
+permitindo um melhor balanceamento da carga.</li>
+</ul>
+
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<p><b><font size=+1>3.1.3. Aprendizagem e Planeamento</font></b>
+<p>Muitas vezes o programador n&atilde;o tem conhecimento total do problema
+a resolver, de modo que a &uacute;nica forma do agente adquirir esse conhecimento
+&eacute; atrav&eacute;s da aprendizagem [Russel and Norvig, 1995].
+<p>Assim, a aprendizagem tem por objectivo aumentar a capacidade dos agentes
+em situa&ccedil;&otilde;es nunca totalmente novas.
+<p>Esta &aacute;rea inclui v&aacute;rios m&eacute;todos de aprendizagem.
+Estes m&eacute;todos de aprendizagem de um agente segundo [Maes, 1994],
+podem ser agrupados em 3 categorias:
+<ul>
+<li>
+Aprendizagem pelo Refor&ccedil;o ("Reinforcement Learning");</li>
+
+<li>
+Sistemas de Classifica&ccedil;&atilde;o("Classifier Systems");</li>
+
+<li>
+Construtores de Modelos ("Model Builder");</li>
+</ul>
+A aprendizagem pelo refor&ccedil;o [Sutton and Barto, 1995] faz mais uso
+das ac&ccedil;&otilde;es que obtiveram bons resultados no passado, do que
+aquelas cujo resultado n&atilde;o foi bem sucedido. O agente tenta seleccionar
+as ac&ccedil;&otilde;es que, numa situa&ccedil;&atilde;o particular, lhe
+garantem um maior benef&iacute;cio, isto &eacute;, uma maior probabilidade
+de vir a obter sucesso.
+<p>Os sistemas de classifica&ccedil;&atilde;o constituem um caso particular
+da aprendizagem pelo refor&ccedil;o. Cada agente possui conjuntos de regras,
+denominados classificadores, os quais s&atilde;o usados em situa&ccedil;&otilde;es
+espec&iacute;ficas, sendo-lhes atribu&iacute;do um valor de desempenho.
+No caso mais simples o valor de desempenho &eacute; apenas um valor que
+se denomina de for&ccedil;a da regra("rule strength"). A regra que possuir
+este valor mais alto &eacute; a regra escolhida de todas as poss&iacute;veis.
+<p>A constru&ccedil;&atilde;o de um modelo implica a exist&ecirc;ncia de
+um modelo de efeitos causados pelo emprego de determinada regra numa dada
+altura. S&atilde;o combinados os resultados que se esperam obter, com situa&ccedil;&otilde;es
+e ac&ccedil;&otilde;es que constituem esquemas. Quando uma determinada
+situa&ccedil;&atilde;o ocorre, o esquema que possuir maior relev&acirc;ncia
+&eacute; seleccionado de entre todos os esquemas dispon&iacute;veis.
+<p>Como vemos a capacidade de aprendizagem de um agente &eacute; um dos
+crit&eacute;rios que mede a sua intelig&ecirc;ncia.
+<p>O trabalho reportado nesta tese diz respeito &agrave; implementa&ccedil;&atilde;o
+de agentes de software que classificamos anteriormente como agentes de
+informa&ccedil;&atilde;o. No entanto estendemos a arquitectura do sistema
+&agrave; utiliza&ccedil;&atilde;o de agentes cooperantes. Por outro lado,
+quanto &agrave; arquitectura s&atilde;o deliberativos (embora sem sofistica&ccedil;&atilde;o
+das BDIs).
+<p>Uma vez que o sistema que prop&ocirc;mos se aplica &agrave; pesquisa
+inteligente de informa&ccedil;&atilde;o na Web, apresentamos na sec&ccedil;&atilde;o
+seguinte alguns casos paradigm&aacute;ticos de sistemas com funcionalidades
+an&aacute;logas.
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<p><b><font size=+2>3.2. Pesquisadores Inteligentes Existentes</font></b>
+<p>Nos &uacute;ltimos anos foram desenvolvidos v&aacute;rios pesquisadores
+inteligentes baseados em agentes, cujo objectivo &eacute; procurarem informa&ccedil;&atilde;o
+na Internet que interesse ao utilizador, havendo alguns que aprendem e
+se adaptam &agrave;s prefer&ecirc;ncias do utilizador.
+<p>Apresentamos seguidamente cinco desses sistemas que nos pareceram ser
+mais significativos.
+<br>&nbsp;
+<br>&nbsp;
+<p><b><font size=+1>3.2.1. FAB - An Adaptative Web Page Recommendation
+Service</font></b>
+<p>Este pesquisador foi desenvolvido em Stanford por [Marko Balabanovic,
+1995]. O Fab &eacute; um sistema que tem por objectivo recomendar ao utilizador,
+em intervalos de tempo regulares, uma lista de sugest&otilde;es de p&aacute;ginas
+a visitar.
+<p>Este processo divide-se em tr&ecirc;s passos:
+<ul>
+<li>
+Coleccionar as p&aacute;ginas da Web;</li>
+
+<li>
+Seleccionar, das p&aacute;ginas recolhidas, as que s&atilde;o do interesse
+do utilizador;</li>
+
+<li>
+Entregar ao utilizador as recomenda&ccedil;&otilde;es obtidas.</li>
+</ul>
+Os utilizadores podem pedir a qualquer momento uma recomenda&ccedil;&atilde;o
+de p&aacute;ginas, sendo-lhes devolvido como resultado as dez melhores
+p&aacute;ginas de acordo com os seus interesses.
+<p>A classifica&ccedil;&atilde;o de p&aacute;ginas tem por base a intersec&ccedil;&atilde;o
+de duas t&eacute;cnicas, "Machine Learning" e "Information Retrieval".
+<br>&nbsp;
+<br>&nbsp;
+<p><b>Arquitectura do sistema</b>
+<p>O sistema Fab inclui v&aacute;rios tipos de m&oacute;dulos:
+<ul>
+<li>
+Agentes de selec&ccedil;&atilde;o;</li>
+
+<li>
+Agentes colectores;</li>
+
+<li>
+Reposit&oacute;rio de informa&ccedil;&atilde;o.</li>
+</ul>
+
+<dir>
+<dir>Um agente de selec&ccedil;&atilde;o, especializa-se progressivamente
+no perfil do utilizador, e um agente colector utiliza uma heur&iacute;stica
+baseada nesse perfil no seu trabalho de pesquisa.</dir>
+</dir>
+Quando um agente encontra um documento, este depois de processado &eacute;
+representado por um vector. Em intervalos de tempo regulares os agentes
+depositam no reposit&oacute;rio de informa&ccedil;&atilde;o as melhores
+p&aacute;ginas encontradas. Este reposit&oacute;rio est&aacute; em permanente
+actualiza&ccedil;&atilde;o, tendo sempre as melhores p&aacute;ginas seleccionadas
+de cada agente, de acordo com os interesses do utilizador.
+<p>Quando um utilizador requisita informa&ccedil;&atilde;o ao Fab, o agente
+de selec&ccedil;&atilde;o deste utilizador, vai ao reposit&oacute;rio de
+informa&ccedil;&atilde;o buscar as p&aacute;ginas que melhor se ajustam
+ao seu perfil. O utilizador emite um "feedback" &agrave;s p&aacute;ginas
+recomendadas, o que permite aos agentes de selec&ccedil;&atilde;o actualizarem
+o perfil do utilizador, adaptando-se assim melhor aos seus interesses.
+<br>&nbsp;
+<br>&nbsp;
+<p>Descrevemos seguidamente alguns aspectos essenciais do Fab:
+<ul>
+<li>
+A representa&ccedil;&atilde;o de uma p&aacute;gina Web;</li>
+</ul>
+
+<dir>
+<dir>O m&eacute;todo de representa&ccedil;&atilde;o da informa&ccedil;&atilde;o
+contida nas p&aacute;ginas utiliza os vectores pesados ("weighted vector
+representation"). Este m&eacute;todo consiste num vector dicion&aacute;rio,
+em que cada elemento deste vector &eacute; uma palavra. A cada p&aacute;gina
+web est&aacute; portanto associado um vector dicion&aacute;rio, onde V<sub>i</sub>
+&eacute; o peso da palavra d<sub>i</sub> nesse documento. Caso o documento
+n&atilde;o contenha a palavra d<sub>i</sub> ent&atilde;o V<sub>i</sub>=0.
+<p>Os pesos das palavras s&atilde;o determinados atrav&eacute;s do m&eacute;todo
+TFIDF ("Term Frequency * Inverse Document Frequency"), que calcula uma
+medida de raridade de uma palavra no documento.
+<p><img SRC="Image39.gif" height=59 width=259>O peso W<sub>i</sub> de uma
+palavra d<sub>i</sub> num dado documento &eacute; dado por:
+<br>&nbsp;
+<br>&nbsp;
+<p>onde :
+<p>tf(i) <font face="Symbol">&reg;</font> &eacute; a frequ&ecirc;ncia do
+termo i no documento t, isto &eacute;, &eacute; o n&uacute;mero de vezes
+que a palavra d<sub>i</sub> aparece no documento;
+<p>df(i) <font face="Symbol">&reg;</font> &eacute; a frequ&ecirc;ncia do
+documento, isto &eacute;, o n&uacute;mero de documentos da colec&ccedil;&atilde;o
+que cont&eacute;m a palavra d<sub>i</sub>;
+<p>n <font face="Symbol">&reg;</font> &eacute; o n&uacute;mero total de
+documentos da colec&ccedil;&atilde;o;
+<p>tf<sub>max</sub> <font face="Symbol">&reg;</font> &eacute; a frequ&ecirc;ncia
+m&aacute;xima de uma palavra, entre todas as palavras do documento.
+<br>&nbsp;
+<br>&nbsp;</dir>
+</dir>
+
+<ul>
+<li>
+A representa&ccedil;&atilde;o dos interesses do utilizador</li>
+</ul>
+
+<dir>
+<dir>
+<dir>Esta representa&ccedil;&atilde;o &eacute; feita com o mesmo modelo
+explicado no ponto imediatamente anterior.
+<br>&nbsp;
+<br>&nbsp;</dir>
+</dir>
+</dir>
+
+<ul>
+<li>
+A fun&ccedil;&atilde;o que nos permite determinar a pertin&ecirc;ncia de
+uma dada p&aacute;gina para os interesses do utilizador com um perfil m;</li>
+</ul>
+
+<dir>
+<dir>
+<dir>Por forma a medir, o quanto uma p&aacute;gina W, interessa ao utilizador
+&eacute; usada a diferen&ccedil;a de &acirc;ngulo entre os dois vectores
+p(W,m)=W.m.
+<br>&nbsp;
+<br>&nbsp;</dir>
+</dir>
+</dir>
+
+<ul>
+<li>
+A fun&ccedil;&atilde;o u, que dado o "feedback" do utilizador actualiza
+o perfil do utilizador.</li>
+</ul>
+
+<dir>
+<dir>
+<dir>A fun&ccedil;&atilde;o usada, &eacute; relativamente simples: u(W,m,s)
+= m + sW, onde s &eacute; a pontua&ccedil;&atilde;o atribu&iacute;da pelo
+utilizador &agrave; p&aacute;gina. s<font face="Symbol">&Icirc;</font>
+<font face="Symbol">{</font> 3,2,1,0,-1,-2,-3<font face="Symbol">}</font>
+<br>&nbsp;
+<br>&nbsp;</dir>
+</dir>
+</dir>
+<b>Resultados obtidos</b>
+<p>Segundo o autor, o sistema apresentou uma significativa melhoria em
+rela&ccedil;&atilde;o a pesquisas efectuadas manualmente pelos utilizadores,
+especialmente em rela&ccedil;&atilde;o ao tempo despendido pelo utilizador.
+<p>Os agentes de selec&ccedil;&atilde;o est&atilde;o em permanente actualiza&ccedil;&atilde;o
+dos perfis do utilizador, e os agentes colectores coligem p&aacute;ginas
+cada vez mais do interesse do utilizador.
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<p><b><font size=+1>3.2.2. LETIZIA - An Agent That Assists Web Browsing</font></b>
+<p>O Letizia [Lieberman, 1995], &eacute; um agente de interface que ajuda
+o utilizador nas suas pesquisas na Web. &Agrave; medida que o utilizador
+vai navegando em "browsers", como o Netscape, o Letizia vai tomando nota
+das p&aacute;ginas que este segue, por forma a poder antecipar os items
+de interesse para o utilizador. O agente segue uma estrat&eacute;gia autom&aacute;tica
+de procura de p&aacute;ginas, baseada na procura "o melhor primeiro" usando
+heur&iacute;sticas que denotam os interesses do utilizador. O comportamento
+do utilizador que causa no agente a certeza de que uma p&aacute;gina &eacute;
+realmente de interesse, &eacute; o de este a adicionar &agrave;s suas prefer&ecirc;ncias
+do "browser". Aceder muitas vezes a determinada p&aacute;gina, tamb&eacute;m
+&eacute; motivo suficiente para o agente considerar essa p&aacute;gina
+do interesse do utilizador.
+<p>O modelo adoptado pelo Letizia, &eacute; uma combina&ccedil;&atilde;o
+entre os passos dados pelo utilizador e um agente de software inteligente.
+O Letizia e o utilizador percorrem o mesmo espa&ccedil;o de procura, a
+Web, n&atilde;o havendo quaisquer objectivos pr&eacute;-definidos. A diferen&ccedil;a
+entre eles &eacute; que a pesquisa efectuada pelo utilizador possui uma
+confian&ccedil;a total, e por outro lado, o agente pode explorar um conjunto
+de alternativas de modo muito mais r&aacute;pido que o utilizador.
+<p>O papel do Letizia em rela&ccedil;&atilde;o ao utilizador &eacute; apenas
+de observa&ccedil;&atilde;o e infer&ecirc;ncia dos comportamentos deste,
+para futuras pesquisas.
+<p>A qualquer momento o utilizador pode requerer ao Letizia um conjunto
+de p&aacute;ginas a seguir, a partir da p&aacute;gina onde este se encontra
+no momento. Ou seja, quando o utilizador se depara com uma p&aacute;gina
+com v&aacute;rias liga&ccedil;&otilde;es poss&iacute;veis ("links"), surge
+a pergunta qual delas seguir. Ent&atilde;o revela-se o objectivo principal
+do Letizia, que &eacute; recomendar dentro das liga&ccedil;&otilde;es existentes
+nessa p&aacute;gina, aquelas que ser&atilde;o de maior interesse do utilizador.
+<p>O Letizia segue o modelo de agentes de interface baseados em comportamentos
+de [Maes, 1994]. O seu conhecimento adv&eacute;m das infer&ecirc;ncias
+efectuadas sobre as ac&ccedil;&otilde;es do utilizador.
+<p>A arquitectura do Letizia &eacute; orientada a objectos, por forma a
+facilitar a incorpora&ccedil;&atilde;o de novas heur&iacute;sticas que
+determinem o interesse do utilizador em dadas p&aacute;ginas.
+<p>Uma faceta importante do Letizia &eacute; que este d&aacute; uma explica&ccedil;&atilde;o
+da raz&atilde;o porque escolheu determinada p&aacute;gina; ou esta estava
+nas prefer&ecirc;ncias do utilizador, ou tem uma palavra-chave de uma pesquisa
+efectuada antes.
+<p>O m&eacute;todo de procura usado no Letizia &eacute; a procura em largura,
+pois segundo os autores, o uso de procura em profundidade leva a que o
+agente se "perca" na Web, sem atingir os seus objectivos. Por&eacute;m,
+existe o sen&atilde;o de, o n&uacute;mero de liga&ccedil;&otilde;es a explorar
+aumentar de forma exponencial. Para limitar este problema foi fixado o
+n&uacute;mero de n&oacute;s visitados por minuto.
+<p>P&aacute;ginas que contenham formul&aacute;rios n&atilde;o s&atilde;o
+pesquisadas pelo Letizia; por&eacute;m ele aconselha o utilizador a visitar
+essa p&aacute;gina.
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<p><b><font size=+1>3.2.3. AMALTHAEA - Information Discovery and Filtering
+using a</font></b>
+<br><b><font size=+1>Multiagent Envolving Ecosystem</font></b>
+<p>O Amalthaea [Moukas, 1996], &eacute; um sistema personalizado, que tem
+como dom&iacute;nio de aplica&ccedil;&atilde;o a Web, e por objectivo,
+ajudar o utilizador a encontrar p&aacute;ginas que v&atilde;o ao encontro
+dos seus interesses. &Eacute; um sistema que de modo pr&oacute;-activo
+tenta encontrar informa&ccedil;&atilde;o de diferente fontes que interessem
+ao utilizador. O Amalthaea recolhe informa&ccedil;&atilde;o, em paralelo,
+dos seguintes s&iacute;tios:
+<ul>
+<li>
+P&aacute;ginas da Web. O Amalthaea lan&ccedil;a m&uacute;ltiplos agentes
+que pesquisam estas p&aacute;ginas, usando para tal bases de dados indexadas
+existentes. Posteriormente o sistema analisa-os e recolhe apenas os que
+s&atilde;o mais pr&oacute;ximos do interesse do utilizador;</li>
+
+<li>
+S&atilde;o lan&ccedil;ados m&uacute;ltiplos agentes que pesquisam, neste
+caso, artigos publicados no laborat&oacute;rio do MIT, sendo seleccionados
+tamb&eacute;m, os que est&atilde;o mais pr&oacute;ximos do interesse do
+utilizador;</li>
+
+<li>
+&Eacute; efectuada uma monitoriza&ccedil;&atilde;o de fontes alteradas,
+isto &eacute;, URLs cujos conte&uacute;dos foram alterados s&atilde;o actualizados.
+Esta monitoriza&ccedil;&atilde;o &eacute; feita em intervalos de tempos
+regulares.</li>
+</ul>
+
+<p>O Amalthaea &eacute; constitu&iacute;do por uma esp&eacute;cie de ecossistema
+onde os agentes .envolvidos competem e colaboram entre si, onde agentes
+cujo desempenho &eacute; considerado bom, se desenvolvem enquanto agentes
+que obt&ecirc;m desempenho inferior s&atilde;o automaticamente eliminados.
+<p>Os resultados apresentados pelo Amalthaea ao utilizador incluem n&atilde;o
+s&oacute; URLs de interesse para o utilizador, mas tamb&eacute;m, not&iacute;cias
+e notifica&ccedil;&otilde;es de material em determinados "sites" que possam
+ser do interesse do utilizador.
+<p>O utilizador quando recebe os resultados do Amalthaea efectua uma classifica&ccedil;&atilde;o
+da documenta&ccedil;&atilde;o apresentada, cuja classifica&ccedil;&atilde;o
+vai servir de base &agrave; aprendizagem dos agentes. A aprendizagem &eacute;
+feita com base em t&eacute;cnicas de aprendizagem m&aacute;quina ("machine
+learning"). Este sistema tem por objectivo adaptar-se aos interesses do
+utilizador &agrave; medida que estes v&atilde;o evoluindo.
+<br>&nbsp;
+<br>&nbsp;
+<p><b>Arquitectura do sistema</b>
+<p>O Amalthaea &eacute; composto por cinco m&oacute;dulos:
+<ul>
+<li>
+Uma interface com o utilizador que &eacute; feita atrav&eacute;s de um
+"browser" permitindo correr aplica&ccedil;&otilde;es em Java e que efectua
+a comunica&ccedil;&atilde;o entre o utilizador e a aplica&ccedil;&atilde;o;</li>
+
+<li>
+Os agentes de filtragem que tentam seleccionar documentos que preencham
+as prefer&ecirc;ncias do utilizador e os agentes pesquisadores que procuram
+encontrar na Web os "sites" com informa&ccedil;&atilde;o relevante para
+o utilizador;</li>
+
+<li>
+A interface que permite recolher documentos da Web;</li>
+
+<li>
+O processamento do texto contido nas p&aacute;ginas e respectivos mecanismos
+de vectoriza&ccedil;&atilde;o de documentos, extrac&ccedil;&atilde;o de
+palavras irrelevantes e remo&ccedil;&atilde;o de prefixos e sufixos;</li>
+
+<li>
+Uma base de dados onde constam todos os URLs de todas os documentos considerados
+relevantes para o utilizador.</li>
+</ul>
+
+<p>Como j&aacute; foi dito, no Amalthaea distinguem-se dois tipos de agentes:
+<ul>
+<li>
+Agentes de filtragem de informa&ccedil;&atilde;o ("Information Filtering
+Agents")</li>
+
+<li>
+Agentes que pesquisam informa&ccedil;&atilde;o ("Informatiom Discovery
+Agents")</li>
+</ul>
+Os agentes de filtragem, s&atilde;o respons&aacute;veis pela adapta&ccedil;&atilde;o
+aos interesses do utilizador, enquanto que, aos agentes pesquisadores lhes
+compete encontrar na Web as fontes de informa&ccedil;&atilde;o que t&ecirc;m
+assuntos de interesse para o utilizador.
+<br>&nbsp;
+<br>&nbsp;
+<dir>
+<dir><u>Representa&ccedil;&atilde;o de documentos</u></dir>
+</dir>
+A representa&ccedil;&atilde;o interna de documentos no Amalthaea &eacute;
+feita usando um vector de pesos no qual est&aacute; representado todo o
+documento ("weighted vector representation"). Todos os documentos s&atilde;o,
+ent&atilde;o, guardados numa base de dados na forma de vectores ponderados.
+<p>Assim, todos os documentos s&atilde;o convertidos em apenas texto, que
+de seguida &eacute; decomposto em palavras, &agrave;s quais &eacute; atribu&iacute;do
+um determinado peso sendo ent&atilde;o guardadas num vector ponderado.
+O peso da cada palavra-chave do vector &eacute; dado pelo m&eacute;todo
+" Term Frequency x Inverse Document Frequency":
+<p><img SRC="Image40.gif" height=60 width=201>onde:
+<p>T<sub>f</sub> <font face="Symbol">&reg;</font> &eacute; a frequ&ecirc;ncia
+da palavra no documento;
+<p>Hc <font face="Symbol">&reg;</font> &eacute; uma constante (se a palavra
+fizer parte de algum header);
+<p>N <font face="Symbol">&reg;</font> &eacute; o n&uacute;mero total de
+documentos j&aacute; retidos pelo sistema;
+<dir>
+<dir>
+<dir>
+<dir>df<sub>k</sub> <font face="Symbol">&reg;</font> &eacute; a frequ&ecirc;ncia
+da palavra em todos os documentos analisados at&eacute; ao momento;</dir>
+</dir>
+</dir>
+</dir>
+<u>Relev&acirc;ncia do "feedback" do utilizador na aprendizagem</u>
+<p>O utilizador depois de receber os primeiros resultados do Amalthaea,
+classifica a relev&acirc;ncia que ele d&aacute; aos documentos. Esta classifica&ccedil;&atilde;o
+possui uma escala de 1 (mau) at&eacute; 7 (excelente). De acordo com este
+m&eacute;todo, o agente altera de forma din&acirc;mica o sistema, de maneira
+a adaptar-se aos gostos do utilizador.
+<p>O utilizador pode alterar, tamb&eacute;m, a din&acirc;mica do sistema,
+atrav&eacute;s do fornecimento de URLs do seu interesse e de um conjunto
+de palavras chave sobre o assunto que lhe interessa naquele momento.
+<p>A evolu&ccedil;&atilde;o do sistema &eacute; feita com base no desempenho
+dos agentes. Se este desempenho n&atilde;o for considerado bom pelo sistema,
+estes agentes s&atilde;o automaticamente eliminados. No caso de um bom
+desempenho servir&atilde;o de "clones" &agrave; cria&ccedil;&atilde;o de
+outros agentes. S&atilde;o usados operadores de cruzamento ("crossover")
+e muta&ccedil;&atilde;o para a reprodu&ccedil;&atilde;o de novos agentes.
+<p>As experi&ecirc;ncias efectuadas, come&ccedil;aram pelas prefer&ecirc;ncias
+que o utilizador tem no seu "browser" conjugadas com a lista dos URLs mais
+frequentemente visitados.
+<p>Inicialmente mantiveram-se os interesses do utilizador, tendo-se constatado
+que o sistema se adapta aos interesses deste. Depois de alterados os interesses
+do utilizador, verificou-se que os agentes rapidamente se adaptam aos novos
+interesses do utilizador.
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<p><b><font size=+1>3.2.4. Personal WEBWATCHER</font></b>
+<p>O Personal WebWatcher [Madlenic, 1996], &eacute; um sistema que observa
+utilizadores da WWW e sugere p&aacute;ginas que poder&atilde;o constituir
+interesse para este. Este sistema aprende com as p&aacute;ginas requeridas
+pelo utilizador.
+<p>O utilizador fornece um conjunto de palavras chave que descrevem o assunto,
+que este pretende encontrar. O Personal WebWatcher tratar&aacute; de real&ccedil;ar
+as liga&ccedil;&otilde;es da p&aacute;gina retornada que ter&atilde;o mais
+interesse para o utilizador, podendo no fim acrescentar outras liga&ccedil;&otilde;es
+de relev&acirc;ncia para este.
+<p>O Personal WebWatcher especializa-se para os gostos de um determinado
+utilizador, adaptando-se aos interesses deste. No entanto, n&atilde;o envolve
+o utilizador no seu processo de aprendizagem, isto &eacute;, n&atilde;o
+tem qualquer "feedback" por parte do utilizador.
+<br>&nbsp;
+<br>&nbsp;
+<p><b>Arquitectura do sistema</b>
+<p>O Personal WebWatcher tem uma arquitectura composta por duas partes:
+<ul>
+<li>
+Um servidor de "proxies" ("proxy server"), cuja interac&ccedil;&atilde;o
+com o utilizador &eacute; feita atrav&eacute;s de um "browser".</li>
+
+<li>
+Um agente inteligente ("learner")</li>
+</ul>
+O servidor de "proxies" guarda os endere&ccedil;os das liga&ccedil;&otilde;es
+visitadas, e o agente usa-os para gerar um modelo dos interesses do utilizador.
+<p>O servidor de "proxies" &eacute; constitu&iacute;do por tr&ecirc;s partes:
+um "proxy", um m&oacute;dulo de aconselhamento ("adviser"), e um m&oacute;dulo
+de classifica&ccedil;&atilde;o. O "proxy" espera que o utilizador pe&ccedil;a
+uma p&aacute;gina ao "browser". Se o documento pedido for um documento
+HTML envia-o para o m&oacute;dulo de aconselhamento, que extrai as liga&ccedil;&otilde;es
+do documento e chama o m&oacute;dulo externo de classifica&ccedil;&atilde;o.
+Este m&oacute;dulo de classifica&ccedil;&atilde;o usa o modelo de aprendizagem
+gerado, classificando as liga&ccedil;&otilde;es. Os que tiverem melhor
+classifica&ccedil;&atilde;o s&atilde;o recomendados ao utilizador.
+<br>&nbsp;
+<br>&nbsp;
+<p><b>Representa&ccedil;&atilde;o dos documentos HTML</b>
+<p>A representa&ccedil;&atilde;o interna de documentos no Personal WebWatcher,
+tal como no caso do Amalthaea, &eacute; feita usando um vector de pesos
+no qual est&aacute; representado todo o documento ("weighted vector representation").
+Cada elemento do vector &eacute; uma palavra e o seu peso &eacute; calculado
+usando o m&eacute;todo "Term Frequency * Inverse Document Frequency", j&aacute;
+explic&iacute;tado anteriormente. &Eacute; efectuada uma selec&ccedil;&atilde;o
+das palavras do documento sendo apenas inseridas, no vector, aquelas que
+se encontram sublinhadas, palavras que se encontrem no par&aacute;grafo
+de uma liga&ccedil;&atilde;o considerada boa, e palavras sugeridas pelo
+utilizador como sendo palavras chave.
+<p>&Eacute; efectuada a remo&ccedil;&atilde;o de palavras irrelevantes
+("stop words") do vector de palavras. As palavras irrelevantes s&atilde;o
+palavras, como "the", "in", "other", "just", "and", que n&atilde;o contribuem
+especificamente para nenhum assunto, e que portanto poder&atilde;o ser
+removidas sem degrada&ccedil;&atilde;o do significado.
+<p><img SRC="Image41.gif" height=56 width=173>No Personal WebWatcher s&oacute;
+nos interessa trabalhar com os documentos considerados relevantes para
+o utilizador logo, s&oacute; existe interesse na classe de exemplos positivos,
+e na frequ&ecirc;ncia das palavras chave no documento. Assim o m&eacute;todo
+de classifica&ccedil;&atilde;o adoptado foi o seguinte,
+<p>onde:
+<p>W <font face="Symbol">&reg;</font> &eacute; uma palavra;
+<p>C <font face="Symbol">&reg;</font> &eacute; a classe dos exemplos positivos;
+<p>TF(w) <font face="Symbol">&reg;</font> &eacute; a frequ&ecirc;ncia da
+palavra w no documento.
+<br>&nbsp;
+<br>&nbsp;
+<p><b>Aprendizagem</b>
+<p>O texto seleccionado para a aprendizagem, &eacute; um conjunto de palavras
+com melhor classifica&ccedil;&atilde;o no vector de palavras. O modelo
+usado na aprendizagem foi um classificador de Bayes ("Bayesian classifier")
+aplicado ao vector de palavras de cada documento, que gera um modelo dos
+interesses do utilizador.
+<p>O m&oacute;dulo de aprendizagem tem duas vers&otilde;es, uma vers&atilde;o
+que gera um modelo dos interesses do utilizador a partir do zero, e uma
+vers&atilde;o que actualiza este modelo.
+<p>O primeiro modelo ter&aacute; de definir o dom&iacute;nio das palavras,
+e come&ccedil;a com um conjunto vazio de palavras. A segunda vers&atilde;o,
+j&aacute; tem um modelo inicial definido ao qual acrescentar&aacute; novas
+palavras significativas.
+<p>As liga&ccedil;&otilde;es que foram visitadas pelo utilizador, constituem
+o conjunto dos exemplos positivos, ao passo que, os outros constituem o
+conjunto dos exemplos negativos.
+<p>Embora os resultados tenham sido satisfat&oacute;rios, o facto de o
+vector de palavras poder ser demasiado grande, pode afectar as sugest&otilde;es
+oferecidas ao utilizador.
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<p><b><font size=+1>3.2.5 DICA -The Do I Care Agent</font></b>
+<p>O DICA [Starr, Ackerman and Pazzani, 1996], foi concebido com o objectivo
+de notificar os utilizadores de altera&ccedil;&otilde;es ocorridas em p&aacute;ginas
+do interesse deste. Este agente visita periodicamente um conjunto de p&aacute;ginas
+do interesse do utilizador para verificar se estas sofreram alguma altera&ccedil;&atilde;o
+significante para o utilizador.
+<p>Como cada utilizador possui interesses dos mais diversos tipos, este
+dever&aacute; manter um "Do I Care Agent" especializado para cada interesse
+em particular.
+<p>O utilizador tem todo o interesse em manter os seus agentes informados
+de p&aacute;ginas relevantes e sobre a relev&acirc;ncia de altera&ccedil;&otilde;es
+efectuadas em p&aacute;ginas do seu interesse.
+<br>&nbsp;
+<br>&nbsp;
+<p><b>Arquitectura e funcionalidades do Sistema</b>
+<p>Cada "Do I Care Agent" deve:
+<ul>
+<li>
+Visitar periodicamente uma lista de liga&ccedil;&otilde;es definida previamente
+pelo utilizador, identificando altera&ccedil;&otilde;es efectuadas desde
+a &uacute;ltima vez que o utilizador as visitou;</li>
+
+<li>
+Ordenar as altera&ccedil;&otilde;es encontradas de acordo com o seu grau
+de interesse para o utilizador;</li>
+
+<li>
+Notificar o utilizador de altera&ccedil;&otilde;es interessantes ou eventos
+ocorridos;</li>
+
+<li>
+Aceitar a relev&acirc;ncia da classifica&ccedil;&atilde;o efectuada pelo
+utilizador ("feedback") relativamente a altera&ccedil;&otilde;es passadas;</li>
+
+<li>
+Facilitar a partilha de informa&ccedil;&atilde;o e a colabora&ccedil;&atilde;o
+entre os agentes.</li>
+</ul>
+
+<p>Este sistema assume que o utilizador possui listas ("bookmarks") de
+p&aacute;ginas Web da sua prefer&ecirc;ncia. Atrav&eacute;s da limita&ccedil;&atilde;o
+do conjunto de p&aacute;ginas que t&ecirc;m realmente interesse para o
+utilizador, aumenta-se a precis&atilde;o do sistema. Por outro lado, estes
+agentes n&atilde;o t&ecirc;m por objectivo encontrar novas p&aacute;ginas
+do interesse para o utilizador.
+<p>Para cada URL, o agente mant&eacute;m um conjunto de informa&ccedil;&otilde;es,
+nomeadamente, a &uacute;ltima vez que a p&aacute;gina foi visitada, com
+que frequ&ecirc;ncia deveria ser visitada, com que frequ&ecirc;ncia s&atilde;o
+efectuadas altera&ccedil;&otilde;es &agrave; p&aacute;gina, e o n&uacute;mero
+de vezes que o agente n&atilde;o conseguiu aceder &agrave; p&aacute;gina.
+Com esta informa&ccedil;&atilde;o o agente pode adaptar a frequ&ecirc;ncia
+com que visita a p&aacute;gina, e por outro lado, notificar o utilizador
+se h&aacute; algum problema com o URL em causa.
+<p>Os agentes s&atilde;o ent&atilde;o lan&ccedil;ados na Web com uma certa
+periodicidade. Tal periodicidade &eacute; estabelecida previamente pelo
+pr&oacute;prio utilizador, ou posteriormente aprendida pelo sistema. Estes
+agentes acedem ao conte&uacute;do das p&aacute;ginas atrav&eacute;s de
+protocolos HTTP standard.
+<p>O DICA assume que as p&aacute;ginas s&atilde;o alteradas de modo incremental,
+isto &eacute;, n&atilde;o radicalmente alteradas, e que o utilizador somente
+est&aacute; interessado nestas modifica&ccedil;&otilde;es.
+<p>Para comparar as modifica&ccedil;&otilde;es entre duas vers&otilde;es
+de uma p&aacute;gina, o DICA usa o comando "diff" do sistema operativo
+Unix, depois de estas j&aacute; terem passado previamente por um pr&eacute;-processamento.
+Neste pr&eacute;-processamento os peda&ccedil;os de texto considerados
+significantes s&atilde;o envolvidos em determinadas etiquetas ("tags").
+<p>Como &eacute; que o DICA decide se uma altera&ccedil;&atilde;o &eacute;
+ou n&atilde;o relevante para o utilizador?
+<p>O m&oacute;dulo de detec&ccedil;&atilde;o de altera&ccedil;&otilde;es
+produz como resultado uma mini-p&aacute;gina que cont&eacute;m todas as
+altera&ccedil;&otilde;es efectuadas. Estes documentos s&atilde;o ent&atilde;o
+ordenados atrav&eacute;s do uso de um classificador Bayesiano de 1&ordf;
+ordem [Duda and Hart, 1973], sendo o utilizador notificado somente das
+altera&ccedil;&otilde;es que excedam um dado valor estipulado ("threshold").
+<p>A classifica&ccedil;&atilde;o Bayesiana assume que para classificarmos
+um determinado objecto, existem um conjunto de atributos que nos permitem
+calcular a probabilidade do objecto pertencer a uma determinada classe.
+<p>Os atributos escolhidos pelo DICA derivam das palavras chave extra&iacute;das
+do texto do documento. O documento &eacute; processado obtendo-se como
+resultado uma lista de palavras &uacute;nicas, onde uma palavra &eacute;
+uma sequ&ecirc;ncia de letras (a-z e de A-Z) delimitadas por caracteres
+que n&atilde;o s&atilde;o letras. As etiquetas ("tags") do HTML e ocorr&ecirc;ncias
+duplicadas de palavras s&atilde;o ignoradas.
+<p>O perfil de classifica&ccedil;&atilde;o do DICA, constr&oacute;i em
+primeiro lugar uma lista de palavras &uacute;nicas, ordenadas de acordo
+com a sua informa&ccedil;&atilde;o (o qu&atilde;o informativa uma palavra
+&eacute; determinado atrav&eacute;s de um algoritmo de [Quilan, 1986],
+sendo apenas usadas para o perfil as que est&atilde;o no topo da lista.
+A partir daqui, e para cada uma das palavras escolhidas, o DICA calcula
+a percentagem de documentos que cont&eacute;m a palavra em quest&atilde;o,
+e calcula a probabilidade de um documento aleat&oacute;rio ser ou n&atilde;o
+considerado interessante.
+<p>O DICA notifica o utilizador dos resultados atrav&eacute;s de uma mensagem
+de correio electr&oacute;nico ("email") com uma lista de todas as p&aacute;ginas
+que sofreram altera&ccedil;&otilde;es consideradas interessantes para este.
+<p>Atrav&eacute;s desta lista o utilizador poder&aacute; classificar os
+resultados, podendo apenas classificar os que n&atilde;o achar interessantes
+para poupar o seu tempo.
+<p>Os agentes DICA partilham informa&ccedil;&atilde;o entre si, no sentido
+que se um agente recebe um URL que por sua vez j&aacute; est&aacute; na
+lista de outro agente, este recebe automaticamente todas as altera&ccedil;&otilde;es
+interessantes j&aacute; detectadas pelo primeiro agente.
+<p>Basicamente este sistema pretende notificar um utilizador de quando
+&eacute; que ele deve visitar novamente uma determinada p&aacute;gina do
+seu interesse.
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<p><font size=+1>3.2.6. Algumas compara&ccedil;&otilde;es entre os diversos
+pesquisadores apresentados</font>
+<p>Os pesquisadores apresentados t&ecirc;m como objectivo principal encontrar
+informa&ccedil;&atilde;o que v&aacute; de encontro aos interesses do utilizador.
+<p>A procura de informa&ccedil;&atilde;o na Web segue os algoritmos de
+pesquisas " o melhor primeiro", pesquisa em profundidade ou pesquisa em
+largura com limites de profundidade. Conclui-se, no entanto, que a pesquisa
+em largura, &eacute; a melhor op&ccedil;&atilde;o, pois evita, por um lado
+a especializa&ccedil;&atilde;o em dado assunto que n&atilde;o interesse,
+e abrange todas as liga&ccedil;&otilde;es mais chegadas ao assunto em causa.
+<p>A representa&ccedil;&atilde;o de documentos &eacute; un&acirc;nime pois
+todos usam a representa&ccedil;&atilde;o vectorial, isto &eacute;, cada
+p&aacute;gina Web &eacute; representada por um vector de pesos, sendo este
+constitu&iacute;do por todas as palavras relevantes da p&aacute;gina &agrave;s
+quais &eacute; atribu&iacute;do um determinado peso.
+<p>A maioria destes pesquisadores efectua a remo&ccedil;&atilde;o de palavras
+irrelevantes das p&aacute;ginas e alguns ainda fazem a extrac&ccedil;&atilde;o
+de radicais das palavras relevantes.
+<p>Quase todos usam o "feedback" do utilizador como base da aprendizagem
+na pesquisa posterior de novas p&aacute;ginas. A aprendizagem varia entre
+eles, usando uns a aprendizagem bayesiana ("Na&iuml;ve Bayes"), outros
+algoritmos gen&eacute;ticos, outros baseiam-se na sua base de conhecimento
+("Memory based Reasoning").
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<p><font size=+1>3.2.7. Compara&ccedil;&otilde;es com os motores de pesquisa
+mais populares</font>
+<p>Os agentes de software com uma certa aprendizagem, conseguem pesquisar
+informa&ccedil;&otilde;es de forma mais inteligente que os motores de pesquisa
+popularmente usados ("Yahoo", "Altavista", "Lycos", …), pois baseiam-se
+em t&eacute;cnicas de aprendizagem que normalmente incluem "feedback" por
+parte do utilizador.
+<p>Nos mecanismos de pesquisa habituais a pesquisa &eacute; efectuada somente
+com base na informa&ccedil;&atilde;o inicialmente fornecida pelo utilizador,
+o que implica que, ou o utilizador fornece um conjuntos de palavras de
+grande adequa&ccedil;&atilde;o ao assunto a pesquisar, ou a escolha de
+palavras menos pr&oacute;prias produzir&aacute; um n&iacute;vel de ru&iacute;do
+demasiado alto na pesquisa;
+<p>Eis algumas das vantagens dos pesquisadores analisados, baseados em
+agentes, relativamente aos motores de pesquisa mais populares:
+<p>T&ecirc;m a sua pr&oacute;pria base de conhecimentos relativamente a
+fontes dispon&iacute;veis na Web, a qual &eacute; actualizada e expandida
+ap&oacute;s cada pesquisa.
+<ul>
+<li>
+Os agentes podem usar qualquer servi&ccedil;o dispon&iacute;vel na Web,
+como ftp e telnet;</li>
+
+<li>
+Os agentes encontram-se sempre dispon&iacute;veis, podendo ser executados
+em paralelo com outras tarefas, durante 24h por dia.</li>
+
+<li>
+A informa&ccedil;&atilde;o destes agentes normalmente est&aacute; inserida
+em determinado contexto, isto &eacute;, tem algum significado.</li>
+
+<li>
+Os agentes est&atilde;o em permanente adapta&ccedil;&atilde;o &agrave;s
+necessidades do utilizador, possuindo a capacidade de localizar um documento
+removido para outro lugar na Web.</li>
+</ul>
+Apresentamos agora algumas desvantagens dos motores de pesquisa mais usuais:
+<ul>
+<li>
+A recolha de informa&ccedil;&atilde;o na Web consome muito tempo e aumenta
+o tr&aacute;fego de dados. Resulta na maioria dos casos numa pesquisa ineficiente
+devido &agrave; natureza din&acirc;mica da Internet;</li>
+
+<li>
+Os mecanismos de pesquisa usuais est&atilde;o limitados a alguns servi&ccedil;os
+da Internet, como o WWW; n&atilde;o t&ecirc;m acesso a servi&ccedil;os
+como telnet e ftp.</li>
+
+<li>
+Os mecanismos de pesquisa podem falhar, porque o servidor deixou de funcionar,
+porque este est&aacute; sobrecarregado, o que implica que a pesquisa n&atilde;o
+&eacute; efectuada na altura que o utilizador pretende;</li>
+
+<li>
+Nos pesquisadores referidos as palavras n&atilde;o s&atilde;o providas
+de qualquer tipo de contexto, n&atilde;o t&ecirc;m portanto qualquer significado
+associado, reduzem-se a mera sintaxe;</li>
+
+<li>
+Os mecanismos usuais de pesquisa n&atilde;o possuem a capacidade de localizar
+um documento removido para outro lugar na Web.</li>
+</ul>
+Estava, portanto justificado o interesse depositado no desenvolvimento
+de novos pesquisadores mais eficientes, de que os pesquisadores baseados
+em agentes s&atilde;o um exemplo.
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<p><font size=+3>Cap&iacute;tulo IV</font>
+<p><font size=+3>SMAPI</font>
+<p><font size=+3>Sistema Multi-Agente de Pesquisa Inteligente</font>
+<br>&nbsp;
+<br>&nbsp;
+<p>Neste cap&iacute;tulo apresentamos o SMAPI, Sistema Multi-Agente desenvolvido
+no &acirc;mbito desta disserta&ccedil;&atilde;o.
+<p>O SMAPI tem por objectivo ajudar os utilizadores na pesquisa de assuntos
+do seu interesse na Web, tentando que o utilizador n&atilde;o perca o seu
+tempo a seleccionar das centenas de p&aacute;ginas retornadas por um pesquisador
+normal (como o "Yahoo", "Lycos", "Altavista", etc), aquelas que realmente
+t&ecirc;m interesse para si.
+<p>A medi&ccedil;&atilde;o dos resultados que pretendemos obter com o SMAPI
+pode ser efectuada atrav&eacute;s de dois tipos de valores:
+<ul>
+<li>
+"Recall:" &eacute; a rela&ccedil;&atilde;o entre o n&uacute;mero de p&aacute;ginas
+relevantes apresentadas P, e o n&uacute;mero total de p&aacute;ginas relevantes,
+N (P/N);</li>
+
+<li>
+Precis&atilde;o: &eacute; a rela&ccedil;&atilde;o entre o n&uacute;mero
+de p&aacute;ginas relevantes apresentadas P, e o n&uacute;mero total de
+p&aacute;ginas retornadas, M (P/M).</li>
+</ul>
+Para entendermos melhor o significado das duas medidas ("recall" e precis&atilde;o)
+consideremos o seguinte exemplo:
+<dir>
+<dir>
+<dir>Seja o Universo U de p&aacute;ginas Web, U=100, das quais sabemos
+que 500 s&atilde;o relevantes para o utilizador, N=500. Ap&oacute;s a ac&ccedil;&atilde;o
+do SMAPI verificou-se que 600 p&aacute;ginas s&atilde;o retribu&iacute;das
+ao utilizador, M=600. Dessas p&aacute;ginas s&oacute; 400 foram consideradas
+relevantes pelo utilizador, P=400.</dir>
+</dir>
+</dir>
+Ent&atilde;o,
+<p>"recall"= P/N=400/500
+<p>precis&atilde;o=P/M=400/600
+<p>Como em ambiente realista n&atilde;o conhecemos N, torna-se dif&iacute;cil
+estimar a medida "recall" e por isso utilizamos a precis&atilde;o.
+<p>O SMAPI pretende melhorar a precis&atilde;o da pesquisa, aprendendo
+para tal com informa&ccedil;&otilde;es fornecidas pelo utilizador no decorrer
+dessa pesquisa. A medida de "recall" &eacute; mais dif&iacute;cil de obter
+uma vez que desconhecemos o n&uacute;mero N de p&aacute;ginas potencialmente
+relevantes.
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<p><b><font size=+2>4.1. Arquitectura do Sistema</font></b>
+<p><img SRC="Image53.gif" height=279 width=367>O sistema &eacute; constitu&iacute;do
+por um Servidor que recebe os pedidos de pesquisa atrav&eacute;s de um
+"browser". A interface com o utilizador &eacute; uma p&aacute;gina HTML
+onde o utilizador introduz os seguintes par&acirc;metros iniciais: o n&iacute;vel
+m&aacute;ximo de profundidade que deseja atingir na pesquisa, o n&uacute;mero
+m&aacute;ximo de "<i>agentes pesquisadores</i>", o URL inicial (a p&aacute;gina
+onde se iniciar&aacute; a pesquisa), e a(s) palavra(s) chave a pesquisar.
+<p>Exemplo do interface:
+<p>O Servidor recebe estes dados do "browser", onde o utilizador se encontra.
+Este, quando recebe um pedido, cria automaticamente um novo pedido (dito
+"<i>agente pedido</i>"), que ir&aacute; tratar do pedido em causa. Os agentes
+do tipo "<i>agente pedido</i>" n&atilde;o executam qualquer tipo de pesquisa,
+antes analisam o pedido efectuado, e comunicam com o "<i>servidor de agentes</i>",
+para que este crie um outro agente, o qual ir&aacute; pesquisar num dado
+dom&iacute;nio de endere&ccedil;os a partir de determinada m&aacute;quina.
+O "<i>servidor de agentes</i>", &eacute; uma plataforma de lan&ccedil;amento
+de agentes, isto &eacute;, tem por objectivo criar "<i>agentes pesquisadores</i>",
+numa dada m&aacute;quina.
+<br>&nbsp;
+<p><img SRC="Image02.gif" height=526 width=474>
+<br>&nbsp;
+<br>&nbsp;
+<p>Como se pode ver na figura os <i>"agentes pesquisadores"</i> (agentpt,
+agentedu,..., agentcom), s&atilde;o lan&ccedil;ados pelo <i>"servidor de
+agentes"</i>. Os <i>"agentes pesquisadores"</i> e o <i>"servidor de agentes"</i>,
+s&atilde;o programas independentes dos restantes, que podem correr em m&aacute;quinas
+distintas. O <i>"servidor de agentes"</i> e os <i>"agentes pesquisadores"</i>
+que este &uacute;ltimo vai lan&ccedil;ar t&ecirc;m, de estar na mesma m&aacute;quina.
+Ou seja, em cada m&aacute;quina onde quisermos lan&ccedil;ar <i>"agentes
+pesquisadores"</i>, deve correr tamb&eacute;m um "<i>servidor de agentes</i>".
+<dir>
+<dir>
+<dir>Foi usada uma ferramenta, para a cria&ccedil;&atilde;o e comunica&ccedil;&atilde;o
+de agentes, denominada JATLite, que est&aacute; descrita na sec&ccedil;&atilde;o
+4.3. Esta ferramenta permite criar agentes que comunicam de modo robusto
+atrav&eacute;s da Internet. A linguagem de comunica&ccedil;&atilde;o espec&iacute;fica
+utilizada foi o KQML.
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;</dir>
+</dir>
+</dir>
+<b><font size=+2>4.2 Arquitectura dos agentes</font></b>
+<dir>
+<dir><b><font size=+1>Agentes pesquisadores</font></b></dir>
+</dir>
+Os <i>"agentes pesquisadores"</i> t&ecirc;m por objectivo pesquisar p&aacute;ginas,
+process&aacute;-las, e obter resultados. Possuem uma arquitectura deliberativa,
+pois raciocinam, tomam decis&otilde;es, e aprendem com a interac&ccedil;&atilde;o
+do utilizador.
+<p>O agente pesquisador deve:
+<ul>
+<li>
+efectuar pedidos de p&aacute;ginas Web;</li>
+
+<li>
+avaliar as p&aacute;ginas Web recebidas;</li>
+
+<li>
+aprender das p&aacute;ginas, segundo a classifica&ccedil;&atilde;o efectuada
+pelo utilizador (Hot, Cold);</li>
+
+<li>
+comunicar ao agente pedido caso encontre um novo dom&iacute;nio;</li>
+
+<li>
+comunicar ao agente pedido caso j&aacute; tenha obtido para o dom&iacute;nio
+respectivo, as cinco primeiras p&aacute;ginas para classifica&ccedil;&atilde;o;</li>
+
+<li>
+comunicar ao agente pedido os resultados finais obtidos.</li>
+</ul>
+
+<p><b><font size=+1>Agentes pedido</font></b>
+<p>Estes agentes comunicam com o utilizador atrav&eacute;s de uma interface
+da qual recebem ou enviam mensagens. Para al&eacute;m disso comunicam com
+os <i>"agentes pesquisadores"</i>, e comunicam (via "sockets") com o <i>"servidor
+de agentes"</i> para este proceder &agrave; cria&ccedil;&atilde;o de um
+novo agente pesquisador.
+<p>Os agentes pedido devem:
+<ul>
+<li>
+processar os pedidos que chegam do Servidor;</li>
+
+<li>
+processar as mensagens KQML que chegam dos <i>"agentes pesquisadores"</i>.</li>
+</ul>
+
+<br>&nbsp;
+<br>&nbsp;
+<p><b><font size=+2>4.3. Aprendizagem de Contextos</font></b>
+<p>A aprendizagem deste sistema &eacute; feita com base em informa&ccedil;&otilde;es
+dadas pelo utilizador. Depois de este atribuir uma classifica&ccedil;&atilde;o
+(Hot ou Cold) &agrave;s primeiras cinco p&aacute;ginas encontradas, que
+contenham uma das palavras padr&atilde;o, o sistema vai aprender.
+<p>A aprendizagem no dom&iacute;nio desta aplica&ccedil;&atilde;o [Balabanovic
+and Shoham, 1995, Cardoso 1997] consiste em guardar os contextos (conjuntos
+de palavras) das frases onde os padr&otilde;es de pesquisa ocorrem. S&atilde;o
+escolhidas todas as palavras que formam a frase, dado que j&aacute; foram
+removidas anteriormente as palavras irrelevantes(como preposi&ccedil;&otilde;es,
+artigos, …).
+<p>A cada agente pesquisador est&aacute; associado um m&oacute;dulo, que
+cont&eacute;m os padr&otilde;es a pesquisar, estando ligado a cada padr&atilde;o
+um determinado contexto. O contexto consiste num conjunto de palavras retiradas
+da frase onde ocorreu o padr&atilde;o, na p&aacute;gina classificada como
+"Hot" pelo utilizador. Claro que, para cada padr&atilde;o, podem existir
+v&aacute;rios contextos associados.
+<p>Depois de aprenderem, os agentes v&atilde;o continuar a pesquisar p&aacute;ginas,
+mas de uma forma inteligente, pois baseiam-se nos padr&otilde;es e contextos
+aprendidos para efectuarem uma avalia&ccedil;&atilde;o da p&aacute;gina,
+e conclu&iacute;rem se esta &eacute; considerada uma p&aacute;gina de interesse
+para o utilizador, ou n&atilde;o. O que significa que quando o "<i>agente
+pesquisador</i>" for avaliar uma p&aacute;gina, depois de aprender, procurar&aacute;
+n&atilde;o somente as palavras padr&atilde;o iniciais mas os contextos
+em que estas est&atilde;o inseridas.
+<dir>
+<dir>
+<dir>A avalia&ccedil;&atilde;o de p&aacute;ginas, ap&oacute;s a aprendizagem
+dos contextos, usa uma pontua&ccedil;&atilde;o calculada da seguinte forma:</dir>
+</dir>
+</dir>
+PontosP&aacute;gina = Pontos strTitle<font face="Symbol">&acute;</font>
+3+ Pontos strHeading<font face="Symbol">&acute;</font> 2 + Pontos strText<font face="Symbol">&acute;</font>
+1
+<p>Os pontos de cada uma destas tr&ecirc;s sec&ccedil;&otilde;es (t&iacute;tulo,
+palavras dentro de etiquetas &lt;h1>…&lt;h3>, e texto) s&atilde;o calculados
+da seguinte forma:
+<ul>
+<li>
+Para cada padr&atilde;o a pesquisar, s&atilde;o avaliadas as frases da
+sec&ccedil;&atilde;o onde esse padr&atilde;o ocorre. A pontua&ccedil;&atilde;o
+dos <b>Pontos da Sec&ccedil;&atilde;o </b>&eacute; assim dada por:</li>
+</ul>
+<img SRC="Image44.gif" height=45 width=226>
+<dir>
+<dir>
+<dir>Onde PontosPadr&atilde;o &eacute; a pontua&ccedil;&atilde;o de cada
+padr&atilde;o na sec&ccedil;&atilde;o, e nPadr&otilde;es &eacute; o n&uacute;mero
+total de padr&otilde;es existentes na sec&ccedil;&atilde;o.</dir>
+</dir>
+</dir>
+
+<ul>
+<li>
+Para cada uma das frases em que o padr&atilde;o ocorre &eacute; calculada
+uma pontua&ccedil;&atilde;o. A pontua&ccedil;&atilde;o dos <b>PontosPadr&atilde;o</b>
+na sec&ccedil;&atilde;o &eacute; dada por:</li>
+</ul>
+
+<dir>
+<dir>
+<dir><img SRC="Image45.gif" height=45 width=260>
+<br>&nbsp;
+<br>&nbsp;</dir>
+Onde os <b>PontosPadr&atilde;oFrase</b>, &eacute; a pontua&ccedil;&atilde;o
+do padr&atilde;o numa frase, e nFrases &eacute; o n&uacute;mero de frases
+onde o padr&atilde;o foi encontrado.
+<p><img SRC="Image46.gif" height=18 width=166>Inicialmente quando ainda
+n&atilde;o h&aacute; contextos guardados para o padr&atilde;o a pesquisar,
+&eacute; suficiente encontr&aacute;-lo na frase, sendo-lhe atribu&iacute;da
+a seguinte pontua&ccedil;&atilde;o:
+<br>&nbsp;
+<br>&nbsp;
+<p>Se j&aacute; houver contextos guardados para o respectivo padr&atilde;o
+a pesquisar, &eacute; calculada a pontua&ccedil;&atilde;o de cada contexto,
+e que &eacute; dada por:
+<br>&nbsp;
+<br>&nbsp;
+<p><img SRC="Image47.gif" height=45 width=341>
+<p>PontosContextoFrase &eacute; a pontua&ccedil;&atilde;o da cada contexto
+na frase e, nContextos &eacute; o n&uacute;mero de contextos guardados
+para o padr&atilde;o.
+<p><img SRC="Image48.gif" height=41 width=357>Os <b>PontosContextoFrase
+</b>s&atilde;o calculados da seguinte forma:
+<p>Em que nPalavrasEncontradas &eacute; o n&uacute;mero de palavras do
+contexto encontradas na frase a ser analisada, e nPalavras &eacute; o n&uacute;mero
+de palavras do contexto.
+<br>&nbsp;
+<br>&nbsp;
+<p><u>Exemplo:</u>
+<p>Suponhamos a frase (j&aacute; sem palavras irrelevantes): "agents predominant
+concern interpret user profile way miss relevant document".
+<p><img SRC="Image49.gif" height=22 width=12>Suponhamos os contextos associados
+ao padr&atilde;o "agents":"intelligent profile multi-agent artificial"
+e "intelligent learning relevant".
+<br>&nbsp;
+<br>&nbsp;
+<p><img SRC="Image50.gif" height=41 width=192>Onde o n&uacute;mero de palavras
+do contexto encontradas na frase &eacute; 2, o n&uacute;mero de palavras
+do contexto &eacute; 4, e o peso &eacute; 1, sup&ocirc;s-se tratar-se da
+strText, cujo peso &eacute; 1.
+<p>Calculando agora o valor para o outro contexto:
+<p><img SRC="Image51.gif" height=41 width=190>Onde o n&uacute;mero de palavras
+do contexto encontradas na frase &eacute; 1, o n&uacute;mero de palavras
+do contexto &eacute; 3, e o peso &eacute; 1, pois sup&ocirc;s-se tratar-se
+da strText, cujo peso &eacute; 1.
+<p><img SRC="Image54.gif" height=65 width=464>
+<br>&nbsp;
+<br>&nbsp;</dir>
+</dir>
+<b><font size=+2>4.4. N&iacute;vel Operacional</font></b>
+<p>Este sistema foi implementado na linguagem Java (vers&atilde;o 1.1.3.)
+pois para al&eacute;m de ser uma linguagem de alto n&iacute;vel, &eacute;
+port&aacute;vel, isto &eacute;, &eacute; uma linguagem independente da
+plataforma de "hardware" ou "software" usada, sendo tamb&eacute;m uma linguagem
+orientada a objectos.
+<p>Tamb&eacute;m foi usado um pacote de "software", o [JATLite], explicado
+na sec&ccedil;&atilde;o 4.5.2. que tamb&eacute;m est&aacute; implementado
+na linguagem Java.
+<br>&nbsp;
+<br>&nbsp;
+<p><b><font size=+1>4.4.1. Como funcionam os m&oacute;dulos Servidor e
+Agente Pedido?</font></b>
+<p>O servidor [HTTP] corre numa porta, estando sempre &agrave; escuta que
+chegue algum pedido.
+<p>O utilizador preenche os campos da interface, nomeadamente o URL inicial,
+a(s) palavra(s) a pesquisar, o n&uacute;mero m&aacute;ximo de agentes a
+criar, e o n&iacute;vel de profundidade que estes dever&atilde;o atingir
+na pesquisa.
+<p>Quando &eacute; estabelecida uma liga&ccedil;&atilde;o com este Servidor,
+&eacute; criada uma "thread" pedido, que trata daquele pedido espec&iacute;fico,
+permitindo assim v&aacute;rias conex&otilde;es simult&acirc;neas (o servidor
+fica &agrave; espera de novas liga&ccedil;&otilde;es).
+<p>A "thread" pedido, analisa e processa o pedido (GET), que pode ser in&iacute;cio
+de pesquisa ou de classifica&ccedil;&atilde;o de p&aacute;ginas.
+<dir>
+<dir><i>In&iacute;cio de pesquisa:</i></dir>
+</dir>
+
+<ul>
+<li>
+O pedido &eacute; processado, obtendo-se do URL inicial, o dom&iacute;nio
+onde ir&aacute; ser criado o primeiro agente pesquisador.</li>
+
+<li>
+&Eacute; enviada uma mensagem, via "socket", para o "<i>Servidor de Agentes"</i>
+para que este crie um agente no dom&iacute;nio pedido, e numa dada m&aacute;quina.</li>
+
+<li>
+&Eacute; enviada uma mensagem, pelo agente pedido considerado, para o novo
+agente pesquisador criado. Essa mensagem cont&eacute;m dados para que este
+possa come&ccedil;ar a pesquisar.</li>
+</ul>
+<i>Classifica&ccedil;&atilde;o de p&aacute;ginas:</i>
+<dir>
+<dir>
+<dir>O processo de classifica&ccedil;&atilde;o &eacute; o seguinte:</dir>
+</dir>
+</dir>
+
+<ul>
+<li>
+O pedido &eacute; processado, isto &eacute;, s&atilde;o separados os URLs
+e respectivas classifica&ccedil;&otilde;es para cada agente pesquisador;</li>
+
+<li>
+&Eacute; enviada pelo agente pedido respectivo, uma mensagem para cada
+um dos <i>"agentes pesquisadores"</i>, com as p&aacute;ginas desse dom&iacute;nio
+e respectivas classifica&ccedil;&otilde;es.</li>
+</ul>
+Al&eacute;m destes pedidos, o agente pode receber mensagens de outros agentes.
+Estas est&atilde;o explicadas em detalhe na sec&ccedil;&atilde;o 4.5.1.
+na parte de comunica&ccedil;&atilde;o, mas conv&eacute;m enunciar o tipo
+de mensagens que o agente pedido dever&aacute; processar.
+<ul>
+<li>
+Mensagem para cria&ccedil;&atilde;o de um novo agente:</li>
+</ul>
+
+<dir>
+<dir>
+<dir>O agente pedido quando recebe uma mensagem deste tipo, dever&aacute;
+verificar em primeiro lugar se j&aacute; existe algum agente a actuar nesse
+dom&iacute;nio. Se tal for verdade, ser-lhe-&aacute; enviada uma mensagem
+KQML, para que tal agente acrescente a nova p&aacute;gina &agrave; fila
+de p&aacute;ginas que este tem para pesquisar. Caso n&atilde;o haja ainda
+nenhum agente a actuar nesse dom&iacute;nio, dever&aacute; ser contactado
+o "<i>servidor de agentes</i>" da m&aacute;quina onde vai ser criado o
+novo agente, para que este o lance nessa m&aacute;quina. Depois de criado
+o novo agente, este receber&aacute; do agente pedido uma mensagem com os
+dados que lhe permitir&atilde;o dar in&iacute;cio ao processo de pesquisa.
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;</dir>
+</dir>
+</dir>
+<b><font size=+1>4.4.2. Servidor de Agentes</font></b>
+<p>O "<i>Servidor de Agentes</i>", &eacute; um programa servidor que est&aacute;
+&agrave; escuta numa porta. Quando recebe um pedido para criar um novo
+agente, este analisa o pedido, para lhe retirar o dom&iacute;nio em que
+este vai ser criado. O nome do agente, consiste da palavra "agent" concatenada
+com o dom&iacute;nio em que o agente ir&aacute; actuar, como por exemplo
+"agentpt".
+<br>&nbsp;
+<br>&nbsp;
+<p><b><font size=+1>4.4.3. Agente pesquisador</font></b>
+<p>Os <i>"agentes pesquisadores"</i> pesquisam e avaliam p&aacute;ginas
+na WWW atrav&eacute;s da Internet, e aprendem delas de acordo com uma classifica&ccedil;&atilde;o
+obtida do utilizador.
+<p>Como &eacute; efectuada a pesquisa de p&aacute;ginas?
+<p>O mecanismo de pesquisa implementado, dada uma p&aacute;gina inicial,
+pesquisa as p&aacute;ginas que podem ser acedidas atrav&eacute;s de liga&ccedil;&otilde;es
+que esta contenha, e assim recursivamente. A pesquisa efectuada baseia-se
+na procura em largura, com um certo limite de profundidade estabelecido
+&agrave; partida. Estas p&aacute;ginas v&atilde;o sendo colocadas num vector
+&agrave; espera de serem analisadas, sendo a pesquisa sequencial, isto
+&eacute;, assim que terminar de analisar uma p&aacute;gina passa logo para
+a p&aacute;gina seguinte. Cada agente pesquisador possui um m&oacute;dulo
+associado que avalia e aprende os contextos relevantes nessas p&aacute;ginas
+Web. Tais contextos ficam organizados numa tabela tipo dicion&aacute;rio
+(palavra chave – [contextos]).
+<p>Para cada p&aacute;gina a analisar &eacute; processado o seguinte algoritmo:
+<ul>
+<li>
+&Agrave; medida que vai sendo lida, a p&aacute;gina &eacute; fragmentada
+em tr&ecirc;s sec&ccedil;&otilde;es distintas: o texto que est&aacute;
+dentro das etiquetas ("tags") &lt;title> &lt;/title>, que &eacute; colocado
+na sec&ccedil;&atilde;o (cadeia de caracteres) <i>strTitle</i>, o texto
+que est&aacute; dentro das etiquetas "headings"(&lt;h1> &lt;h2>...) que
+&eacute; colocado na sec&ccedil;&atilde;o <i>strHeading</i>, e o texto
+que est&aacute; dentro das etiquetas &lt;body> &lt;/body>, &eacute; colocado
+na sec&ccedil;&atilde;o <i>strText</i>.</li>
+
+<li>
+Das tr&ecirc;s cadeias de caracteres ("strings") s&atilde;o removidas todas
+as etiquetas ("tags") HTML e acentos de palavras, por forma a que cada
+uma delas seja constitu&iacute;da somente por texto.</li>
+
+<li>
+Para cada uma destas sec&ccedil;&otilde;es, e caso o idioma da p&aacute;gina
+seja o ingl&ecirc;s, &eacute; efectuada a remo&ccedil;&atilde;o de sufixos
+e prefixos das palavras (sec&ccedil;&atilde;o 4.4.3.2.), com excep&ccedil;&atilde;o
+das palavras padr&atilde;o.</li>
+
+<li>
+Caso a p&aacute;gina esteja escrita no idioma ingl&ecirc;s, s&atilde;o
+removidas as palavras consideradas irrelevantes (sec&ccedil;&atilde;o 4.4.3.1.),
+como ("the", "just", "and", "or").</li>
+
+<li>
+&Eacute; calculada a ocorr&ecirc;ncia da(s) palavra(s) padr&atilde;o(&otilde;es)
+nas tr&ecirc;s sec&ccedil;&otilde;es;</li>
+</ul>
+
+<p>Nesta primeira fase de pesquisa, o pesquisador tenta apenas encontrar
+p&aacute;ginas que contenham a(s) palavra(s) padr&atilde;o fornecidas pelo
+utilizador. Depois de encontrar as primeiras cinco p&aacute;ginas que preencham
+este requisito, &eacute; enviada uma mensagem KQML, para o respectivo "<i>agente
+pedido"</i> com os URLs das p&aacute;ginas encontradas, para que este as
+disponibilize ao utilizador, atrav&eacute;s do browser.
+<dir>
+<dir>
+<dir>Na segunda fase de pesquisa, o agente recebe uma mensagem KQML do
+"<i>agente pedido"</i>, com as classifica&ccedil;&otilde;es que o utilizador
+atribuiu &agrave;s primeiras cinco p&aacute;ginas encontradas. De acordo
+com estas classifica&ccedil;&otilde;es o "<i>agente pesquisador"</i> vai
+aprender com elas.</dir>
+</dir>
+</dir>
+A aprendizagem consiste em guardar os contextos (conjuntos de palavras
+relevantes), das frases onde os padr&otilde;es de pesquisa aparecem.
+<p>A cada <i>agente pesquisador</i> est&aacute; associado um dicion&aacute;rio,
+que cont&eacute;m os padr&otilde;es a pesquisar, estando associado a cada
+padr&atilde;o um determinado contexto. O contexto consiste num conjunto
+de palavras retiradas da frase onde ocorreu o padr&atilde;o, na p&aacute;gina
+classificada como Hot pelo utilizador. Claro que, para cada padr&atilde;o
+podem existir v&aacute;rios contextos associados.
+<p>Depois de aprenderem, os agentes v&atilde;o continuar a pesquisar p&aacute;ginas,
+mas de um forma inteligente, pois baseiam-se nos padr&otilde;es e contextos
+aprendidos para efectuarem um avalia&ccedil;&atilde;o da p&aacute;gina,
+e conclu&iacute;rem se esta &eacute; considerada uma p&aacute;gina de interesse
+para o utilizador ou n&atilde;o.
+<p>Por outro lado, depois de aprenderem, os "<i>agentes pesquisadores"</i>
+enviam para os outros "<i>agentes pesquisadores" </i>existentes, o resultado
+da sua aprendizagem, isto &eacute;, partilham o conhecimento adquirido,
+que como &eacute; &oacute;bvio, poder&aacute; diferir de um para outro
+"<i>agente pesquisador"</i>. Esta partilha &eacute; uma caracter&iacute;stica
+importante numa abordagem em Sistemas Multi-Agentes.
+<p><i>Avalia&ccedil;&atilde;o de p&aacute;ginas</i>
+<p>Para cada p&aacute;gina a avaliar &eacute; processado o algoritmo explicado
+na sec&ccedil;&atilde;o 4.3.
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<dir>
+<dir>
+<dir><b><font size=+1>4.4.3.1. Algoritmo de remo&ccedil;&atilde;o de palavras
+irrelevantes ("Stopwords")</font></b></dir>
+</dir>
+</dir>
+O objectivo deste algoritmo [Baeza-Yates &amp; Frakes, 1992] &eacute; remover
+do conte&uacute;do das p&aacute;ginas HTML, que estejam escritas no idioma
+ingl&ecirc;s, palavras irrelevantes, tais como "a", "and", "of", "the",
+etc, ou seja, palavras cuja informa&ccedil;&atilde;o subjacente no enquadramento
+do nosso problema n&atilde;o existe. Estas palavras n&atilde;o afectam
+em nada a pesquisa, e a sua remo&ccedil;&atilde;o aumenta a velocidade
+do programa pois s&atilde;o efectuadas muito menos compara&ccedil;&otilde;es.
+<p>Real&ccedil;a-se uma vez mais que, este algoritmo s&oacute; &eacute;
+aplicado a p&aacute;ginas cujo idioma seja o ingl&ecirc;s.
+<p>A lista de todas as palavras irrelevantes est&aacute; guardada num ficheiro
+denominado "stopword", que &eacute; representado depois num vector a utilizar
+quando da an&aacute;lise do texto.
+<p>Na fase de an&aacute;lise dos peda&ccedil;os de texto, como o t&iacute;tulo,
+"headings" e texto, &eacute; executado um algoritmo que remove das tr&ecirc;s
+cadeias de caracteres ("strings") correspondentes a essas sec&ccedil;&otilde;es
+as palavras irrelevantes l&aacute; contidas.
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<p><b><font size=+2>4.4.3.2. Algoritmo de extrac&ccedil;&atilde;o de radicais</font></b>
+<p>O problema da extrac&ccedil;&atilde;o de radicais consiste em remover
+prefixos e sufixos de palavras da l&iacute;ngua inglesa. Se encontrarmos
+alguma p&aacute;gina cujo idioma n&atilde;o seja o ingl&ecirc;s, como &eacute;
+&oacute;bvio, n&atilde;o &eacute; efectuada a extrac&ccedil;&atilde;o de
+radicais., pois o algoritmo usado apenas se aplica &agrave; l&iacute;ngua
+inglesa.
+<p>Este algoritmo [Porter 1980, Baeza-Yates &amp; Frakes 1992] tem como
+entrada uma cadeia de caracteres ("string") e retorna tamb&eacute;m uma
+cadeia de caracteres j&aacute; sem prefixos e sufixos. O algoritmo processa
+sequencialmente uma remo&ccedil;&atilde;o de prefixos e uma remo&ccedil;&atilde;o
+de sufixos.
+<br>&nbsp;
+<br>&nbsp;
+<p><b><i>Remo&ccedil;&atilde;o de prefixos:</i></b>
+<p>Em primeiro lugar s&atilde;o removidos os prefixos das palavras se estas
+os tiverem. Na l&iacute;ngua inglesa, os prefixos s&atilde;o relativamente
+poucos, na realidade formam o seguinte conjunto:
+<br>{ "kilo", "micro", milli", "intra", "ultra", "mega", "nano", "pico",
+"pseudo" }.
+<p>Se a cadeia de caracteres come&ccedil;ar por algum destes prefixos ent&atilde;o
+este &eacute; removido.
+<br>&nbsp;
+<br>&nbsp;
+<p><b><i>Remo&ccedil;&atilde;o de sufixos:</i></b>
+<dir>
+<dir>
+<dir>A remo&ccedil;&atilde;o de sufixos &eacute; efectuada em cinco passos:</dir>
+</dir>
+</dir>
+Passo 1
+<dir>
+<dir>O primeiro passo remove os plurais das palavras.
+<p><font face="Arial">Se a string termina em "sses" ou "ies" ent&atilde;o
+s&atilde;o removidos os dois &uacute;ltimos caracteres da cadeia de caracteres.
+Se s&oacute; terminar em "s" ent&atilde;o &eacute; removido o "s".</font>
+<p>Exemplo: blesses <font face="Symbol">&THORN;</font> bless
+<p>pies<font face="Symbol">&THORN;</font> pie
+<p>Se a cadeia de caracteres termina em "eed" e tiver pelo menos uma vogal
+ent&atilde;o &eacute; retirado o "d" final. Se a string termina em "ed"
+ou "ing" e contiver vogais, ent&atilde;o &eacute; removido o respectivo
+sufixo.
+<p>Exemplo: needed <font face="Symbol">&THORN;</font> need
+<p>begining <font face="Symbol">&THORN;</font> begin
+<p>Caso a cadeia de caracteres, ap&oacute;s a remo&ccedil;&atilde;o do
+sufixo, termine em "at", "bl" ou "iz" &eacute; acrescentado um "e" no fim
+da cadeia de caracteres.
+<p>Exemplo: assembled <font face="Symbol">&THORN;</font> assembl <font face="Symbol">&THORN;</font>
+assemble</dir>
+</dir>
+Passo 2
+<p>Neste passo se a cadeia de caracteres terminar nalgum sufixo que est&aacute;
+no lado esquerdo da tabela seguinte, ent&atilde;o este &eacute; substitu&iacute;do
+pelo sufixo, que est&aacute; no lado direito da tabela.
+<br>&nbsp;
+<br>&nbsp;
+<center><table BORDER CELLPADDING=4 WIDTH="217" BORDERCOLOR="#000000" >
+<tr>
+<td VALIGN=TOP WIDTH="50%">
+<center>ational</center>
+</td>
+
+<td VALIGN=TOP WIDTH="50%">
+<center>ate</center>
+</td>
+</tr>
+
+<tr>
+<td VALIGN=TOP WIDTH="50%">
+<center>tional</center>
+</td>
+
+<td VALIGN=TOP WIDTH="50%">
+<center>tion</center>
+</td>
+</tr>
+
+<tr>
+<td VALIGN=TOP WIDTH="50%">
+<center>enci</center>
+</td>
+
+<td VALIGN=TOP WIDTH="50%">
+<center>ence</center>
+</td>
+</tr>
+
+<tr>
+<td VALIGN=TOP WIDTH="50%">
+<center>anci</center>
+</td>
+
+<td VALIGN=TOP WIDTH="50%">
+<center>ance</center>
+</td>
+</tr>
+
+<tr>
+<td VALIGN=TOP WIDTH="50%">
+<center>izer</center>
+</td>
+
+<td VALIGN=TOP WIDTH="50%">
+<center>ize</center>
+</td>
+</tr>
+
+<tr>
+<td VALIGN=TOP WIDTH="50%">
+<center>iser</center>
+</td>
+
+<td VALIGN=TOP WIDTH="50%">
+<center>ize</center>
+</td>
+</tr>
+
+<tr>
+<td VALIGN=TOP WIDTH="50%">
+<center>abli</center>
+</td>
+
+<td VALIGN=TOP WIDTH="50%">
+<center>able</center>
+</td>
+</tr>
+
+<tr>
+<td VALIGN=TOP WIDTH="50%">
+<center>alli</center>
+</td>
+
+<td VALIGN=TOP WIDTH="50%">
+<center>al</center>
+</td>
+</tr>
+
+<tr>
+<td VALIGN=TOP WIDTH="50%">
+<center>entli</center>
+</td>
+
+<td VALIGN=TOP WIDTH="50%">
+<center>ent</center>
+</td>
+</tr>
+
+<tr>
+<td VALIGN=TOP WIDTH="50%">
+<center>eli</center>
+</td>
+
+<td VALIGN=TOP WIDTH="50%">
+<center>e</center>
+</td>
+</tr>
+
+<tr>
+<td VALIGN=TOP WIDTH="50%">
+<center>ousli</center>
+</td>
+
+<td VALIGN=TOP WIDTH="50%">
+<center>ous</center>
+</td>
+</tr>
+
+<tr>
+<td VALIGN=TOP WIDTH="50%">
+<center>ization</center>
+</td>
+
+<td VALIGN=TOP WIDTH="50%">
+<center>ize</center>
+</td>
+</tr>
+
+<tr>
+<td VALIGN=TOP WIDTH="50%">
+<center>isation</center>
+</td>
+
+<td VALIGN=TOP WIDTH="50%">
+<center>ize</center>
+</td>
+</tr>
+
+<tr>
+<td VALIGN=TOP WIDTH="50%">
+<center>ation</center>
+</td>
+
+<td VALIGN=TOP WIDTH="50%">
+<center>ate</center>
+</td>
+</tr>
+
+<tr>
+<td VALIGN=TOP WIDTH="50%">
+<center>ator</center>
+</td>
+
+<td VALIGN=TOP WIDTH="50%">
+<center>ate</center>
+</td>
+</tr>
+
+<tr>
+<td VALIGN=TOP WIDTH="50%">
+<center>alism</center>
+</td>
+
+<td VALIGN=TOP WIDTH="50%">
+<center>al</center>
+</td>
+</tr>
+
+<tr>
+<td VALIGN=TOP WIDTH="50%">
+<center>iveness</center>
+</td>
+
+<td VALIGN=TOP WIDTH="50%">
+<center>ive</center>
+</td>
+</tr>
+
+<tr>
+<td VALIGN=TOP WIDTH="50%">
+<center>fullness</center>
+</td>
+
+<td VALIGN=TOP WIDTH="50%">
+<center>ful</center>
+</td>
+</tr>
+
+<tr>
+<td VALIGN=TOP WIDTH="50%">
+<center>ousness</center>
+</td>
+
+<td VALIGN=TOP WIDTH="50%">
+<center>ous</center>
+</td>
+</tr>
+
+<tr>
+<td VALIGN=TOP WIDTH="50%">
+<center>aliti</center>
+</td>
+
+<td VALIGN=TOP WIDTH="50%">
+<center>al</center>
+</td>
+</tr>
+
+<tr>
+<td VALIGN=TOP WIDTH="50%">
+<center>iviti</center>
+</td>
+
+<td VALIGN=TOP WIDTH="50%">
+<center>ive</center>
+</td>
+</tr>
+
+<tr>
+<td VALIGN=TOP WIDTH="50%">
+<center>biliti</center>
+</td>
+
+<td VALIGN=TOP WIDTH="50%">
+<center>ble</center>
+</td>
+</tr>
+</table></center>
+
+<br>&nbsp;
+<p>Passo 3
+<p>Neste passo, s&atilde;o substitu&iacute;dos os seguintes sufixos, do
+lado esquerda da seguinte tabela, pela do lado direito:
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<center><table BORDER CELLPADDING=4 WIDTH="217" BORDERCOLOR="#000000" >
+<tr>
+<td VALIGN=TOP WIDTH="50%">
+<center>icate</center>
+</td>
+
+<td VALIGN=TOP WIDTH="50%">
+<center>ic</center>
+</td>
+</tr>
+
+<tr>
+<td VALIGN=TOP WIDTH="50%">
+<center>ative</center>
+</td>
+
+<td VALIGN=TOP WIDTH="50%">
+<center>" "</center>
+</td>
+</tr>
+
+<tr>
+<td VALIGN=TOP WIDTH="50%">
+<center>alize</center>
+</td>
+
+<td VALIGN=TOP WIDTH="50%">
+<center>al</center>
+</td>
+</tr>
+
+<tr>
+<td VALIGN=TOP WIDTH="50%">
+<center>alise</center>
+</td>
+
+<td VALIGN=TOP WIDTH="50%">
+<center>al</center>
+</td>
+</tr>
+
+<tr>
+<td VALIGN=TOP WIDTH="50%">
+<center>iciti</center>
+</td>
+
+<td VALIGN=TOP WIDTH="50%">
+<center>ic</center>
+</td>
+</tr>
+
+<tr>
+<td VALIGN=TOP WIDTH="50%">
+<center>ical</center>
+</td>
+
+<td VALIGN=TOP WIDTH="50%">
+<center>ic</center>
+</td>
+</tr>
+
+<tr>
+<td VALIGN=TOP WIDTH="50%">
+<center>ful</center>
+</td>
+
+<td VALIGN=TOP WIDTH="50%">
+<center>" "</center>
+</td>
+</tr>
+
+<tr>
+<td VALIGN=TOP WIDTH="50%">
+<center>ness</center>
+</td>
+
+<td VALIGN=TOP WIDTH="50%">
+<center>" "</center>
+</td>
+</tr>
+</table></center>
+
+<br>&nbsp;
+<p>Passo 4
+<p>No caso da cadeia de caracteres terminar nalgum dos sufixos descritos
+a seguir, estes simplesmente s&atilde;o removidos da cadeia de caracteres.
+<p>{"al", "ance", "ence", "er", "er", "ic", "able", "ible", "ant", "ement",
+"ment", "ent", "sion", "tion", "ou", "ism", "ate", "iti", "ous", "ive",
+"ize", "ise"}
+<br>&nbsp;
+<br>&nbsp;
+<p>Passo 5
+<p>Este passo verifica o n&uacute;mero de vogais que a palavra cont&eacute;m
+e mediante esse n&uacute;mero, se a palavra ainda terminar em "e" remove-se
+o "e", sen&atilde;o, se terminar em "ll" remove-se o &uacute;ltimo "l".
+<p>O texto final obtido depois de todo este tratamento permite uma melhor
+compara&ccedil;&atilde;o das palavras e a extrac&ccedil;&atilde;o mais
+correcta de uma medida de relev&acirc;ncia para o utilizador.
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<p><b><font size=+2>4.5. Comunica&ccedil;&otilde;es</font></b>
+<p>Num Sistema Multi-Agente temos ent&atilde;o um conjunto de agentes que
+interagem entre si, necessitando portanto de trocar mensagens, e para tal
+usam uma linguagem de comunica&ccedil;&atilde;o.
+<p>O SMAPI, a n&iacute;vel de comunica&ccedil;&otilde;es, usa uma plataforma
+denominada JATLite (sec&ccedil;&atilde;o 4.5.2.), que permite a cria&ccedil;&atilde;o
+de agentes, deixando que estes comuniquem entre si de modo transparente
+para o utilizador. A linguagem usada na comunica&ccedil;&atilde;o &eacute;
+o standard KQML ("Knowledge Query Communication Language") [Labrou and
+Finin, 1997].
+<br>&nbsp;
+<br>&nbsp;
+<p><b><font size=+2>4.5.1. Protocolos de comunica&ccedil;&atilde;o do SMAPI</font></b>
+<p>A seguir descrevem-se em detalhe os tipos de mensagens KQML, trocadas
+entre os agentes deste sistema.
+<p>Na fase de in&iacute;cio de pesquisa, o protocolo seguido inclui o envio
+de uma mensagem cuja "<i>performativa</i>" &eacute; "<b>tellpesq</b>".
+Esta <i>"performativa"</i> &eacute; enviada ao agente pesquisador para
+que este d&ecirc; inicio &agrave; pesquisa de p&aacute;ginas na Web. No
+conte&uacute;do da mensagem segue a profundidade m&aacute;xima que o agente
+dever&aacute; atingir, o URL inicial (isto &eacute;, a p&aacute;gina onde
+o agente vai come&ccedil;ar a pesquisar), o n&uacute;mero m&aacute;ximo
+de "<i>agentes</i> pesquisadores" que o sistema multi-agente dever&aacute;
+ter e a palavra ou palavras que o utilizador pretende pesquisar.
+<p>Exemplo de uma mensagem com <i>"performativa"</i> tellpesq:
+<br>&nbsp;
+<br>&nbsp;
+<dir>
+<dir>
+<dir>{sender=agpedido1, content=(2,8,agents,www.fe.up.pt/~eol), receiver=agentpt,
+performative=tellpesq}</dir>
+</dir>
+</dir>
+O campo "sender" &eacute; o nome do "<i>agente pedido</i>" que envia a
+mensagem, que neste caso &eacute; o agpedido1.
+<p>O campo "content" &eacute; o conte&uacute;do da mensagem, que neste
+caso, &eacute; constitu&iacute;do por:
+<p>2 – n&uacute;mero m&aacute;ximo de "<i>agentes pesquisadores</i>" que
+devem ser criados;
+<p>8 - profundidade m&aacute;xima que o agente deve atingir na pesquisa;
+<p>agents - palavra a pesquisar
+<p><font size=-1><a href="http://www.fe.up.pt/~eol">www.fe.up.pt/~eol</a></font>
+- URL inicial;
+<p>O campo "receiver" &eacute; o nome do agente receptor da mensagem.
+<p>O campo "<i>"performativa"</i>" &eacute; o acto de discurso usado.
+<br>&nbsp;
+<br>&nbsp;
+<p>Depois do agente ter come&ccedil;ado a pesquisar, quando este encontrar
+5 p&aacute;ginas onde constem a(s) palavra(s) chave(s) a pesquisar, os
+respectivos endere&ccedil;os s&atilde;o enviados para o "browser" que o
+utilizador est&aacute; a usar para que este os classifique.
+<p>Para tal, &eacute; usada uma mensagem KQML, cuja <i>"performativa"</i>
+&eacute; "<b>tellresi</b>", para enviar os resultados interm&eacute;dios
+ao utilizador.
+<dir>
+<dir>
+<dir>Exemplo de uma mensagem "tellresi":</dir>
+{sender=agentpt, content= (<font face="Courier New"><font size=-1><a href="http://www.fe.up.pt/~eol">http://www.fe.up.pt/~eol</a></font></font>
+http://www.fe.up.pt/~eol/MEMBERS/members.html http://www.fe.up.pt/~eol/PROJECTS/DiBeRT.html
+http://www.fe.up.pt/~eol/MEMBERS/mouta.html http://www.inesca.pt/~jfernan
+) , receiver=agpedido1, performative=tellresi}
+<br>&nbsp;
+<br>&nbsp;</dir>
+</dir>
+Neste exemplo o agente que envia a mensagem, &eacute; o "<i>agente pesquisador</i>"
+agentpt. O agente receptor &eacute; o agpedido1. O conte&uacute;do da mensagem
+&eacute; constitu&iacute;do apenas por cinco URLs. E o acto de discurso
+&eacute; tellresi.
+<br>&nbsp;
+<br>&nbsp;
+<p>Depois de efectuada a classifica&ccedil;&atilde;o das p&aacute;ginas,
+por parte do utilizador, dever&aacute; ser enviada uma nova mensagem, ao
+"<i>agente pesquisador"</i> respectivo, com os URLs e respectiva classifica&ccedil;&atilde;o.
+Tal &eacute; feito atrav&eacute;s do acto de discurso "<b>tellaprende</b>",
+pois o agente ir&aacute; aprender a partir da classifica&ccedil;&atilde;o
+efectuada pelo utilizador.
+<p>Exemplo de uma mensagem "tellaprende":
+<p>{sender=agpedido2, content=(Hot-www.fe.up.pt/~eol Cold-www.fe.up.pt/~eol/MEMBERS/members.html
+Hot-www.fe.up.pt/~eol/PROJECTS/DiBeRT.html Hot-www.fe.up.pt/~eol/MEMBERS/mouta.html
+Hot-www.inesca.pt/~jfernan &amp;agentpt agentedu), receiver=agentpt, <i>"performativa"</i>=tellaprende}
+<br>&nbsp;
+<br>&nbsp;
+<p>O agente que enviou esta mensagem foi o agpedido2, e o agente a quem
+se dirige &eacute; o agentpt. O conte&uacute;do da mensagem &eacute; composto
+pelos cinco URLs e respectivas classifica&ccedil;&otilde;es atribu&iacute;das,
+e ainda pelos "<i>agentes pesquisadores"</i> existentes no momento.
+<p>Depois de ter aprendido e de ter chegado a resultados, o "<i>agente
+pesquisador"</i> dever&aacute; envi&aacute;-los para um "<i>agente pedido"</i>,
+para que o utilizador os possa visualizar. Este tipo de mensagem tem como
+<i>"performativa"</i> "<b>resfinais</b>".
+<p>Exemplo de uma mensagem com <i>"performativa"</i> "resfinais":
+<dir>
+<dir>{sender=agentpt, content= (http://www.fe.up.pt/~eol/PROJECTS/DiBeRT.html-Hot
+http://www.inesca.pt/~jfernan-Hot http://www.fe.up.pt/~eol-Hot http://www.fe.up.pt/~eol/MEMBERS/mouta.html-Hot
+http://www.fe.up.pt/~eol/PROJECTS/mascr.html-10 http://www.uninova.pt/~jmf-10
+http://lcs.www.media.mit.edu/projects/amalthaea-10 http://www.fe.up.pt/~eol/PROJECTS/proj.html-9
+) , receiver=agpedido2, performative=resfinais}
+<br>&nbsp;
+<br>&nbsp;</dir>
+</dir>
+Os resultados finais s&atilde;o constitu&iacute;dos por um conjunto de
+URLs, ordenados por ordem decrescente de import&acirc;ncia para o utilizador.
+<p>Quando o agente recebe os resultados interm&eacute;dios e respectivas
+classifica&ccedil;&otilde;es, vai aprender dessas classifica&ccedil;&otilde;es.
+Pretende-se que o agente partilhe esse resultado com os outros "<i>agentes
+pesquisadores</i>", para que todos beneficiem da aprendizagem individual
+de cada um. Tal &eacute; feito atrav&eacute;s do envio de mensagens com
+<i>"performativa"</i> "<b>partilha</b>".
+<p>Exemplo de uma mensagem KQML com <i>"performativa"</i> "partilha":
+<p>{sender=agentpt, content=(artificial - link subjects agents ca html
+agent artificial intelligence html -1), receiver=agentcom, performative=partilha}
+<p>Neste exemplo o padr&atilde;o &eacute; "artificial" (est&aacute; separado
+do contexto por um "-") e o contexto &eacute;<font size=-1> </font>"- link
+subjects agents ca html agent artificial intelligence html ", sendo o peso
+1 (tamb&eacute;m se encontra separado do peso por um "tra&ccedil;o").
+<p>Quando um agente pesquisador encontra um novo dom&iacute;nio, envia
+uma mensagem para o agente pedido, para que este, ou crie um novo agente,
+para actuar no novo dom&iacute;nio encontrado, ou caso j&aacute; exista
+um agente a actuar nesse dom&iacute;nio, lhe seja enviada uma mensagem
+com o respectivo URL a pesquisar.
+<p>Exemplo de uma mensagem com <i>"performativa"</i> "<b>newdom</b>":
+<dir>
+<dir>{sender=agentpt, content= (edu,lcs.www.media.mit.edu/projects/amalthaea)
+, receiver=agpedido1, performative=newdom}
+<p>O conte&uacute;do de uma mensagem newdom, consiste no novo dom&iacute;nio,
+neste caso "edu", seguido do respectivo URL.</dir>
+</dir>
+Quando j&aacute; existe um agente a actuar num dado dom&iacute;nio, ent&atilde;o
+o agente pedido logo que receba uma mensagem newdom, envia uma mensagem
+com <i>"performativa"</i> "<b>tellpagina</b>".
+<p>Exemplo de uma mensagem com <i>"performativa"</i> "tellpagina":
+<dir>
+<dir>{sender=agpedido1, content= (lcs.www.media.mit.edu/projects/amalthaea)
+, receiver=agentedu, performative=tellpagina}
+<p>&Eacute; enviado ao agente pesquisador existente apenas o URL da p&aacute;gina,
+para que este a acrescente &agrave; fila de p&aacute;ginas a avaliar.</dir>
+</dir>
+<img SRC="Image03.gif" height=542 width=442>
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<p><b><font size=+1>4.5.2. Plataforma de distribui&ccedil;&atilde;o</font></b>
+<p>O [JATLite] (Java Agent Template, Lite) &eacute; um conjunto de programas
+escritos em linguagem Java que:
+<ul>
+<ul>
+<li>
+permite aos utilizadores criar facilmente agentes de "software", que comunicam
+de modo robusto atrav&eacute;s da Internet;</li>
+
+<li>
+Possui uma linguagem de comunica&ccedil;&atilde;o espec&iacute;fica, o
+KQML;</li>
+
+<li>
+N&atilde;o imp&otilde;em qualquer tipo de teoria sobre os agentes aut&oacute;nomos
+(a constru&ccedil;&atilde;o de agentes inteligentes &eacute; deixada ao
+crit&eacute;rio do programador).</li>
+</ul>
+</ul>
+O JATLite possui um "Router" como estrutura b&aacute;sica, o "Agent Message
+"Router" (AMR), onde todos os agentes se registam atrav&eacute;s de um
+nome e de uma palavra-chave ("password").
+<p>O "Router" permite que os agentes se registem, conectem e desliguem
+da Internet, enviem e recebam mensagens, transfiram ficheiros por ftp ("file
+transfer protocol"), e de um modo geral, troquem informa&ccedil;&atilde;o
+com outros agentes, nos v&aacute;rios computadores onde estes est&atilde;o
+a correr.
+<p>A comunica&ccedil;&atilde;o &eacute; baseada em "sockets" e TCP/IP (Transport
+Comunication Protocol) standard.
+<dir>
+<dir>
+<dir>N&atilde;o &eacute; obrigat&oacute;rio que o "Router" e os agentes
+corram na mesma m&aacute;quina; o "Router" pode correr numa dada m&aacute;quina,
+e os agentes podem estar distribu&iacute;dos em diferentes m&aacute;quinas.
+O que permite uma arquitectura de sistemas realmente distribu&iacute;da.</dir>
+</dir>
+</dir>
+
+<p>A arquitectura do JATLite possui v&aacute;rias camadas. O programador
+pode escolher a camada a partir da qual deseja construir o sistema, por&eacute;m,
+para obter mais vantagens, conv&eacute;m partir da camada do "Router" ou
+do Protocolo.
+<br>&nbsp;
+<br>&nbsp;
+<p><img SRC="Image04.gif" height=243 width=556>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<font size=+1>Camadas do JATLite</font>
+<dir>
+<dir>
+<dir>
+<dir>
+<dir>
+<dir>
+<dir>&nbsp;
+<br>&nbsp;</dir>
+</dir>
+</dir>
+</dir>
+</dir>
+</dir>
+</dir>
+A Camada Abstracta possui um conjunto de classes abstractas, em linguagem
+Java, sobre as quais s&atilde;o constru&iacute;das as outras camadas.
+<p>A Camada Base permite a comunica&ccedil;&atilde;o b&aacute;sica em TCP/IP.
+N&atilde;o existe qualquer tipo de restri&ccedil;&atilde;o em rela&ccedil;&atilde;o
+ao protocolo ou &agrave; linguagem das mensagens.
+<p>A Camada KQML guarda e trata das mensagens KQML.
+<p>A Camada do "Router" recebe o registo de agentes e faz o encaminhamento
+das mensagens, entre os agentes. Quando um agente se desliga intencionalmente,
+ou n&atilde;o, o "Router" guarda todas as mensagens dirigidas a esse agente,
+enviando-lhas assim que este se ligar novamente ao "Router". Esta facilidade,
+equivalente &agrave; de um "buffer", &eacute; muito &uacute;til aumentando
+a fiabilidade do sistema.
+<p>Todos os agentes enviam e recebem mensagens via "Router".
+<p>A Camada Protocolo suporta diversos servi&ccedil;os Internet como o
+SMTP, o FTP, o POP3 e o HTTP.
+<br>&nbsp;
+<br>&nbsp;
+<p>No nosso sistema utilizamos a camada do "Router"e n&atilde;o a do Protocolo,
+pois n&atilde;o necessitamos de usar protocolos como o ftp, smtp, etc.
+<p>A camada do "Router", como j&aacute; foi mencionado, preocupa-se com
+as mensagens que chegam ao "Router", de agentes previamente registados,
+encaminhando-a para o destinat&aacute;rio correcto. As mensagens ficam
+em fila de espera at&eacute; serem encaminhadas.
+<p>Assim, quando um agente envia uma mensagem para outro agente, este verifica
+antes se consegue estabelecer liga&ccedil;&atilde;o. Caso n&atilde;o consiga,
+o agente vai continuar a tentar estabelecer liga&ccedil;&atilde;o com o
+agente destinat&aacute;rio e, quando conseguir, envia-lhe a mensagem. Esta
+troca de mensagens directa, entre agentes coloca alguns problemas, nomeadamente
+se o agente destinat&aacute;rio, por algum motivo n&atilde;o estiver a
+correr, ou se este agente for uma "applet" n&atilde;o &eacute; poss&iacute;vel
+estabelecer a liga&ccedil;&atilde;o entre os dois agentes. Por este motivo,
+&eacute; aconselh&aacute;vel, usar o mecanismo de envio de mensagens atrav&eacute;s
+do "Router", pois este possui um reposit&oacute;rio de mensagens, enviando-as
+para o seu destino assim que os respectivos agentes se liguem novamente
+ao "Router". Para al&eacute;m desta vantagem na utiliza&ccedil;&atilde;o
+do "Router", existem mais duas:
+<ul>
+<li>
+Atrav&eacute;s do "Router" podemos comunicar com outros agentes implementados
+numa linguagem que n&atilde;o o Java.</li>
+
+<li>
+O "Router" guarda as mensagens, de forma a que se um agente se desligar
+do mesmo, ou se houver muitas mensagens a chegarem nenhuma delas se perca.</li>
+</ul>
+O "Router" mant&eacute;m tamb&eacute;m um servi&ccedil;o de nomes, ("ANS
+- Agent Name Service"), que permite ao agente n&atilde;o ter de manter
+uma lista com o nome dos agentes destinat&aacute;rios, pois o "Router"
+mant&eacute;m dinamicamente, uma lista de todos os agentes registados.
+<p>Existe, no entanto, um problema de escalabilidade, isto &eacute;, o
+envio de muitas mensagens para o "Router", pode afectar o desempenho deste.
+Uma maneira de resolver este problema &eacute; usar v&aacute;rias inst&acirc;ncias
+deste m&oacute;dulo.
+<p>Al&eacute;m das caracter&iacute;sticas mencionadas at&eacute; agora,
+o "Router" possui mais algumas, que conv&eacute;m destacar:
+<ul>
+<li>
+Registo de agentes - Um agente para poder usar o "Router" tem obrigatoriamente
+de se registar.</li>
+
+<li>
+Seguran&ccedil;a - O "Router" proporciona uma certa seguran&ccedil;a, pois
+os agentes quando se registam t&ecirc;m, al&eacute;m do nome, uma palavra-chave
+associada, que deve ser respeitada.</li>
+
+<li>
+"List-Agents" - Qualquer agente pode ter conhecimento, de todos os agentes
+registados e, para tal, basta enviar ao "Router" uma mensagem cuja <i>"performativa"</i>
+&eacute; List-Agents.</li>
+
+<li>
+Desligar-se do "Router" - Qualquer agente pode enviar ao "Router" a mensagem
+"disconnect-agent" se n&atilde;o quiser receber mais mensagens at&eacute;
+se ligar novamente. Se um agente acidentalmente se desligar do "Router"
+sem enviar a mensagem "disconnect-agent" este, ap&oacute;s v&aacute;rias
+tentativas falhadas de liga&ccedil;&atilde;o com o agente, anula o seu
+registo automaticamente.</li>
+
+<li>
+Reserva de Mensagens - &Eacute; poss&iacute;vel aos agentes enviarem mensagens
+a uma determina hora para um determinado agente. O destinat&aacute;rio
+pode ser o pr&oacute;prio agente ou outro.</li>
+</ul>
+Eis alguns modos de actua&ccedil;&atilde;o do "Router" quando este recebe
+os diferentes tipos de mensagens, a seguir indicados:
+<p>Caso 1 <font face="Monotype Sorts">&atilde;</font> O destinat&aacute;rio
+&eacute; o pr&oacute;prio "Router".
+<dir>
+<dir>Este processa a mensagem, a qual faz parte do seguinte conjunto de
+mensagens:
+<p>{delete-message, request-address, list-agent, reserve-message, disconnect}
+<p>- delete-message: requer ao "Router" que este elimine uma determinada
+mensagem.</dir>
+</dir>
+
+<ul>
+<li>
+request-address: Pede ao "Router" para lhe fornecer o nome de um determinado
+agente.</li>
+
+<li>
+list-agent: Requer ao "Router" uma lista de todos os agentes registados.</li>
+
+<li>
+Reserve-message: Requer ao "Router" para lhe guardar todas as mensagens
+a partir desse momento.</li>
+
+<li>
+Disconnect: Desliga-se do "Router".</li>
+</ul>
+
+<dir>
+<dir>
+<dir>
+<dir>
+<dir>Caso 2 <font face="Monotype Sorts">&atilde;</font> O destinat&aacute;rio
+&eacute; um agente registado no "Router", que se encontra ligado no momento.
+<p>A mensagem &eacute; adicionada &agrave; fila de mensagens do agente
+destino.
+<p>Caso 3 <font face="Monotype Sorts">&atilde;</font> O destinat&aacute;rio
+&eacute; um agente registado no "Router", mas que de momento se encontra
+desligado.
+<p>A mensagem &eacute; guardada at&eacute; que o agente se ligue novamente
+ao "Router".
+<p>Caso 4 <font face="Monotype Sorts">&atilde;</font> O destinat&aacute;rio
+&eacute; um agente n&atilde;o registado no "Router".
+<p>&Eacute; enviada uma mensagem de erro ao agente remetente.
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;</dir>
+</dir>
+</dir>
+</dir>
+</dir>
+
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<p><font size=+3>Cap&iacute;tulo V</font>
+<p><font size=+3>Resultados</font>
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<p>Os testes efectuados ao SMAPI, embora n&atilde;o exaustivos, revelaram
+que se atingiu o objectivo proposto de delegar num sistema multi-agente,
+o servi&ccedil;o moroso de encontrar p&aacute;ginas do nosso interesse
+na Web. O sistema &eacute; aut&oacute;nomo, pois dada as primeiras cinco
+classifica&ccedil;&otilde;es do utilizador para cada dom&iacute;nio encontrado,
+este poder&aacute; efectuar outras tarefas enquanto o SMAPI se encarrega
+de encontrar as p&aacute;ginas relevantes sobre o assunto em causa.
+<p>Consideramos que dentro das p&aacute;ginas retornadas como resultado,
+pode haver umas de maior interesse que outras, por&eacute;m a maioria dever&aacute;
+estar ligada ao assunto pretendido. Pelo menos, nos testes efectuados tal
+revelou-se ser verdade, na maioria dos casos, embora se tivessem dados
+URLs iniciais conhecidos, cujo conte&uacute;do era rico no assunto em causa.
+<p>Vamos apresentar dois exemplos de pesquisa, n&atilde;o demasiado extensos,
+para melhor compreens&atilde;o:
+<p>Palavras a pesquisar: artificial agents
+<p>URL inicial: khaviar.ncc.up.pt/~cvale/teste1.html
+<p>N&uacute;mero m&aacute;ximo de agentes: 3
+<p>N&iacute;vel m&aacute;ximo de pesquisa: 7
+<p>Aos resultados interm&eacute;dios obtidos foi-lhes atribu&iacute;da
+a seguinte classifica&ccedil;&atilde;o:
+<p><b><font face="Arial">Resultados interm&eacute;dios retornados pelo
+agente no dom&iacute;nio pt</font></b>
+<dir>
+<dir>http://www.fe.up.pt/~eol Hot
+<p><a href="http://www.ncc.up.pt/liacc/index.html">http://www.ncc.up.pt/liacc/index.html</a>
+Hot
+<p><a href="http://www.fe.up.pt/~eol/PROJECTS/members.html">http://www.fe.up.pt/~eol/PROJECTS/members.html</a>
+Hot
+<p><a href="http://www.fe.up.pt/~eol/PROJECTS/ARTOR.html">http://www.fe.up.pt/~eol/PROJECTS/ARTOR.html</a>
+Hot
+<p><a href="http://www.fe.up.pt/~eol/PROJECTS/DiBeRT.html">http://www.fe.up.pt/~eol/PROJECTS/DiBeRT.html</a>
+Hot
+<br>&nbsp;
+<br>&nbsp;</dir>
+</dir>
+Os resultados finais obtidos foram os seguintes:
+<dir>
+<dir>
+<dir>Resultados finais do agente a actuar no dom&iacute;nio pt:</dir>
+</dir>
+</dir>
+<a href="http://www.fe.up.pt/~eol/PROJECTS/DiBeRT.html">http://www.fe.up.pt/~eol/PROJECTS/DiBeRT.html</a>
+Hot
+<p><a href="http://www.fe.up.pt/~eol/PROJECTS/ARTOR.html">http://www.fe.up.pt/~eol/PROJECTS/ARTOR.html</a>
+Hot
+<dir>
+<dir><a href="http://www.fe.up.pt/~eol">http://www.fe.up.pt/~eol</a> Hot
+<p><a href="http://www.uninova.pt/~jmf-9">http://www.uninova.pt/~jmf-9</a>
+<p><a href="http://www.fe.up.pt/~eol/PROJECTS/proj.html">http://www.fe.up.pt/~eol/PROJECTS/proj.html</a>-9</dir>
+</dir>
+<a href="http://www.fe.up.pt/~eol/PROJECTS/mascr.html-9">http://www.fe.up.pt/~eol/PROJECTS/mascr.html-9</a>
+<p><a href="http://www.fe.up.pt/~eol/PROJECTS/mascr.html-9">http://www.fe.up.pt/~eol/MEMBERS/cneves.html</a>
+9
+<p><a href="http://www.fe.up.pt/~eol/PROJECTS/mascr.html-9">http://www.fe.up.pt/~eol/</a><u>MEMBERS/pjm.html-</u>5
+<p><a href="http://www.fe.up.pt/~eol/PROJECTS/mascr.html-9">http://www.fe.up.pt/~eol/PROJECTS/ARTOR.html-</a>4
+<p><a href="http://www.ncc.up.pt/liacc/docs.html">http://www.ncc.up.pt/liacc/docs.html</a>
+4
+<p>N&uacute;mero de p&aacute;ginas pesquisadas: 43
+<p><b><font face="Arial">N&uacute;mero total de p&aacute;ginas retornadas:10</font></b>
+<p>Apenas 23% das p&aacute;ginas analisadas pelo SMAPI foram consideradas
+de interesse para o utilizador.
+<p>A precis&atilde;o obtida foi de 3/10
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<p>Resultados finais do agente a actuar no dom&iacute;nio edu:
+<dir>
+<dir><a href="http://www.media.mit.edu/~moux">http://www.media.mit.edu/~moux</a>-Hot
+<p><a href="http://www.media.mit.edu/~moux/research.html">http://www.media.mit.edu/~moux/</a>challenger-Cold
+<p><a href="http://www.media.mit.edu/~moux/research.html">http://www.media.mit.edu/~moux/</a>research.html-Cold
+<p><a href="http://www.cs.umd.edu/~traum/PM">http://www.media.mit.edu/</a>mas-Hot
+<p><a href="http://www.cs.cmu.edu/~softagents/research.html-18">http://www.cs.cmu.edu/~softagents/research.html-18</a>
+<p><u>htpp://www.cs.cmu.edu/~softagents/index.html</u> -17
+<p><u>htpp://www.cs.cmu.edu/~softagents/people.html</u>-14
+<p><u>htpp://www.cs.cmu.edu/Sponsors</u>-5
+<p><u>htpp://www.media.mit.edu/Events</u>-4
+<br>&nbsp;
+<br>&nbsp;</dir>
+</dir>
+N&uacute;mero de p&aacute;ginas pesquisadas: 241
+<p><b><font face="Arial">N&uacute;mero total de p&aacute;ginas retornadas
+:10</font></b>
+<p>Apenas 4% das 241 p&aacute;ginas analisadas pelo SMAPI foram consideradas
+relevantes para o utilizador.
+<dir>
+<dir>A precis&atilde;o obtida foi 4/10.
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<p>Resultados interm&eacute;dios do agente no dom&iacute;nio nl:
+<p><a href="http://www.cs.vu.nl/vakgroepen/ai/projects.html">http://www.cs.vu.nl/vakgroepen/ai/projects.html</a>
+Cold
+<p><u>http://www.cs.vu.nl/~frances </u>Hot
+<p><u>http://www.cs.vu.nl/~jonker</u> Hot
+<p><u>http://www.cs.vu.nl/~niek</u> Hot
+<p><u>http://www.cs.vu.nl/~frances/#Address </u>Hot
+<br>&nbsp;
+<br>&nbsp;</dir>
+</dir>
+Resultados finais do agente a actuar no dom&iacute;nio nl:
+<dir>
+<dir><u>http://www.cs.vu.nl/~jonker</u>-Hot
+<p><u>http://www.cs.vu.nl/~niek</u>-Hot
+<p><u>http://www.cs.vu.nl/~frances</u>-Hot
+<p><a href="http://www.cs.vu.nl/vakgroepen/ai/projects.html-Hot">http://www.cs.vu.nl/vakgroepen/ai/projects.html-Hot</a>
+<p><u>http://www.cs.vu.nl/~frances/#Knowledgeengineering</u>-10 <u>http://www.cs.vu.nl/~frances/#Logicalfoundations</u>-10
+<u>http://www.cs.vu.nl/~frances/#Progcomm</u>-10 <u>http://www.cs.vu.nl/~frances/#Selectedpublications</u>-10
+<u>http://www.cwi.nl/conferences/naic-5 http://www.cs.vu.nl/~patveck</u>-5
+<br>&nbsp;
+<br>&nbsp;</dir>
+</dir>
+N&uacute;mero de p&aacute;ginas pesquisadas: 29
+<p><b><font face="Arial">N&uacute;mero total de p&aacute;ginas retornadas
+:9</font></b>
+<p>Apenas 31% das 241 p&aacute;ginas analisadas pelo SAMPI foram consideradas
+relevantes para o utilizador.
+<p>A precis&atilde;o foi de 2/9.
+<br>&nbsp;
+<br>&nbsp;
+<p>Como se pode constatar quanto maior for o n&uacute;mero de p&aacute;ginas
+analisadas, maior &eacute; a probabilidade das p&aacute;ginas a analisar
+serem sem interesse, retornando em compara&ccedil;&atilde;o com o n&uacute;mero
+de p&aacute;ginas analisadas uma percentagem pequena.
+<p>Comparando estes resultados com os obtidos nos pesquisadores existentes
+habituais, estes s&atilde;o francamente melhores. Pois pesquisando os por
+exemplo no "Lycos" os exemplos atr&aacute;s citados, obtemos:
+<p>Para o exemplo anterior tendo pesquisado as mesmas palavras ("agents
+artificial") no "Altavista" foram retornadas 885 p&aacute;ginas. Tendo
+analisado as 50 primeiras p&aacute;ginas verificou-se que apenas 4 seriam
+do nosso interesse. E ainda dentro destas quatro umas seriam mais do nosso
+interesse que outras.
+<p>A precis&atilde;o neste caso teria sido 6/50.
+<br>&nbsp;
+<br>&nbsp;
+<p>Por um lado temos a economia de tempo por parte do utilizador que &eacute;
+um factor relevante. Por outro lado temos um sistema que se tenta adaptar
+aos interesses do utilizador. A aprendizagem dos contextos &eacute; o factor
+principal para uma pesquisa bem sucedida.
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<p><font size=+3>Cap&iacute;tulo VI</font>
+<p><font size=+3>Conclus&otilde;es e Trabalho Futuro</font>
+<br>&nbsp;
+<br>&nbsp;
+<p>Antes de mais apresenta-se no quadro se segue, uma compara&ccedil;&atilde;o
+entre mecanismos de pesquisa existentes n&atilde;o baseados em Agentes
+e o SMAPI.
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<table BORDER CELLPADDING=4 WIDTH="557" BORDERCOLOR="#000000" >
+<tr>
+<td VALIGN=TOP WIDTH="50%">
+<center>Mecanismos de Pesquisa existentes
+<p>(Lycos, Yahoo, Altavista, ...)</center>
+</td>
+
+<td VALIGN=TOP WIDTH="50%">
+<center>SMAPI</center>
+</td>
+</tr>
+
+<tr>
+<td VALIGN=TOP WIDTH="50%">A pesquisa &eacute; efectuada com base em palavras
+chave fornecidas pelo utilizador, o que pressup&otilde;e que o utilizador
+dever&aacute; ser capaz de fornecer as palavras mais adequadas ao assunto
+em causa. Palavras chave erradas ir&atilde;o produzir um n&iacute;vel muito
+alto de ru&iacute;do na pesquisa.</td>
+
+<td VALIGN=TOP WIDTH="50%">Os <i>"agentes pesquisadores"</i> conseguem
+pesquisar informa&ccedil;&otilde;es de forma mais inteligente, utilizando
+para tal t&eacute;cnicas de aprendizagem de contextos, que normalmente
+incluem "feedback" por parte do utilizador.</td>
+</tr>
+
+<tr>
+<td VALIGN=TOP WIDTH="50%">Estes servi&ccedil;os nem sempre est&atilde;o
+dispon&iacute;veis. Se o servidor foi abaixo ou est&aacute; sobrecarregado
+a pesquisa n&atilde;o &eacute; muitas vezes efectuada na altura.&nbsp;</td>
+
+<td VALIGN=TOP WIDTH="50%">Os <i>"agentes pesquisadores"</i> est&atilde;o
+sempre dispon&iacute;veis, podem ser executados em paralelo com outras
+tarefas, durante as 24 horas do dia. Se algum dos servidores onde v&atilde;o
+buscar p&aacute;ginas estiver em baixo, estes prosseguem para outra liga&ccedil;&atilde;o.</td>
+</tr>
+
+<tr>
+<td VALIGN=TOP WIDTH="50%">As palavras a pesquisar s&atilde;o palavras
+isoladas e n&atilde;o s&atilde;o providas de qualquer tipo de contexto.&nbsp;</td>
+
+<td VALIGN=TOP WIDTH="50%">Os agentes pesquisam informa&ccedil;&atilde;o
+tendo em conta o contexto onde a palavra a pesquisar est&aacute; inserida.</td>
+</tr>
+</table>
+
+<br>&nbsp;
+<p>O SMAPI relativamente aos pesquisadores usuais possui um desempenho
+significativamente melhor, pois uma das suas caracter&iacute;sticas &eacute;
+a aprendizagem de contextos da qual os primeiros s&atilde;o totalmente
+desprovidos.
+<p><font face="Arial">A precis&atilde;o (rela&ccedil;&atilde;o entre o
+n&uacute;mero de p&aacute;ginas relevantes obtidas e o n&uacute;mero total
+de p&aacute;ginas retornadas) varia conforme o n&uacute;mero de p&aacute;ginas
+pesquisadas, por&eacute;m podemos concluir que se forem em grande n&uacute;mero
+as p&aacute;ginas pesquisadas, a precis&atilde;o tem uma probabilidade
+mais pequena do que se o n&uacute;mero de p&aacute;ginas pesquisadas for
+um conjunto menor.</font>
+<p><font face="Arial">Claro que dentro destas p&aacute;ginas retornadas
+algumas interessam-nos mais do que outras, por&eacute;m s&oacute; com a
+continua&ccedil;&atilde;o da pesquisa &agrave; qual est&aacute; associada
+a aprendizagem de contextos &eacute; que o pesquisador obter&aacute; um
+melhor desempenho.</font>
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<p><font face="Arial">Trabalho Futuro</font>
+<p>Consideramos que o algoritmo de extrac&ccedil;&atilde;o de radicais,
+remo&ccedil;&atilde;o de prefixos e sufixos das palavras, dever&aacute;
+ser melhorado. Existem casos de palavras como artificial que se transformam
+por este algoritmo em artifici o que lhe remove o seu significado, pelo
+menos integrado no contexto da Intelig&ecirc;ncia Artificial.
+<p>Eventualmente dever-se-&aacute; implementar um algoritmo de extrac&ccedil;&atilde;o
+de radicais para o vocabul&aacute;rio portugu&ecirc;s, assim como organizar
+uma lista das palavras irrelevantes na l&iacute;ngua portuguesa.
+<p>Deve-se ainda melhorar o algoritmo de aprendizagem de contextos, incluindo
+talvez o algoritmo "Na&iuml;ve Bayes".em conjun&ccedil;&atilde;o com o
+algoritmo desenvolvido no SMAPI.
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<p><font size=+3>Cap&iacute;tulo VII</font>
+<p><font size=+3>Bibliografia</font>
+<br>&nbsp;
+<br>&nbsp;
+<p>[Baeza-Yates &amp; Frakes, 1992], R. Baeza-Yates and W. B. Frakes
+<dir>
+<dir>
+<dir>"Information Retrieval: Data Structures and Algorithms"
+<p>Englewood Cliffs, Prentice-Hall
+<br>&nbsp;
+<br>&nbsp;</dir>
+</dir>
+</dir>
+[Balabanovic and Shoham,1995], Marko Balabanovic, and Yoav Shoham.
+<dir>
+<dir>
+<dir>"Learning Information Retrieval Agents: Experiments with Automated
+Web Browsing".
+<p>In Proceedings of the AAAI Spring Simposium on Information Gathering
+from Heterogeneos, Distributed Resources, Stanford, CA.
+<br>&nbsp;
+<br>&nbsp;</dir>
+</dir>
+</dir>
+[Bond and Gasser, 1988], Alan H. Bond, Les Gasser
+<dir>
+<dir>
+<dir>"An Analysis of Problems and Research in DAI"
+<p>Readings in Distributed Artificial Intelligence, p. 3-35
+<p>Edited by Alan H. Bond, Les Gasser
+<p>Morgan Kaufmann Publishers
+<br>&nbsp;
+<br>&nbsp;</dir>
+</dir>
+</dir>
+[Brenner et Al, 1998] Walter Brenner, Rdiger Zarnekow and Hartmut Wittig
+<dir>
+<dir>
+<dir>"Intelligent Software Agents" – Foundations and Applications
+<p>Springer-Verlag, Berkin, Heidelberg
+<br>&nbsp;
+<br>&nbsp;</dir>
+</dir>
+</dir>
+[Brustoloni, 1991], Jose C. Brustoloni
+<dir>
+<dir>
+<dir>"Autonomous Agents: Characterization and Requirements"
+<p>Carnegie Mellon Technical Report CMU-CS-91-201, Pittsburgh, Carnegie
+Mellon University
+<br>&nbsp;
+<br>&nbsp;</dir>
+</dir>
+</dir>
+[Cardoso, 1998], Henrique Cardoso
+<dir>
+<dir>
+<dir>"Pesquisador Internet com Aprendizagem"
+<p>Trabalho desenvolvido para a cadeira de Sistemas Multi-Agentes do Mestrado
+em Intelig&ecirc;ncia Artificial e Computa&ccedil;&atilde;o
+<br>&nbsp;
+<br>&nbsp;</dir>
+</dir>
+</dir>
+[Cohen and Levesque, 1995], P.R. Cohen and H. J. Levesque
+<dir>
+<dir>
+<dir>"Communicative Actions for Artificial Agents"
+<p>In Proceedings of the First International Conference on Multi-Agent
+Systems, San Francisco, Cambridge: AAAI Press
+<br>&nbsp;
+<br>&nbsp;</dir>
+</dir>
+</dir>
+[Duda and Hart, 1973], R. Duda and P. Hart
+<dir>
+<dir>
+<dir>"Pattern classsification and scene analysis"
+<p>New York: John Wiley and Sons.
+<br>&nbsp;
+<br>&nbsp;</dir>
+</dir>
+</dir>
+[Durfee, 1989], Edmund H. Durfee, Victor R. Lesser
+<dir>
+<dir>
+<dir>"Negotiation and Task Decomposition and Allocating Using Partial Global
+Planning".
+<p>Distributed Artificial Intelligence, Vol. 2, pp. 229-243
+<p>Edited by G. Gasser, M. H. Huhns
+<p>Morgan Kaufmann Publishers
+<br>&nbsp;
+<br>&nbsp;
+<dir>[Franklin, 1995] Stan Franklin</dir>
+"Artificial Minds"
+<p>Cambridge, MA: MIT Press
+<br>&nbsp;
+<br>&nbsp;</dir>
+</dir>
+</dir>
+[Franklin and Graesser, 1996], Stan Franklin and Art Graesser,
+<dir>
+<dir>
+<dir>"Is it na Agent or Just a Program?: A Taxonomy for Autonomous Agents".
+<p>Proceedings of the Third International Workshop on Agents Theories,
+Architectures and Languages, Springer-Verlag.
+<br>&nbsp;
+<br>&nbsp;
+<dir>[Hayes-Roth 1995] B. Hayes-Roth</dir>
+"An Architecture for Adaptative Intelligent Systems"
+<p>Artificial Intelligence Special Issue on Agents and Interactivity
+<br>&nbsp;
+<br>&nbsp;</dir>
+</dir>
+</dir>
+[Huhns and Singh, 1998] Michael N. Huhns and Munindar Singh
+<dir>
+<dir>
+<dir>"Readings In Agents"
+<p>Edited by Michael N. &amp; Huhns and Munindar Singh
+<p>Morgan Kaufmann Publishers, Inc
+<p>San Francisco, California
+<br>&nbsp;
+<br>&nbsp;</dir>
+</dir>
+</dir>
+[HTTP] http://www.w3c.org/Protocols
+<br>&nbsp;
+<br>&nbsp;
+<dir>
+<dir>
+<dir>
+<dir>[JatLite] <font size=-1><a href="http://java.stanford.edu/">http://java.stanford.edu/</a></font>
+<br>&nbsp;
+<br>&nbsp;</dir>
+</dir>
+</dir>
+</dir>
+[Labrou and Finin, 1997]"A proposal for a new KQML Specification"
+<dir>
+<dir>
+<dir>Tim Finin, Yannis Labrou
+<p>Computer Science and Electrical Engineering Departtment (CSEE)
+<p>University of Mariland Baltimore Country (UMBC)
+<br>&nbsp;
+<br>&nbsp;</dir>
+</dir>
+</dir>
+[Lieberman, 1995], Henry Lieberman
+<dir>
+<dir>
+<dir>"Letizia: An Agent that Assists Web Browsing"
+<p>In International Joint Conference of Artificial Intelligence, Montreal
+<br>&nbsp;
+<br>&nbsp;</dir>
+</dir>
+</dir>
+[Madlenic, 1996], Dunja Madlenic
+<dir>
+<dir>
+<dir>Technical Report IJS-DP
+<br>&nbsp;
+<br>&nbsp;</dir>
+</dir>
+</dir>
+[Maes, 1990] Pattie Maes, "Designing Autonomous Agents"
+<dir>
+<dir>
+<dir>MIT Press, Cambridge, MA/Elsevier Amsterdam.
+<br>&nbsp;
+<br>&nbsp;</dir>
+</dir>
+</dir>
+[Maes, 1994] Pattie Maes,
+<dir>
+<dir>
+<dir>"Agents that Reduce Work and Information Overload".
+<p>Communications of the ACM, July 1994
+<br>&nbsp;
+<br>&nbsp;</dir>
+</dir>
+</dir>
+[Maes, 1995], Pattie Maes
+<dir>
+<dir>
+<dir>"Artificial Life Meets Entertainment: Life Like Autonomous Agents."
+<p>Communications of the ACM
+<br>&nbsp;
+<br>&nbsp;</dir>
+</dir>
+</dir>
+[Malheiro, Oliveira and Jennings, 1994] B. Malheiro, E. Oliveira and N.
+Jennings
+<dir>
+<dir>
+<dir>"Belief Revision in Multi-Agent Systems"
+<p>In Proceedings of the 11<sup>th </sup>European Conference on Artificial
+Intelligence (ECAI'94), Amsterdam, Holland
+<br>&nbsp;
+<br>&nbsp;</dir>
+</dir>
+</dir>
+[Moukas, 1996], Alexandros Moukas and Pattie Maes
+<dir>
+<dir>
+<dir>"Amalthaea: Information Discovery and Filtering using a Multiagent
+Evolving Ecosystem".
+<p>In Proceedings of the Conference on Pratical Application of Intelligent
+Agents and Multi-Agent Technology, London.
+<br>&nbsp;
+<br>&nbsp;</dir>
+</dir>
+</dir>
+[O&acute;Hare and Jennings, 1996], G. M. P. O'Hare and Nick R. Jennings
+<dir>
+<dir>
+<dir>"Foundations of Distributed Artificial Intelligence"
+<p>New York: John Wiley and Sons
+<br>&nbsp;
+<br>&nbsp;</dir>
+</dir>
+</dir>
+[Oliveira and Mouta 1998], Eug&eacute;nio Oliveira
+<dir>
+<dir>
+<dir>Apontamentos das aulas da disciplina de Sistemas Multi-Agentes do
+Mestrado em Intelig&ecirc;ncia Artificial e Computa&ccedil;&atilde;o.
+<br>&nbsp;
+<br>&nbsp;</dir>
+</dir>
+</dir>
+[Porter, 1980], M. Porter, "An algorithm for suffix stripping"
+<br>&nbsp;
+<br>&nbsp;
+<p>[Rao ang Georgeff, 1992], A. Rao and M. Georgeff
+<dir>
+<dir>
+<dir>"Modelling Rational Agents within a BDI Architecture"
+<p>KR</dir>
+</dir>
+</dir>
+[Russel &amp; Norvig, 1995], Stuart Russel and Peter Norvig
+<dir>
+<dir>
+<dir>"Artificial Intelligence: A Modern Approach"
+<p>Englewood Cliffs, NJ: Prentice Hall
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<dir>[Smith, Cypher and Spohrer, 1994] D.C. Smith, A. Cypher and J. Spohrer</dir>
+"KidSim: Programming Agents Without a Programming Language"
+<p>Communications of the ACM
+<br>&nbsp;
+<br>&nbsp;</dir>
+</dir>
+</dir>
+[Starr, Ackerman and Pazzani, 1996], B. Starr, M. Ackerman and M. Pazzani
+<dir>
+<dir>
+<dir>"Do-I-Care: A Collaborative Web Agent"
+<p>In Proceedings of the ACM Conference on HumanFactors in Computing Systems
+(CHI96) New York
+<br>&nbsp;
+<br>&nbsp;</dir>
+</dir>
+</dir>
+[Sutton and Barto,1998], R.S. Sutton and A. G. Barto
+<dir>
+<dir>
+<dir>"Reinforcement Learning: An Introduction"
+<p>Cambridge, MIT Press
+<br>&nbsp;
+<br>&nbsp;</dir>
+</dir>
+</dir>
+[Sycara et al, 1996], Katia Sycara, K. Decker, A. Pannu, M. Williamson,
+D. Zeng
+<dir>
+<dir>
+<dir>"Distributed Intelligent Agents"
+<p>In IEEE Expert 1996
+<br>&nbsp;
+<br>&nbsp;</dir>
+</dir>
+</dir>
+[Wooldridge and Jennings, 1995], Michael Wooldridge and Nick R. Jennings
+<dir>
+<dir>
+<dir>"Intelligent Agents: Theory and Practice"
+<p>Knowledge Engineering Review
+<br>&nbsp;
+<br>&nbsp;</dir>
+</dir>
+</dir>
+[Wooldridge and Jennings, 1995], Michael Wooldridge and Nick R. Jennings
+<dir>
+<dir>
+<dir>"Agent Theories, Architectures, and Languages: a survey".
+<p>Wooldridge and Jennings Eds., Intelligent Agents, Berlin: Springer-Verlag
+<br>&nbsp;
+<br>&nbsp;</dir>
+</dir>
+</dir>
+[Wooldridge and Jennings, 1996], Michael Wooldridge and Nick R. Jennings
+<dir>
+<dir>
+<dir>"Applications of Intelligent Agents"</dir>
+</dir>
+</dir>
+[Zarnekow et al, 1994], R. Zarnekow, H. Wittig, A. Meyer
+<p><font face="Arial">"Agent Standardization Issues in Electronice Commerce
+Systems"</font>
+<p><font face="Arial">Proceedings FIPA Opening Forum, Yorktown</font>
+<br>&nbsp;
+<br>&nbsp;
+</body>
+</html>
